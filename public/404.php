@@ -12,8 +12,9 @@
 
     <?php
     include "../utile/html/header.php";
-    ?> page d'erreur veilleur clique la
-    <a href="index.php"> LA s</a><?php
+    ?>  ERROR 404 
+     page d'erreur veilleur clique 
+    <a href="index.php"><h1>LA</h1></a><?php
     include "../utile/html/footer.php";
     ?>
     <script type="text/javascript" src="../assets/js/script.js"></script>

@@ -13,7 +13,7 @@ include $path . "link/link.php";
 if (!empty($_POST['login']) && !empty($_POST['password'])) {
   $result = execute("Select * from compte where email = '" . htmlentities(trim($_POST['login'])) . "' AND password ='" . htmlentities(trim($_POST['password'])) . "';");
   if (!empty($result)) {
-    setcookie("userId", $result['userId']);
+    setcookie("userId", $result['userId'],time() + 604800,'/');
     header('Location : index.php');
   }else {
     echo"mot de passe ou idiantifiant pas correct ";
