@@ -1,6 +1,4 @@
 <?php 
-
-
 function execute($query) {
     include "../utile/link/config.php";
     $connection = mysqli_connect($host, $username, $password, $dbname);
@@ -9,8 +7,10 @@ function execute($query) {
         exit();
     }
     $result = mysqli_query($connection, $query) or exit('Erreur SQL !<br />'.$sql.'<br />'.mysqli_error($connection));
-    mysqli_close($connection);
+    
     return $result;
+    mysqli_close($connection);
+    mysqli_free_result($result);
 }
 /*  $result = execute("SELECT * FROM auteur");
     if (mysqli_num_rows($result) > 0) {
@@ -21,5 +21,6 @@ function execute($query) {
         echo "No results found.";
     }s */
 
+    
 
 ?>
