@@ -15,8 +15,6 @@ if (!empty($_COOKIE['userId'])){
     } else {
         echo "No results found.";
     }
-    
-    
     ?>
     <form action="index.php" method="post">
         <input type="text" name="nom">
@@ -38,12 +36,9 @@ if (!empty($_COOKIE['userId'])){
     </script>
     
     <?php
-    header("Location : login.php");
+    header("Location: login.php");
     
 }
 
-
-
     include "../utile/html/footer.php";
     ?>
-    <script type="text/javascript" src="../assets/js/script.js"></script>
