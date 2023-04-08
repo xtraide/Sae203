@@ -1,22 +1,25 @@
 <?php
-$path =   "../utile/";
+$path = "../utile/";
 include "../utile/html/header.php"; ?>
 <form action="login.php">
-  email :
-  <input type="text" placeholder="exemple@gmail.com" name="email" value="<?php if(!empty($_POST['email'])){echo $_POST['email'];} ?>">
+email :
+  <input type="email" placeholder="exemple@gmail.com" name="email" value="<?php if(!empty($_POST['email'])){echo $_POST['email'];} ?>">
   Mot de pass
   <input type="password" placeholder="Mot de passe" name="password"value="<?php if (!empty($_POST['password'])) {echo $_POST['password'];}?>">
   <input type="submit">
 </form>
-<?php 
+<?php
 include $path . "link/link.php";
-if (!empty($_POST['login']) && !empty($_POST['password'])) {
-  $result = execute("Select * from compte where email = '" . htmlentities(trim($_POST['login'])) . "' AND password ='" . htmlentities(trim($_POST['password'])) . "';");
+include $path . "function.php";
+$email = isvalid($_POST['email']);
+$password = isvalid($_POST['password']);
+if (!empty($email) && !empty($password)) {
+  $result = execute("Select * from compte where email = '" . $email . "' AND password ='" . crypt($password) . "';");
   if (!empty($result)) {
-    setcookie("userId", $result['userId'],time() + 604800,'/');
+    setcookie("userId", $result['userId'], time() + 604800, '/');
     header('Location : index.php');
-  }else {
-    echo"mot de passe ou idiantifiant pas correct ";
+  } else {
+    echo "mot de passe ou idiantifiant pas correct ";
   }
 }
 include $path . "html/footer.php"; ?>
