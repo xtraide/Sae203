@@ -1,5 +1,4 @@
 <?php
-const path = "../utile/";
 function isvalid($post, $on = true)
 {
     if (!empty($_POST[$post])) {
@@ -29,15 +28,13 @@ function isvalid($post, $on = true)
                 case 'email':
 
                     if (filter_var($_POST[$post], FILTER_VALIDATE_EMAIL)) {
-                        include path . 'link/link.php';
-                        $result = execute("SELECT nom from `utilisateur` WHERE email ='" . $_POST[$post] . "'");
+                        $result = execute("SELECT count(email) as nbemail  from `utilisateur` WHERE email ='" . $_POST[$post] . "'");
                         if (mysqli_num_rows($result) == 0) {
                             return corect($_POST[$post]);
                         } else {
                         ?>
                             <script>
-                                document.getElementsByClassName('er'
-                                    <?= $post ?>)[0].innerHTML = "l'email deja pris";
+                                document.getElementsByClassName('eremail')[0].innerHTML = "l'email deja pris";
                             </script>
                         <?php
                         }
@@ -48,9 +45,12 @@ function isvalid($post, $on = true)
                         </script>
                         <?php
                     }
+                    break;
                 default:
                     return corect($_POST[$post]);
             }
+        }else{
+            return corect($_POST[$post]);
         }
     } else {
         ?>

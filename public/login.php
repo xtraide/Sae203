@@ -1,12 +1,12 @@
 <?php
 $path = "../utile/";
 include $path."html/header.php"; ?>
-<form action="login.php">
-Email: <input type="email" placeholder="exemple@gmail.com" name="email" value="<?php if(!empty($_POST['email'])){echo $_POST['email'];} ?>">
+<form action="login.php" method="post">
+Email: <input type="email" name="email" id="" placeholder="exemple@gmail.com" value="<?= !empty($_POST['email']) ?  $_POST['email'] : '' ?>">
   <div class="eremail"></div>
-Mot de pass: <input type="password" placeholder="Mot de passe de 6 caractere" name="password"value="<?php if (!empty($_POST['password'])) {echo $_POST['password'];}?>">
+Mot de passe: <input type="password" placeholder="Mot de passe de 6 caractere" name="mdp" value="<?= !empty($_POST['mdp']) ?  $_POST['mdp'] : '' ?>">
   <div class="ermdp"></div>
-  <input type="submit">
+<input type="submit">
   <div class="er"></div>
 </form>
 <?php
@@ -27,9 +27,9 @@ if (!empty($email) && !empty($password)) {
     <?php
   }
 }
-?><button name="admin" value="YAMETE"></button><?php
+?><button name="admin" value="YAMETE"></button><?php /** a suprimer  */
 if(!empty($_POST['admin']) && $_POST['admin']=="YAMETE"){
-  setcookie("id", "4", time() + 604800, '/');
+  setcookie("id", "", time() + 604800, '/');
   header('Location: index.php');
-}
+}/** */
 include $path . "html/footer.php"; ?>

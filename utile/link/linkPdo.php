@@ -1,7 +1,7 @@
 <?php
 
 
-
+/*
 function execute($sql){
     require "config.php";
     try {
