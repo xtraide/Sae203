@@ -1,30 +1,52 @@
 <?php
-
+const path = "../utile/";
 function isvalid($post, $on = true)
 {
     if (!empty($_POST[$post])) {
         if ($on) {
             switch ($post) {
                 case 'mdp':
-                    if (strlen($_POST[$post]) >= 6) {
-                        return corect($_POST[$post]);
+                    if ($_POST[$post] == $_POST['valid' . $post]) {
+                        if (strlen($_POST[$post]) >= 6) {
+                            return corect($_POST[$post]);
+                        } else {
+                        ?>
+                            <script type="text/javascript">
+                                document.getElementsByClassName('er<?= $post ?>')[0].innerHTML = 'Le mot de pass dois contenir au moin 6 caractere';
+                            </script>
+                        <?php
+                        }
                     } else {
                         ?>
                         <script type="text/javascript">
-                            document.getElementsByClassName('er<?= $post ?>')[0].innerHTML = 'Le mot de pass dois contenir au moin 6 caractere';
+                            document.getElementsByClassName('valid'
+                                <?= $post ?>)[0].innerHTML = 'le mot de passe et la confirmation son different';
                         </script>
-                    <?php
+                        <?php
                     }
                     break;
+
                 case 'email':
+
                     if (filter_var($_POST[$post], FILTER_VALIDATE_EMAIL)) {
-                        return corect($_POST[$post]);
+                        include path . 'link/link.php';
+                        $result = execute("SELECT nom from `utilisateur` WHERE email ='" . $_POST[$post] . "'");
+                        if (mysqli_num_rows($result) == 0) {
+                            return corect($_POST[$post]);
+                        } else {
+                        ?>
+                            <script>
+                                document.getElementsByClassName('er'
+                                    <?= $post ?>)[0].innerHTML = "l'email deja pris";
+                            </script>
+                        <?php
+                        }
                     } else {
-                    ?>
+                        ?>
                         <script type="text/javascript">
                             document.getElementsByClassName('er<?= $post ?>')[0].innerHTML = "l'email saisie n'est pas un email valid";
                         </script>
-                    <?php
+                        <?php
                     }
                 default:
                     return corect($_POST[$post]);

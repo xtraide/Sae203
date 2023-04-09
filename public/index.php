@@ -36,7 +36,7 @@ if (!empty($_COOKIE['userId'])){
     </script>
     
     <?php
-    header("Location: login.php");
+    //header("Location: login.php"); A SUPRIMER 
     
 }
 
