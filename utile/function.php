@@ -11,15 +11,14 @@ function isvalid($post, $on = true)
                         } else {
                         ?>
                             <script type="text/javascript">
-                                document.getElementsByClassName('er<?= $post ?>')[0].innerHTML = 'Le mot de pass dois contenir au moin 6 caractere';
+                                document.getElementsByClassName('er<?= $post ?>')[0].innerHTML = 'Le mot de passe doit contenir au moins 6 caractères';
                             </script>
                         <?php
                         }
                     } else {
                         ?>
                         <script type="text/javascript">
-                            document.getElementsByClassName('valid'
-                                <?= $post ?>)[0].innerHTML = 'le mot de passe et la confirmation son different';
+                            document.getElementsByClassName('valid<?= $post ?>')[0].innerHTML = 'le mot de passe et la confirmation sont differents';
                         </script>
                         <?php
                     }
@@ -28,20 +27,21 @@ function isvalid($post, $on = true)
                 case 'email':
 
                     if (filter_var($_POST[$post], FILTER_VALIDATE_EMAIL)) {
-                        $result = execute("SELECT count(email) as nbemail  from `utilisateur` WHERE email ='" . $_POST[$post] . "'");
+                        $email = corect($_POST[$post]);
+                        $result = execute("SELECT count(email) as nbemail  from `utilisateur` WHERE email ='{$email}'");
                         if (mysqli_num_rows($result) == 0) {
                             return corect($_POST[$post]);
                         } else {
                         ?>
                             <script>
-                                document.getElementsByClassName('eremail')[0].innerHTML = "l'email deja pris";
+                                document.getElementsByClassName('eremail')[0].innerHTML = "l'e-mail deja pris";
                             </script>
                         <?php
                         }
                     } else {
                         ?>
                         <script type="text/javascript">
-                            document.getElementsByClassName('er<?= $post ?>')[0].innerHTML = "l'email saisie n'est pas un email valid";
+                            document.getElementsByClassName('er<?= $post ?>')[0].innerHTML = "l'e-mail saisi n'est pas un e-mail valide";
                         </script>
                         <?php
                     }

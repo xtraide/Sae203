@@ -1,10 +1,18 @@
 <?php
-include "../utile/html/header.php";
-include "../utile/link/config.php";
-include "../utile/link/link.php";
-if (!empty($_COOKIE['userId'])){
-    execute("Select role from compte where userId ='".$_COOKIE['userId']."';");
-    $_SESSION['userId'] = $_COOKIE['userId'];
+$path =   "../utile/";
+include $path."html/header.php";
+include $path."link/link.php";
+if (!empty($_COOKIE['id'])){
+    $result = execute("Select role from compte where userId ='".$_COOKIE['id']."';");
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+        $_SESSION['role'] = $row['role'];
+        }
+    }
+
+    if($_SESSION['role']== 'admin'){
+        echo "c qui le patron bah c toi ";
+    }
     $result = execute("SELECT * FROM auteur");
     if (mysqli_num_rows($result) > 0) {
         // Loop through each row of the result
@@ -36,7 +44,7 @@ if (!empty($_COOKIE['userId'])){
     </script>
     
     <?php
-    //header("Location: login.php"); A SUPRIMER 
+    header("Location: login.php"); 
     
 }
 

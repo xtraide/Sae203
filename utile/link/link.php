@@ -1,6 +1,6 @@
 <?php
 
-use function PHPSTORM_META\type;
+
 
 function  execute($query){
     include "../utile/link/config.php";
