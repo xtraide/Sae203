@@ -32,7 +32,7 @@ if (!empty($email) && !empty($password)) {
     <?php
   }
 }
-?><button name="admin" value="YAMETE"></button><?php /** a suprimer  */
+?><button name="admin" value="YAMETE">admin</button><?php /** a suprimer  */
 if(!empty($_POST['admin']) && $_POST['admin']=="YAMETE"){
   setcookie("id", "", time() + 604800, '/');
   header('Location: index.php');
