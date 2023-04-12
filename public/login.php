@@ -1,21 +1,23 @@
 <?php
 $path = "../utile/";
-include $path."html/header.php"; ?>
+include $path . "html/header.php"; ?>
 
 <a href="sign-in.php">Créer son compte</a>
 <form action="login.php" method="post">
-Email: <input type="email" name="email" id="" placeholder="exemple@gmail.com" value="<?= !empty($_POST['email']) ?  $_POST['email'] : '' ?>">
+  <label for="email">Email : </label>
+  <input type="email" name="email" id="" placeholder="exemple@gmail.com" value="<?= !empty($_POST['email']) ?  $_POST['email'] : '' ?>">
   <div class="eremail"></div>
-Mot de passe: <input type="password" placeholder="Mot de passe de 6 caracteres" name="mdp" value="<?= !empty($_POST['mdp']) ?  $_POST['mdp'] : '' ?>">
+  <label for="mdp">Mot de passe : </label>
+  <input type="password" placeholder="Mot de passe de 6 caracteres" name="mdp" value="<?= !empty($_POST['mdp']) ?  $_POST['mdp'] : '' ?>">
   <div class="ermdp"></div>
-<input type="submit">
+  <input type="submit">
   <div class="er"></div>
 </form>
 <?php
 include $path . "link/link.php";
 include $path . "function.php";
-$email = isvalid('email',false);
-$password = isvalid('mdp',false);
+$email = isvalid('email', false);
+$password = isvalid('mdp', false);
 if (!empty($email) && !empty($password)) {
   $password = crypte($password);
   $result = execute("Select * from `utilisateur` where email = '{$email}' AND mdp = '{$password}';");
@@ -25,16 +27,20 @@ if (!empty($email) && !empty($password)) {
     }
     header('Location: index.php');
   } else {
-    ?> 
-        <script type="text/javascript">
-            document.getElementsByClassName('er')[0].innerHTML = "l'e-mail ou le Mot de passe est incorecte";
-        </script>
-    <?php
+?>
+    <script type="text/javascript">
+      document.getElementsByClassName('er')[0].innerHTML = "l'e-mail ou le Mot de passe est incorecte";
+    </script>
+<?php
   }
 }
-?><button name="admin" value="YAMETE">admin</button><?php /** a suprimer  */
-if(!empty($_POST['admin']) && $_POST['admin']=="YAMETE"){
-  setcookie("id", "", time() + 604800, '/');
+?>
+<button name="admin" value="YAMETE">admin</button>
+<?php
+/** a suprimer  */
+if (!empty($_POST['admin']) && $_POST['admin'] == "YAMETE") {
+  setcookie("id", "1", time() + 604800, '/');
   header('Location: index.php');
-}/** */
+}
+/** */
 include $path . "html/footer.php"; ?>

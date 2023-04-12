@@ -6,17 +6,22 @@ include $path . 'function.php';
 ?>
 <a href="login.php">Deja un compte connecter vous</a>
 <form action="sign-in.php" method="post">
-    Nom: <input type="text" placeholder="Nom" name="nom" value="<?= !empty($_POST['nom']) ?  $_POST['nom'] : '' ?>">
+    <label for="Nom ">Nom:</label> <input type="text" placeholder="Nom" name="nom" value="<?= !empty($_POST['nom']) ?  $_POST['nom'] : '' ?>">
     <div class="ernom"></div>
-    Prenom: <input type="text" placeholder="Prénom" name="prenom" value="<?= !empty($_POST['prenom']) ?  $_POST['prenom'] : '' ?>">
+    <label for="prenom">Prenom : </label>
+    <input type="text" placeholder="Prénom" name="prenom" value="<?= !empty($_POST['prenom']) ?  $_POST['prenom'] : '' ?>">
     <div class="erprenom"></div>
-    Email: <input type="text" name="email" id="" placeholder="exemple@gmail.com" value="<?= !empty($_POST['email']) ?  $_POST['email'] : '' ?>">
+    <label for="email">Email : </label>
+    <input type="text" name="email" id="" placeholder="exemple@gmail.com" value="<?= !empty($_POST['email']) ?  $_POST['email'] : '' ?>">
     <div class="eremail"></div>
-    Date de naissance: <input type="date" placeholder="Date" name="date" value="<?= !empty($_POST['date']) ?  $_POST['date'] : '' ?>">
+    <label for="date">Date de naissance : </label>
+    <input type="date" placeholder="Date de naissance" name="date" value="<?= !empty($_POST['date']) ?  $_POST['date'] : '' ?>">
     <div class="erdate"></div>
-    Mot de passe: <input type="password" placeholder="Mot de passe de 6 caracteres" name="mdp" value="<?= !empty($_POST['mdp']) ?  $_POST['mdp'] : '' ?>">
+    <label for="mdp">Mot de passe : </label>
+    <input type="password" placeholder="Mot de passe de 6 caracteres" name="mdp" value="<?= !empty($_POST['mdp']) ?  $_POST['mdp'] : '' ?>">
     <div class="ermdp"></div>
-    Confirmation de mot de passe: <input type="password" placeholder="Mot de passe de 6 caracteres" name="validmdp" value="<?= !empty($_POST['validmdp']) ?  $_POST['validmdp'] : '' ?>">
+    <label for="confimmdp">Confirmation de mot de passe : </label>
+    <input type="password" placeholder="Mot de passe de 6 caracteres" name="validmdp" value="<?= !empty($_POST['validmdp']) ?  $_POST['validmdp'] : '' ?>">
     <div class="validmdp"></div>
     <input type="submit" name="submit" value="Créer son compte">
 </form>
