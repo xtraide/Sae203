@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : dim. 09 avr. 2023 à 20:46
+-- Généré le : mer. 12 avr. 2023 à 16:55
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `sae203`
+-- Base de données : `sae205`
 --
 
 -- --------------------------------------------------------
@@ -33,12 +33,19 @@ CREATE TABLE IF NOT EXISTS `demande` (
   `dateD` date NOT NULL,
   `dateF` date NOT NULL,
   `statut` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `id_materiel` int(11) NOT NULL,
+  `materielId` int(11) NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `demande_AK` (`id_materiel`),
+  UNIQUE KEY `demande_AK` (`materielId`),
   KEY `demande_utilisateur_FK` (`id_utilisateur`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `demande`
+--
+
+INSERT INTO `demande` (`id`, `dateD`, `dateF`, `statut`, `materielId`, `id_utilisateur`) VALUES
+(1, '1900-11-20', '1111-10-02', 'STATUT', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -56,7 +63,14 @@ CREATE TABLE IF NOT EXISTS `materiel` (
   `id_demande` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `materiel_demande_FK` (`id_demande`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `materiel`
+--
+
+INSERT INTO `materiel` (`id`, `nom`, `type`, `reference`, `description`, `id_demande`) VALUES
+(1, 'kyllian', 'killian', 'nolan', 'et moi', NULL);
 
 -- --------------------------------------------------------
 
@@ -74,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `mdp` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `role` char(5) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `utilisateur`
