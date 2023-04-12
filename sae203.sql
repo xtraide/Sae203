@@ -33,10 +33,10 @@ CREATE TABLE IF NOT EXISTS `demande` (
   `dateD` date NOT NULL,
   `dateF` date NOT NULL,
   `statut` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `materielId` int(11) NOT NULL,
+  `id_materiel` int(11) NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `demande_AK` (`materielId`),
+  UNIQUE KEY `demande_AK` (`id_materiel`),
   KEY `demande_utilisateur_FK` (`id_utilisateur`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 

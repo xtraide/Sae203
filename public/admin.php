@@ -37,3 +37,26 @@ if (!empty($_POST['Ajouter'])) {
 
 
 ?>
+<div>
+    <h3>liste des demande</h3>
+    <table style="border:solid;">
+    <tr>
+        <th></th>
+    </tr>
+    <?php $result = execute(" SELECT utilisateur.nom as usernom, utilisateur.prenom as userprenom,demande.dateD,demande.dateF,demande.statut,materiel.type,materiel.nom as materielnom FROM `materiel`,`utilisateur`,`demande` WHERE demande.materielId = materiel.id AND utilisateur.id = demande.id_utilisateur;");
+    if(mysqli_num_rows($result) >0 ){
+        while ($row = mysqli_fetch_assoc($result)) {
+            //SELECT utilisateur.nom as usernom, utilisateur.prenom as userprenom,demande.dateD,demande.dateF,demande.statut,materiel.type,materiel.nom as materielnom FROM `materiel`,`utilisateur`,`demande` WHERE demande.materielId = materiel.id AND utilisateur.id = demande.id_utilisateur;
+            echo "
+            <tr>
+                <td>".$row['usernom']." . ".$row['userprenom']."</td>
+                <td>".$row['dateD']." . ".$row['dateF']."</td>
+                <td>".$row['type']." . ".$row['materielnom']."</td>
+                <td>".$row['statut']."<td>
+            </tr>";
+        }
+    }
+    
+    ?>
+    </table>
+</div>
