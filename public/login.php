@@ -20,12 +20,15 @@ $email = isvalid('email', false);
 $password = isvalid('mdp', false);
 if (!empty($email) && !empty($password)) {
   $password = crypte($password);
-  $result = execute("Select * from `utilisateur` where email = '{$email}' AND mdp = '{$password}';");
+  $result = execute("Select id,role from `utilisateur` where email = '{$email}' AND mdp = '{$password}';");
   if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
       setcookie("id", $row['id'], time() + 604800, '/');
+      setcookie("Role", $row['role'], time() + 604800, '/');
+      header('Location: index.php');
+      exit;
     }
-    header('Location: index.php');
+    
   } else {
 ?>
     <script type="text/javascript">
@@ -37,10 +40,10 @@ if (!empty($email) && !empty($password)) {
 ?>
 <button name="admin" value="YAMETE">admin</button>
 <?php
-/** a suprimer  */
+
 if (!empty($_POST['admin']) && $_POST['admin'] == "YAMETE") {
   setcookie("id", "1", time() + 604800, '/');
   header('Location: index.php');
 }
-/** */
+
 include $path . "html/footer.php"; ?>

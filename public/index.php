@@ -2,17 +2,8 @@
 $path =   "../utile/";
 include $path . "html/header.php";
 include $path . "link/link.php";
-if (!empty($_COOKIE['id'])) {
-
-    $result = execute("Select role from utilisateur where id ='" . $_COOKIE['id'] . "';");
-
-    if (mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            $_SESSION['role'] = $row['role'];
-        }
-    }
-
-    if ($_SESSION['role'] == 'admin') {
+if (!empty($_COOKIE['role'])) {
+    if ($_COOKIE['role'] == 'admin') {
         echo "c qui le patron bah c toi ";
     }
     $result = execute("SELECT * FROM utilisateur");
