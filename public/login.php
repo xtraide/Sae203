@@ -14,6 +14,7 @@ include $path . "html/header.php"; ?>
   <div class="er"></div>
 </form>
 <?php
+session_start();
 include $path . "link/link.php";
 include $path . "function.php";
 $email = isvalid('email', false);
@@ -24,11 +25,10 @@ if (!empty($email) && !empty($password)) {
   if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
       setcookie("id", $row['id'], time() + 604800, '/');
-      setcookie("Role", $row['role'], time() + 604800, '/');
+      $_SESSION['role'] = $row['role'];
       header('Location: index.php');
       exit;
     }
-    
   } else {
 ?>
     <script type="text/javascript">
@@ -37,13 +37,10 @@ if (!empty($email) && !empty($password)) {
 <?php
   }
 }
+
 ?>
 <button name="admin" value="YAMETE">admin</button>
 <?php
 
-if (!empty($_POST['admin']) && $_POST['admin'] == "YAMETE") {
-  setcookie("id", "1", time() + 604800, '/');
-  header('Location: index.php');
-}
 
 include $path . "html/footer.php"; ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 12 avr. 2023 à 16:55
+-- Généré le : ven. 14 avr. 2023 à 17:15
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -30,22 +30,15 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `demande`;
 CREATE TABLE IF NOT EXISTS `demande` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `dateD` date NOT NULL,
-  `dateF` date NOT NULL,
+  `dateD` datetime NOT NULL,
+  `dateF` datetime NOT NULL,
   `statut` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `materielId` int(11) NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `demande_AK` (`materielId`),
   KEY `demande_utilisateur_FK` (`id_utilisateur`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `demande`
---
-
-INSERT INTO `demande` (`id`, `dateD`, `dateF`, `statut`, `materielId`, `id_utilisateur`) VALUES
-(1, '1900-11-20', '1111-10-02', 'STATUT', 1, 1);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -63,14 +56,19 @@ CREATE TABLE IF NOT EXISTS `materiel` (
   `id_demande` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `materiel_demande_FK` (`id_demande`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `materiel`
 --
 
 INSERT INTO `materiel` (`id`, `nom`, `type`, `reference`, `description`, `id_demande`) VALUES
-(1, 'kyllian', 'killian', 'nolan', 'et moi', NULL);
+(1, 'camera', 'cameraa', 'camera', 'balbla', NULL),
+(2, 'x1', 'camera', 'ref1', 'description', NULL),
+(3, 'x2', 'camera', 'ref2', 'description', NULL),
+(4, 'x3', 'camera', 'ref3', 'description', NULL),
+(5, 'x4', 'camera', 'ref4', 'description', NULL),
+(6, 'x5', 'camera', 'ref5', 'description', NULL);
 
 -- --------------------------------------------------------
 
@@ -86,16 +84,17 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `date` date NOT NULL,
   `email` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `mdp` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `role` char(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `role` char(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `utilisateur`
 --
 
 INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `date`, `email`, `mdp`, `role`) VALUES
-(1, 'The', 'admin', '2023-04-19', 'admin@gmail.com', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'admin');
+(1, 'the', 'admin', '2023-04-12', 'admin@gmail.com', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'admin'),
+(2, 'hamelin', 'remy', '2023-04-19', 'remy@gmail.com', '215ff2f0dcba41ff7d75d56cf1fe51e7a0f803787902ceaee453303713576c93', 'utilisateur');
 
 --
 -- Contraintes pour les tables déchargées

@@ -2,8 +2,9 @@
 $path =   "../utile/";
 include $path . "html/header.php";
 include $path . "link/link.php";
-if (!empty($_COOKIE['role'])) {
-    if ($_COOKIE['role'] == 'admin') {
+session_start();
+if (!empty($_SESSION['role'])) {
+    if ($_SESSION['role'] == 'admin') {
         echo "c qui le patron bah c toi ";
     }
     $result = execute("SELECT * FROM utilisateur");

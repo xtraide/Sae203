@@ -1,5 +1,6 @@
 Liste de visualisation des matériels proposés : 
 Rôles : Etudiant, Administrateur
+
 Dans un tableau vous afficherez tous les matériels présents dans votre base de données.
 L’utilisateur peut consulter le détail du matériel, s’il a le rôle d’administrateur alors ces informations 
 sont modifiables. 

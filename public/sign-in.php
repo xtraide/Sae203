@@ -6,7 +6,8 @@ include $path . 'function.php';
 ?>
 <a href="login.php">Deja un compte connecter vous</a>
 <form action="sign-in.php" method="post">
-    <label for="Nom ">Nom:</label> <input type="text" placeholder="Nom" name="nom" value="<?= !empty($_POST['nom']) ?  $_POST['nom'] : '' ?>">
+    <label for="Nom ">Nom:</label> 
+    <input type="text" placeholder="Nom" name="nom" value="<?= !empty($_POST['nom']) ?  $_POST['nom'] : '' ?>">
     <div class="ernom"></div>
     <label for="prenom">Prenom : </label>
     <input type="text" placeholder="Prénom" name="prenom" value="<?= !empty($_POST['prenom']) ?  $_POST['prenom'] : '' ?>">
@@ -26,6 +27,7 @@ include $path . 'function.php';
     <input type="submit" name="submit" value="Créer son compte">
 </form>
 <?php
+
 if (!empty($_POST['submit']) && $_POST['submit'] == "Créer son compte") {
     $nom = isvalid('nom');
     $prenom = isvalid('prenom');

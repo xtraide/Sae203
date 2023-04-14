@@ -3,20 +3,27 @@
 
 /*
 function execute($sql){
-    require "config.php";
     try {
-        $mysqlClient = new PDO(
-            'mysql:host=' . $host . ';dbname=' . $dbname . ';charset=utf8',
-            $user,
-            $password,
-            [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION],
+        $db = new PDO(
+            'mysql:host=localhost;dbname=coursphp;charset=utf8',
+            'root'
         );
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (Exception $e) {
-        die('Erreur : ' . $e->getMessage());
+        die(print_r($e));
     }
-    $recipesStatement = $mysqlClient->prepare($sql);
-    $recipesStatement->execute();
-    $recipes = $recipesStatement->fetchAll();
+
+    if (array_key_exists('username', $_POST) && $_POST['username'] != null && array_key_exists('score', $_POST) && $_POST['score'] != null) {
+        $sql = 'INSERT INTO leaderboard(username, score, createdAt) VALUES (:username, :score, current_timestamp())';
+        $insertScore = $db->prepare($sql);
+        //var_dump($json['score']);
+        $sqlParams = [
+            'username' => $_POST["username"],
+            'score' => $_POST["score"]
+        ];
+        $insertScore->execute($sqlParams) or die($db->errorInfo());
+        echo "Ajout du score confirmé pour {$_POST["username"]} avec un score de {$_POST["score"]}";
+    }
 return $recipes;
 }
 

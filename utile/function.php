@@ -28,10 +28,10 @@ function isvalid($post, $on = true)
 
                     if (filter_var($_POST[$post], FILTER_VALIDATE_EMAIL)) {
                         $email = corect($_POST[$post]);
-                        $result = execute("SELECT count(email) as nbemail  from `utilisateur` WHERE email ='{$email}'");
+                        $result = execute("SELECT email  from `utilisateur` WHERE email ='{$email}'");
                         if (mysqli_num_rows($result) == 0) {
                             return corect($_POST[$post]);
-                        } else {
+                        }else {
                         ?>
                             <script>
                                 document.getElementsByClassName('eremail')[0].innerHTML = "l'e-mail deja pris";
