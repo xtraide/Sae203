@@ -47,3 +47,6 @@ Lorsque l’administrateur accède aux détails d’une demande de réservation 
 Lors de l’approbation d’une demande si une demande « accepter » pour ce même matériel sûr des 
 dates qui entre en collision avec la demande en cours d’approbation est trouvée alors, l’approbation 
 de la demande est bloquée et l’utilisateur est informé du conflit.
+
+
+

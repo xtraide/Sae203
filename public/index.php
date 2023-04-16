@@ -1,16 +1,16 @@
 <?php
 $path =   "../utile/";
 include $path . "html/header.php";
-include $path . "link/link.php";
+include $path . "link/linkPdo.php";
 session_start();
 if (!empty($_SESSION['role'])) {
     if ($_SESSION['role'] == 'admin') {
         echo "c qui le patron bah c toi ";
     }
     $result = execute("SELECT * FROM utilisateur");
-    if (mysqli_num_rows($result) > 0) {
+    if ($result->rowCount() > 0) {
         // Loop through each row of the result
-        while ($row = mysqli_fetch_assoc($result)) {
+        foreach ($result as $row) {
             // Access the data for each row using the associative array $row
             //echo $row['Nom']."<br>";
         }

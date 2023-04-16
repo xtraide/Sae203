@@ -1,12 +1,12 @@
 <?php
 $path =   "../utile/";
 include "../utile/html/header.php";
-include $path . 'link/link.php';
+include $path . 'link/linkPdo.php';
 include $path . 'function.php';
 ?>
 <a href="login.php">Deja un compte connecter vous</a>
 <form action="sign-in.php" method="post">
-    <label for="Nom ">Nom:</label> 
+    <label for="Nom ">Nom:</label>
     <input type="text" placeholder="Nom" name="nom" value="<?= !empty($_POST['nom']) ?  $_POST['nom'] : '' ?>">
     <div class="ernom"></div>
     <label for="prenom">Prenom : </label>
@@ -36,7 +36,13 @@ if (!empty($_POST['submit']) && $_POST['submit'] == "Créer son compte") {
     $mdp = isvalid('mdp');
     if (!empty($nom) && !empty($prenom) && !empty($date) && !empty($email) && !empty($mdp)) {
         $mdp = crypte($mdp);
-        execute("INSERT INTO `utilisateur`(`nom`, `prenom`, `date`, `email`, `mdp`, `role`) VALUES ('{$nom}','{$prenom}','{$date}','{$email}','{$mdp}','utilisateur');");
+        execute("INSERT INTO `utilisateur`(`nom`, `prenom`, `date`, `email`, `mdp`, `role`) VALUES (':nom',':prenom',':date',':email',':mdp','utilisateur');", [
+            ':nom' => $nom,
+            ':prenom' => $prenom,
+            ':date' => $date,
+            ':email' => $email,
+            ':mdp' => $mdp
+        ]);
         //header("Location: login.php");// A SU¨PRIMER
     }
 }

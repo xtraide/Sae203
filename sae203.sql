@@ -27,18 +27,19 @@ SET time_zone = "+00:00";
 -- Structure de la table `demande`
 --
 
-DROP TABLE IF EXISTS `demande`;
-CREATE TABLE IF NOT EXISTS `demande` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `dateD` datetime NOT NULL,
-  `dateF` datetime NOT NULL,
-  `statut` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `materielId` int(11) NOT NULL,
-  `id_utilisateur` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `demande_AK` (`materielId`),
-  KEY `demande_utilisateur_FK` (`id_utilisateur`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+DROP TABLE IF EXISTS `reservation`;
+CREATE TABLE reservation(
+        id             Int  Auto_increment  NOT NULL ,
+        dateD          Datetime NOT NULL ,
+        dateF          Datetime NOT NULL ,
+        statut         Varchar (200) NOT NULL ,
+        id_panier      Int NOT NULL ,
+        id_utilisateur Int NOT NULL
+	,CONSTRAINT reservation_AK UNIQUE (id_panier)
+	,CONSTRAINT reservation_PK PRIMARY KEY (id)
+
+	,CONSTRAINT reservation_utilisateur_FK FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id)
+)ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -79,12 +80,12 @@ INSERT INTO `materiel` (`id`, `nom`, `type`, `reference`, `description`, `id_dem
 DROP TABLE IF EXISTS `utilisateur`;
 CREATE TABLE IF NOT EXISTS `utilisateur` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `prenom` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nom` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `prenom` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `date` date NOT NULL,
   `email` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `mdp` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `role` char(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `role` char(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 

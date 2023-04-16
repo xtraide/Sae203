@@ -15,15 +15,19 @@ include $path . "html/header.php"; ?>
 </form>
 <?php
 session_start();
-include $path . "link/link.php";
+include $path . "link/linkPdo.php";
 include $path . "function.php";
 $email = isvalid('email', false);
 $password = isvalid('mdp', false);
 if (!empty($email) && !empty($password)) {
   $password = crypte($password);
-  $result = execute("Select id,role from `utilisateur` where email = '{$email}' AND mdp = '{$password}';");
-  if (mysqli_num_rows($result) > 0) {
-    while ($row = mysqli_fetch_assoc($result)) {
+  $result = execute("Select id,role from `utilisateur` where email = ':email' AND mdp = ':password';", [
+    ':email' => $email,
+    ':password' => $password
+  ]);
+
+  if ($result->rowCount() > 0) {
+    foreach ($result as $row) {
       setcookie("id", $row['id'], time() + 604800, '/');
       $_SESSION['role'] = $row['role'];
       header('Location: index.php');

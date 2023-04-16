@@ -1,7 +1,7 @@
 <?php
 
 
-
+/*
 function  execute($query){
     include "../utile/link/config.php";
     $connection = mysqli_connect($host, $username, $password, $dbname);
