@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 14 avr. 2023 à 17:15
+-- Généré le : lun. 17 avr. 2023 à 12:59
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -18,28 +18,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `sae205`
+-- Base de données : `sae203`
 --
-
--- --------------------------------------------------------
-
---
--- Structure de la table `demande`
---
-
-DROP TABLE IF EXISTS `reservation`;
-CREATE TABLE reservation(
-        id             Int  Auto_increment  NOT NULL ,
-        dateD          Datetime NOT NULL ,
-        dateF          Datetime NOT NULL ,
-        statut         Varchar (200) NOT NULL ,
-        id_panier      Int NOT NULL ,
-        id_utilisateur Int NOT NULL
-	,CONSTRAINT reservation_AK UNIQUE (id_panier)
-	,CONSTRAINT reservation_PK PRIMARY KEY (id)
-
-	,CONSTRAINT reservation_utilisateur_FK FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id)
-)ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -50,20 +30,20 @@ CREATE TABLE reservation(
 DROP TABLE IF EXISTS `materiel`;
 CREATE TABLE IF NOT EXISTS `materiel` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `reference` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nom` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `reference` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `id_demande` int(11) DEFAULT NULL,
+  `id_souhait_client` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `materiel_demande_FK` (`id_demande`)
+  KEY `materiel_souhait_client_FK` (`id_souhait_client`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `materiel`
 --
 
-INSERT INTO `materiel` (`id`, `nom`, `type`, `reference`, `description`, `id_demande`) VALUES
+INSERT INTO `materiel` (`id`, `nom`, `type`, `reference`, `description`, `id_souhait_client`) VALUES
 (1, 'camera', 'cameraa', 'camera', 'balbla', NULL),
 (2, 'x1', 'camera', 'ref1', 'description', NULL),
 (3, 'x2', 'camera', 'ref2', 'description', NULL),
@@ -74,13 +54,63 @@ INSERT INTO `materiel` (`id`, `nom`, `type`, `reference`, `description`, `id_dem
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `reservation`
+--
+
+DROP TABLE IF EXISTS `reservation`;
+CREATE TABLE IF NOT EXISTS `reservation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `dateD` datetime NOT NULL,
+  `dateF` datetime NOT NULL,
+  `statut` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT 'En attente',
+  `id_utilisateur` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `reservation_utilisateur_FK` (`id_utilisateur`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `reservation`
+--
+
+INSERT INTO `reservation` (`id`, `dateD`, `dateF`, `statut`, `id_utilisateur`) VALUES
+(2, '2023-04-13 18:00:00', '2023-04-20 20:00:00', 'En attente', 1),
+(25, '2023-03-29 18:00:00', '2023-04-05 20:00:00', 'En attente', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `souhait_client`
+--
+
+DROP TABLE IF EXISTS `souhait_client`;
+CREATE TABLE IF NOT EXISTS `souhait_client` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_materiel` int(11) NOT NULL,
+  `id_reservation` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `souhait_client_AK` (`id_materiel`),
+  KEY `souhait_client_reservation_FK` (`id_reservation`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `souhait_client`
+--
+
+INSERT INTO `souhait_client` (`id`, `id_materiel`, `id_reservation`) VALUES
+(13, 1, 25),
+(14, 2, 25),
+(15, 3, 25);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `utilisateur`
 --
 
 DROP TABLE IF EXISTS `utilisateur`;
 CREATE TABLE IF NOT EXISTS `utilisateur` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nom` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `prenom` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `date` date NOT NULL,
   `email` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -102,16 +132,22 @@ INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `date`, `email`, `mdp`, `role`
 --
 
 --
--- Contraintes pour la table `demande`
---
-ALTER TABLE `demande`
-  ADD CONSTRAINT `demande_utilisateur_FK` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id`);
-
---
 -- Contraintes pour la table `materiel`
 --
 ALTER TABLE `materiel`
-  ADD CONSTRAINT `materiel_demande_FK` FOREIGN KEY (`id_demande`) REFERENCES `demande` (`id`);
+  ADD CONSTRAINT `materiel_souhait_client_FK` FOREIGN KEY (`id_souhait_client`) REFERENCES `souhait_client` (`id`);
+
+--
+-- Contraintes pour la table `reservation`
+--
+ALTER TABLE `reservation`
+  ADD CONSTRAINT `reservation_utilisateur_FK` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id`);
+
+--
+-- Contraintes pour la table `souhait_client`
+--
+ALTER TABLE `souhait_client`
+  ADD CONSTRAINT `souhait_client_reservation_FK` FOREIGN KEY (`id_reservation`) REFERENCES `reservation` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

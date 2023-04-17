@@ -15,11 +15,10 @@ function execute($sql, $params = [])
     }
     $result = $db->prepare($sql);
     //var_dump($json['score']);
-    if (!empty($params)) {
         $result->execute($params) or die($db->errorInfo());
-    } else {
-        $result->execute() or die($db->errorInfo());
-    }
+
+
+    
     return $result;
 }
 

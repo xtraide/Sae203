@@ -16,13 +16,17 @@ if (!empty($_COOKIE)) {
 
             </tr>
             <?php if (!empty($_SESSION['role']) && $_SESSION['role'] == 'admin') {
-                $result = execute(" SELECT utilisateur.nom as usernom, utilisateur.prenom as userprenom,demande.dateD,demande.dateF,demande.statut,materiel.type,materiel.nom as materielnom FROM `materiel`,`utilisateur`,`demande` WHERE demande.materielId = materiel.id AND utilisateur.id = demande.id_utilisateur;");
+                $result = execute(" SELECT utilisateur.nom AS usernom, utilisateur.prenom AS userprenom, reservation.dateD, reservation.dateF, reservation.statut, materiel.type, materiel.nom AS materielnom FROM `reservation`, `souhait_client`, `materiel`, `utilisateur` WHERE reservation.id_utilisateur = utilisateur.id AND souhait_client.id_materiel = materiel.id AND souhait_client.id_reservation = reservation.id;");
             }
-            $result = execute(" SELECT utilisateur.nom as usernom, utilisateur.prenom as userprenom,demande.dateD,demande.dateF,demande.statut,materiel.type,materiel.nom as materielnom FROM `materiel`,`utilisateur`,`demande` WHERE demande.materielId = materiel.id AND utilisateur.id = demande.id_utilisateur AND utilisateur.id = :user ;", [
-                ':user' => $_SESSION['id']
+            session_start();
+            $result = execute("SELECT utilisateur.nom AS usernom, utilisateur.prenom AS userprenom, reservation.dateD, reservation.dateF, reservation.statut, materiel.type, materiel.nom AS materielnom FROM `reservation`, `souhait_client`, `materiel`, `utilisateur` WHERE reservation.id_utilisateur = utilisateur.id AND souhait_client.id_materiel = materiel.id AND souhait_client.id_reservation = reservation.id; AND utilisateur.id = :user ;", [
+                'user' => $_COOKIE['id']
             ]);
             if ($result->rowCount() > 0) {
-                foreach ($result as $row) {
+                while ($row = $result->fetchAll(PDO::FETCH_ASSOC)) {
+                    foreach ($row as $row) {
+
+              
                     //SELECT utilisateur.nom as usernom, utilisateur.prenom as userprenom,demande.dateD,demande.dateF,demande.statut,materiel.type,materiel.nom as materielnom FROM `materiel`,`utilisateur`,`demande` WHERE demande.materielId = materiel.id AND utilisateur.id = demande.id_utilisateur;
                     if ($row['statut'] != "En attente") {
                         $statut =  $row['statut'];
@@ -41,11 +45,13 @@ if (!empty($_COOKIE)) {
             </tr>";
                 }
             }
+        }
 
             ?>
         </table>
     </div>
 <?php
+//SELECT utilisateur.nom AS usernom, utilisateur.prenom AS userprenom, reservation.dateD, reservation.dateF, reservation.statut, materiel.type, materiel.nom AS materielnom FROM `reservation`, `souhait_client`, `materiel`, `utilisateur` WHERE reservation.id_utilisateur = utilisateur.id AND souhait_client.id_materiel = materiel.id AND souhait_client.id_reservation = reservation.id;
     include "../utile/html/footer.php";
 } else {
     header("Location: login.php");

@@ -29,7 +29,7 @@ function isvalid($post, $on = true)
                     if (filter_var($_POST[$post], FILTER_VALIDATE_EMAIL)) {
                         $email = corect($_POST[$post]);
                         $result = execute("SELECT email  from `utilisateur` WHERE email =':email'",[
-                            ':email' => $email
+                            'email' => $email
                         ]);
                         if ($result->rowCount() == 0) {
                             return corect($_POST[$post]);

@@ -36,12 +36,12 @@ if (!empty($_POST['submit']) && $_POST['submit'] == "Créer son compte") {
     $mdp = isvalid('mdp');
     if (!empty($nom) && !empty($prenom) && !empty($date) && !empty($email) && !empty($mdp)) {
         $mdp = crypte($mdp);
-        execute("INSERT INTO `utilisateur`(`nom`, `prenom`, `date`, `email`, `mdp`, `role`) VALUES (':nom',':prenom',':date',':email',':mdp','utilisateur');", [
-            ':nom' => $nom,
-            ':prenom' => $prenom,
-            ':date' => $date,
-            ':email' => $email,
-            ':mdp' => $mdp
+        execute("INSERT INTO `utilisateur`(`nom`, `prenom`, `date`, `email`, `mdp`, `role`) VALUES (:nom,:prenom,:date,:email,:mdp,'utilisateur');", [
+            'nom' => $nom,
+            'prenom' => $prenom,
+            'date' => $date,
+            'email' => $email,
+            'mdp' => $mdp
         ]);
         //header("Location: login.php");// A SU¨PRIMER
     }

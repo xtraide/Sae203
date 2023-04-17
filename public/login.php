@@ -21,11 +21,11 @@ $email = isvalid('email', false);
 $password = isvalid('mdp', false);
 if (!empty($email) && !empty($password)) {
   $password = crypte($password);
-  $result = execute("Select id,role from `utilisateur` where email = ':email' AND mdp = ':password';", [
-    ':email' => $email,
-    ':password' => $password
+  $result = execute("Select id,role from `utilisateur` where email = :email AND mdp = :password;", [
+    'email' => $email,
+    'password' => $password
   ]);
-
+ 
   if ($result->rowCount() > 0) {
     foreach ($result as $row) {
       setcookie("id", $row['id'], time() + 604800, '/');
@@ -41,10 +41,6 @@ if (!empty($email) && !empty($password)) {
 <?php
   }
 }
-
-?>
-<button name="admin" value="YAMETE">admin</button>
-<?php
 
 
 include $path . "html/footer.php"; ?>

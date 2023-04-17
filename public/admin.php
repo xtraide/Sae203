@@ -32,11 +32,11 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
         $ref = isvalid('ref');
         $desc = isvalid('desc');
         if (!empty($nom) && !empty($type) && !empty($ref) && !empty($desc)) {
-            execute("INSERT INTO `materiel`( `nom`, `type`, `reference`, `description`) VALUES (':nom',':type',':ref',':desc');", [
-                ':nom' => $nom,
-                ':type' => $type,
-                ':ref' => $ref,
-                ':desc' => $desc
+            execute("INSERT INTO `materiel`( `nom`, `type`, `reference`, `description`) VALUES (:nom,:type,:ref,:desc);", [
+                'nom' => $nom,
+                'type' => $type,
+                'ref' => $ref,
+                'desc' => $desc
             ]);
             echo 'DAME';
         }
