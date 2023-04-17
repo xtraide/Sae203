@@ -4,7 +4,7 @@ include $path . "html/header.php";
 include $path . "link/linkPdo.php";
 include $path . "function.php";
 session_start();
-$_SESSION['panier'] = ['1', '2', '3'];
+$_SESSION['panier'] = ['4', '5', '6'];
 
 ?>
 <!--  faire un truck bot ADE ou on click-->
@@ -16,46 +16,34 @@ $_SESSION['panier'] = ['1', '2', '3'];
     <label for="heur">horair debut</label>
     <input type="text" name="horraire"><br>
     <label for="heur">horair debut</label>
-    <input type="text" name="horraire2"><br> 
+    <input type="text" name="horraire2"><br>
     <button type="submit" name="reserver" value="1">click sa</button>
 </form>
-
 
 <?php
 if (!empty($_POST['reserver']) && $_POST['reserver'] == "1") {
 
 
-    
-    $dated = corect($_POST['dated']) . ' ' . $_POST['horraire'];
-    $datef = corect($_POST['datef']) . ' ' . $_POST['horraire2'];;
+    //execute("SELECT  FROM  ");
+    //$dated = corect($_POST['dated']) . ' ' . $_POST['horraire'];
+    //$datef = corect($_POST['datef']) . ' ' . $_POST['horraire2'];;
+    $dated = "2023-04-17 18:00:00";
+    $datef = "2023-04-17 20:00:00";
     $user = $_COOKIE['id'];
 
-    if () {
-        
-    }
     execute("INSERT INTO `reservation`(`dateD`, `dateF`, `id_utilisateur`) VALUES (:deted,:datef,:user)", [
         'deted' => $dated,
         'datef' => $datef,
         'user' => $user
     ]);
-    $result = execute("SELECT max(id) as id FROM reservation;");
-    while ($resa = $result->fetchAll(PDO::FETCH_ASSOC)) {
-        foreach ($resa as $resa) {
-            foreach ($_SESSION['panier'] as $row) {
-                # code...
-            
-            execute("INSERT INTO `souhait_client`(`id_reservation`, `id_materiel`) VALUES (:id_reservation,:id_materiel);", [
-                'id_reservation' => $resa['id'],
-                'id_materiel' => $row
-            ]);
-            
-            echo"c bon";
-        }
-        }
-    }
-    //execute();
-}
 
+    foreach ($_SESSION['panier'] as $row) {
+        execute("INSERT INTO `souhait_client`(`id_reservation`, `id_materiel`) VALUES ((SELECT max(id)  FROM reservation),:id_materiel);", [
+            'id_materiel' => $row
+        ]);
+        echo "La commande a bien ete enregistrer ";
+    }
+}
 /**
  * faire une table de jointure avec id de l'utilisateur et id les truck  ligne par ligne 
  */

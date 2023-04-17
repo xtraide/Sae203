@@ -5,6 +5,7 @@ function isvalid($post, $on = true)
         if ($on) {
             switch ($post) {
                 case 'mdp':
+                    
                     if ($_POST[$post] == $_POST['valid' . $post]) {
                         if (strlen($_POST[$post]) >= 6) {
                             return corect($_POST[$post]);
