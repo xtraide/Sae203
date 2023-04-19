@@ -1,6 +1,5 @@
 <?php
 $path =   "../utile/";
-include "../utile/html/header.php";
 include $path . 'link/linkPdo.php';
 include $path . 'function.php';
 ?>
@@ -46,4 +45,3 @@ if (!empty($_POST['submit']) && $_POST['submit'] == "Créer son compte") {
         //header("Location: login.php");// A SU¨PRIMER
     }
 }
-include $path . "html/footer.php"; ?>

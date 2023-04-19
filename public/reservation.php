@@ -4,48 +4,61 @@ include $path . "html/header.php";
 include $path . "link/linkPdo.php";
 include $path . "function.php";
 session_start();
-$_SESSION['panier'] = ['4', '5', '6'];
 
 ?>
 <!--  faire un truck bot ADE ou on click-->
 <form action="reservation.php" method="post">
-    <label for="date">dated</label>
-    <input type="date" name="dated"> <br>
-    <label for="date"> datef Choisier votre date de reservation</label>
-    <input type="date" name="datef"><br>
-    <label for="heur">horair debut</label>
-    <input type="text" name="horraire"><br>
-    <label for="heur">horair debut</label>
-    <input type="text" name="horraire2"><br>
+    <label for="date">Choisier votre date de reservation</label>
+    <input type="date" name="date"><br>
+    <div class="erdate"></div>
+    <label for="heur">Horraire debut</label>
+    <input type="time" min="8:00" max="16:00" name="horraired"><br>
+    <div class="erhorraired"></div>
+    <label for="heur">Horraire debut</label>
+    <input type="time" min="10:00" max="18:00" name="horrairef"><br>
+    <div class="erhorrairef"></div>
     <button type="submit" name="reserver" value="1">click sa</button>
 </form>
 
 <?php
 if (!empty($_POST['reserver']) && $_POST['reserver'] == "1") {
+    
+    $heure_debut_nouvelle = isvalid('horraired');
+    $heure_fin_nouvelle = isvalid('horrairef');
+    $date = isvalid('date');
+    $materiel =  '2'; //corect($_POST['id_materiel'])
+    if (!empty($date) && !empty($heure_debut_nouvelle) && !empty($heure_fin_nouvelle)) {
 
+        if (!verifConflit($heure_debut_nouvelle, $heure_fin_nouvelle, $date, $materiel)) {
 
-    //execute("SELECT  FROM  ");
-    //$dated = corect($_POST['dated']) . ' ' . $_POST['horraire'];
-    //$datef = corect($_POST['datef']) . ' ' . $_POST['horraire2'];;
-    $date = "2023-04-17";
-    $horraired ='18:00:00';
-    $horrairef = '20:00:00';
-    $user = $_COOKIE['id'];
+            $user = corect($_COOKIE['id']);;
+            execute("INSERT INTO `reservation`( `date`, `horraire_debut`, `horraire_fin`, `id_utilisateur`, `id_materiel`) VALUES (:date,:horraired,:horrairef,:id_user,:id_materiel);", [
+                'date' => $date,
+                'horraired' => $heure_debut_nouvelle,
+                'horrairef' => $heure_fin_nouvelle,
+                'id_user' => $user,
+                'id_materiel' =>  $materiel
+            ]);
 
-    execute("INSERT INTO `reservation`(`horraire_debut`, `horraire_fin`, `date`) VALUES (:horraired,:horrairef,:date)", [
-        'horraired' => $horraired,
-        'horrairef' => $horrairef,
-        'date' => $date
-    ]);
-    foreach ($_SESSION['panier'] as $idmat) {
-        execute("INSERT INTO `panier`(`id_reservation`, `id_utilisateur`, `id_materiel`) VALUES ((SELECT MAX(id) FROM `reservation`),:id_utilisateur,:id_materiel)", [
-            "id_utilisateur" => $user,
-            "id_materiel" => $idmat
+            echo "La commande a bien ete enregistrer ";
+        } else {
+
+            echo 'Il y a un conflit avec une réservation existante';
+        }
+        // requete pour les heure des matos sur le jour SELECT horraire_debut,horraire_fin FROM `panier`,`reservation`,`materiel` WHERE panier.id_reservation = reservation.id and panier.id_materiel = materiel.id and date =date and materiel.id = "4";
+
+        /*execute("INSERT INTO `reservation`(`horraire_debut`, `horraire_fin`, `date`) VALUES (:horraired,:horrairef,:date)", [
+            'horraired' => $horraired,
+            'horrairef' => $horrairef,
+            'date' => $date
         ]);
+
+        foreach ($_SESSION['panier'] as $idmat) {
+            execute("INSERT INTO `panier`(`id_reservation`, `id_utilisateur`, `id_materiel`) VALUES ((SELECT MAX(id) FROM `reservation`),:id_utilisateur,:id_materiel)", [
+                "id_utilisateur" => $user,
+                "id_materiel" => $idmat
+            ]);
+        }*/
     }
-    echo "La commande a bien ete enregistrer ";
 }
-/**
- * faire une table de jointure avec id de l'utilisateur et id les truck  ligne par ligne 
- */
 ?>

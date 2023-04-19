@@ -1,6 +1,6 @@
 <?php
 $path = "../utile/";
-include $path . "html/header.php"; ?>
+?>
 
 <a href="sign-in.php">Créer son compte</a>
 <form action="login.php" method="post">
@@ -42,5 +42,3 @@ if (!empty($email) && !empty($password)) {
   }
 }
 
-
-include $path . "html/footer.php"; ?>

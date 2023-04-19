@@ -3,9 +3,9 @@ $path =   "../utile/";
 include $path . "html/header.php";
 include $path . "link/linkPdo.php";
 session_start();
-if (!empty($_SESSION['role'])) {
+
     if ($_SESSION['role'] == 'admin') {
-        echo "c qui le patron bah c toi ";
+        
     }
     $result = execute("SELECT * FROM utilisateur");
     if ($result->rowCount() > 0) {
@@ -31,15 +31,7 @@ if (!empty($_SESSION['role'])) {
 
         execute("Update auteur set email='" . $_POST['email'] . "' WHERE Nom='" . $_POST['nom'] . "'");
     }
-} else {
-    ?>
-    <script>
-        alert("vous devez etre connecter pour utiliser cette page vous allez etre rediriger vers la page de connection ")
-    </script>
 
-<?php
-    header("Location: login.php");
-}
 
 include "../utile/html/footer.php";
 ?>
