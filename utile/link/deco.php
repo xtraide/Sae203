@@ -6,4 +6,3 @@ setcookie("id", "", time()-3600);
 header('Location: ../public/sign-in.php');
 
 exit();
-?>

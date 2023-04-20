@@ -15,7 +15,7 @@ function execute($sql, $params = [])
     }
     $result = $db->prepare($sql);
     //var_dump($json['score']);
-        $result->execute($params) or die($db->errorInfo());
+    $result->execute($params) or die($db->errorInfo());
 
     return $result;
 }

@@ -23,7 +23,3 @@ function  execute($query){
     } else {
         echo "No results found.";
     }s */
-
-    
-
-?>

@@ -12,13 +12,13 @@
 	<header>
 		<h2>CA C'EST POUR TOI MON KILLIAN </h2>
 	</header>
-	<?php 
-	if (empty($_SESSION['role'])) {
+	<?php
+	if (empty($_COOKIE['id'])) {
 		header("Location: login.php");
-		?>
+	?>
 		<script>
 			alert("vous devez etre connecter pour utiliser cette page vous allez etre rediriger vers la page de connection ")
 		</script>
-	
+
 	<?php
 	}
