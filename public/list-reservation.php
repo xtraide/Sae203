@@ -5,6 +5,7 @@ if (!empty($_COOKIE)) {
     include $path . "function.php";
     include $path . "link/linkPdo.php";
 ?>
+
     <div>
         <h3>liste des demandes de réservation</h3>
         <table style="border:solid;">
@@ -15,13 +16,15 @@ if (!empty($_COOKIE)) {
                 <td style="border:solid;">Statut de la demande</td>
 
             </tr>
-            <?php if (!empty($_SESSION['role']) && $_SESSION['role'] == 'admin') {
+            <?php 
+            if (!empty($_SESSION['role']) && $_SESSION['role'] == 'admin') {
                 $result = execute(" SELECT utilisateur.nom AS usernom, utilisateur.prenom AS userprenom, reservation.dateD, reservation.dateF, reservation.statut, materiel.type, materiel.nom AS materielnom FROM `reservation`, `souhait_client`, `materiel`, `utilisateur` WHERE reservation.id_utilisateur = utilisateur.id AND souhait_client.id_materiel = materiel.id AND souhait_client.id_reservation = reservation.id;");
             }
             session_start();
             $result = execute("SELECT utilisateur.nom AS usernom, utilisateur.prenom AS userprenom, reservation.dateD, reservation.dateF, reservation.statut, materiel.type, materiel.nom AS materielnom FROM `reservation`, `souhait_client`, `materiel`, `utilisateur` WHERE reservation.id_utilisateur = utilisateur.id AND souhait_client.id_materiel = materiel.id AND souhait_client.id_reservation = reservation.id; AND utilisateur.id = :user ;", [
                 'user' => $_COOKIE['id']
             ]);
+             
             if ($result->rowCount() > 0) {
                 while ($row = $result->fetchAll(PDO::FETCH_ASSOC)) {
                     foreach ($row as $row) {
@@ -33,7 +36,7 @@ if (!empty($_COOKIE)) {
                     } else {
                         $statut = "EN ATTENTE";
                         if ($_SESSION['role'] == 'admin') {
-                            $statut .= "<td><input type='submit' value='Accepter'> <input type='submit' value='refuser'></td>";
+                            $statut .= "<form action=" .basename(__FILE__)." method='post'><td><input type='submit' value='Accepter'> <input type='submit' value='refuser'></td></form>";
                         }
                     }
                     echo "

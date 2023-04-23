@@ -7,7 +7,7 @@ session_start();
 
 ?>
 <!--  faire un truck bot ADE ou on click-->
-<form action="reservation.php" method="post">
+<form action="<?= basename(__FILE__); ?>" method="post">
     <label for="date">Choisier votre date de reservation</label>
     <input type="date" name="date"><br>
     <div class="erdate"></div>

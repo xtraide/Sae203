@@ -25,7 +25,8 @@ if ($result->rowCount() > 0) {
         }
     }
 } else {
-    echo "No results found.";
+
+    echo "No results found. ";
 }
 
 

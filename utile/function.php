@@ -58,7 +58,7 @@ function isvalid($post, $on = true)
     } else {
         ?>
         <script type="text/javascript">
-            document.getElementsByClassName('er<?= $post ?>')[0].innerHTML = 'Le champ <?= $post ?> est vide';
+            document.getElementsByClassName('er<?= $post ?>')[0].innerHTML = 'Le champ <?= $post ?> est vide 😃 😅 😨 💩';
         </script>
 <?php
     }

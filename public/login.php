@@ -3,7 +3,7 @@ $path = "../utile/";
 ?>
 
 <a href="sign-in.php">Créer son compte</a>
-<form action="login.php" method="post">
+<form action="<?= basename(__FILE__); ?>" method="post">
   <label for="email">Email : </label>
   <input type="email" name="email" id="" placeholder="exemple@gmail.com" value="<?= !empty($_POST['email']) ?  $_POST['email'] : '' ?>">
   <div class="eremail"></div>

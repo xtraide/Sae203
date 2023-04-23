@@ -4,7 +4,7 @@ include $path . 'link/linkPdo.php';
 include $path . 'function.php';
 ?>
 <a href="login.php">Deja un compte connecter vous</a>
-<form action="sign-in.php" method="post">
+<form action="<?= basename(__FILE__); ?>" method="post">
     <label for="Nom ">Nom:</label>
     <input type="text" placeholder="Nom" name="nom" value="<?= !empty($_POST['nom']) ?  $_POST['nom'] : '' ?>">
     <div class="ernom"></div>
