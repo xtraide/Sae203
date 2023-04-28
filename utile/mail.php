@@ -1,82 +1,67 @@
 <?php
 
-include "function.php";
+//Import PHPMailer classes into the global namespace
+//These must be at the top of your script, not inside a function
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
+//Load Composer's autoloader
+require '../vendor/autoload.php';
+require 'pdf.php';
+//Create an instance; passing `true` enables exceptions
 
-/* Si le formulaire est envoyé alors on fait les traitements */
-if (1) {
-    /* Récupération des valeurs des champs du formulaire */
+function sendmail($addAddress, $Subject, $Body, $file = "")
+{
+  $mail = new PHPMailer(true);
 
-        $name   = corect("test");
-        $mail = corect('xxtraide@gmailcom');
-        $sujet    = corect("c moi whesh");
-        $message    = corect("c oussie moi");
-    
+  try {
+    //Server settings
+    $mail->SMTPDebug = 0;                      //Enable verbose debug output
+    $mail->isSMTP();                                            //Send using SMTP
 
-    /* Expression régulière permettant de vérifier si le
-    * format d'une adresse e-mail est correct */
-    $regex_mail = '/^[-+.\w]{1,64}@[-.\w]{1,64}\.[-.\w]{2,6}$/i';
+    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+    $mail->Username   = 'proxtraide@gmail.com';                     //SMTP username
+    $mail->Password   = 'wgbyelugxrsewiox';                               //SMTP password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Host = 'smtp.gmail.com';                             //Set the SMTP server to send through
+    $mail->Port = 587;                                  //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
-    /* Expression régulière permettant de vérifier qu'aucun
-    * en-tête n'est inséré dans nos champs */
-    $regex_head = '/[\n\r]/';
+    //Recipients
+    $mail->setFrom('noreply@gmail.com', 'ne pas repondre');
+    $mail->addAddress($addAddress);       //Add a recipient
+    /* $mail->addAddress('ellen@example.com');               //Name is optional
+    $mail->addReplyTo('info@example.com', 'Information');
+    $mail->addCC('cc@example.com');
+    $mail->addBCC('bcc@example.com');
 
-    /* Si le formulaire n'est pas posté de notre site on renvoie
-    * vers la page d'accueil */
-   /* if ($_SERVER['HTTP_REFERER'] != 'http://www.monsite.com/send_email.php') {
-        header('Location: http://www.monsite.com/');
-    }*/
-    /* On vérifie que tous les champs sont remplis  elseif*/ if (
-        empty($name)
-        || empty($mail)
-        || empty($sujet)
-        || empty($message)
-    ) {
-        $alert = 'Tous les champs doivent être renseignés';
+    //Attachments
+    $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
+    $mail->addAttachment('/tmp/image.jpg', 'new.jpg');*/    //Optional name
+    if (!empty($file)) {
+      $file = pdf('TAMER', true);
+      $mail->addStringAttachment($file, 'reservation.pdf');
     }
-    /* On vérifie que le format de l'e-mail est correct  elseif (!preg_match($regex_mail, $expediteur)) {
-        $alert = 'L\'adresse ' . $mail . ' n\'est pas valide';
-    }
-    /* On vérifie qu'il n'y a aucun header dans les champs */ /*elseif (
-        preg_match($regex_head, $mail)
-        || preg_match($regex_head, $name)
-        || preg_match($regex_head, $sujet)
-    ) {
-        $alert = 'En-têtes interdites dans les champs du formulaire';
-    }*/
-    /* Si aucun problème et aucun cookie créé, on construit le message et on envoie l'e-mail */ if (!isset($_COOKIE['sent'])) {
-        /* Destinataire (votre adresse e-mail) */
-        $to = 'thieblemontnicolas@gmail.com';
 
-        /* Construction du message */
-        $msg  = 'Bonjour,' . "\r\n\r\n";
-        $msg .= 'Ce mail a été envoyé depuis monsite.com par ' . $name . "\r\n\r\n";
-        $msg .= 'Voici le message qui vous est adressé :' . "\r\n";
-        $msg .= '***************************' . "\r\n";
-        $msg .= $message . "\r\n";
-        $msg .= '***************************' . "\r\n";
 
-        /* En-têtes de l'e-mail */
-        $headers = 'From: ' . $name . ' <' . $mail . '>' . "\r\n\r\n";
 
-        /* Envoi de l'e-mail */
-        if (mail($to, 'Mon Sujet',"ayaya")) {
-            $alert = 'E-mail envoyé avec succès';
+    $mail->SMTPOptions = [
+      'ssl' => [
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => true,
+      ]
+    ];
+    //Content
+    $mail->isHTML(true);                                  //Set email format to HTML
+    $mail->Subject = $Subject;
+    $mail->Body    = $Body;
 
-            /* On créé un cookie de courte durée (ici 120 secondes) pour éviter de
-            * renvoyer un mail en rafraichissant la page */
-            setcookie("sent", "1", time() + 120);
 
-            /* On détruit la variable $_POST */
-            unset($_POST);
-        } else {
-            
-            $alert = 'Erreur d\'envoi de l\'e-mail 74';
-        }
-    }
-    /* Cas où le cookie est créé et que la page est rafraichie, on détruit la variable $_POST */ else {
-        unset($_POST);
-    }
-   
+    $mail->send();
+    echo 'Message has been sent';
+  } catch (Exception $e) {
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+  }
 }
-echo $alert;
+sendmail("thieblemontnicolas@gmail.com", 'test', "tst");

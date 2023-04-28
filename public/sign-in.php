@@ -1,7 +1,7 @@
 <?php
 $path =   "../utile/";
-include $path . 'link/linkPdo.php';
-include $path . 'function.php';
+
+
 ?>
 <a href="login.php">Deja un compte connecter vous</a>
 <form action="<?= basename(__FILE__); ?>" method="post">
@@ -28,13 +28,19 @@ include $path . 'function.php';
 <?php
 
 if (!empty($_POST['submit']) && $_POST['submit'] == "Créer son compte") {
-    $nom = isvalid('nom');
-    $prenom = isvalid('prenom');
-    $date = isvalid('date');
-    $email = isvalid('email');
-    $mdp = isvalid('mdp');
+
+    include $path . 'function.php';
+
+    $nom = isValid('nom');
+    $prenom = isValid('prenom');
+    $date = isValid('date');
+    $email = isValid('email');
+    $mdp = isValid('mdp');
     if (!empty($nom) && !empty($prenom) && !empty($date) && !empty($email) && !empty($mdp)) {
         $mdp = crypte($mdp);
+
+        include $path . 'link/linkPdo.php';
+
         execute("INSERT INTO `utilisateur`(`nom`, `prenom`, `date`, `email`, `mdp`, `role`) VALUES (:nom,:prenom,:date,:email,:mdp,'utilisateur');", [
             'nom' => $nom,
             'prenom' => $prenom,
@@ -42,6 +48,14 @@ if (!empty($_POST['submit']) && $_POST['submit'] == "Créer son compte") {
             'email' => $email,
             'mdp' => $mdp
         ]);
+        include $path . "mail.php";
+        sendmail(
+            $email,
+            "Confirmation d'adresse email",
+            "cliquer ici pour activer votre compte"
+        );
+        echo "votre compte doit etre verifier pour pouvoir vous y connecter ";
+        //envoyer un mail de confirmation 
         //header("Location: login.php");// A SU¨PRIMER
     }
 }

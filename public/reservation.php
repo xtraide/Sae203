@@ -22,14 +22,14 @@ session_start();
 
 <?php
 if (!empty($_POST['reserver']) && $_POST['reserver'] == "1") {
-    
-    $heure_debut_nouvelle = isvalid('horraired');
-    $heure_fin_nouvelle = isvalid('horrairef');
-    $date = isvalid('date');
-    $materiel =  '2'; //corect($_POST['id_materiel'])
+
+    $heure_debut_nouvelle = isValid('horraired');
+    $heure_fin_nouvelle = isValid('horrairef');
+    $date = isValid('date');
+    $materiel =  '6'; //corect($_POST['id_materiel'])
     if (!empty($date) && !empty($heure_debut_nouvelle) && !empty($heure_fin_nouvelle)) {
 
-        if (!verifConflit($heure_debut_nouvelle, $heure_fin_nouvelle, $date, $materiel)) {
+        if (!isConflitHorraire($heure_debut_nouvelle, $heure_fin_nouvelle, $date, $materiel)) {
 
             $user = corect($_COOKIE['id']);;
             execute("INSERT INTO `reservation`( `date`, `horraire_debut`, `horraire_fin`, `id_utilisateur`, `id_materiel`) VALUES (:date,:horraired,:horrairef,:id_user,:id_materiel);", [

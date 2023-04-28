@@ -1,5 +1,8 @@
 <?php
-function isvalid($post, $on = true)
+
+
+
+function isValid($post, $on = true)
 {
     if (!empty($_POST[$post])) {
         if ($on) {
@@ -10,7 +13,7 @@ function isvalid($post, $on = true)
                         if (strlen($_POST[$post]) >= 6) {
                             return corect($_POST[$post]);
                         } else {
-?>
+                            ?>
                             <script type="text/javascript">
                                 document.getElementsByClassName('er<?= $post ?>')[0].innerHTML = 'Le mot de passe doit contenir au moins 6 caractères';
                             </script>
@@ -29,7 +32,7 @@ function isvalid($post, $on = true)
 
                     if (filter_var($_POST[$post], FILTER_VALIDATE_EMAIL)) {
                         $email = corect($_POST[$post]);
-                        $result = execute("SELECT email  from `utilisateur` WHERE email =':email'", [
+                        $result = execute("SELECT * FROM `utilisateur` WHERE email =:email", [
                             'email' => $email
                         ]);
                         if ($result->rowCount() == 0) {
@@ -73,11 +76,27 @@ function corect($input)
     return htmlentities(trim($input));
 }
 
-function verifConflit($heure_debut_nouvelle, $heure_fin_nouvelle, $date, $materiel)
+function isConflitHorraire($heure_debut_nouvelle, $heure_fin_nouvelle, $date, $materiel)
 {
+    /**
+     * recuperer le nombre de  materiel disponible dans la base par rapport au quantiter
+     */
+    $result = execute("SELECT DISTINCT (SELECT quantite.quantite FROM `quantite` WHERE quantite.id_materiel = :materiel) - (SELECT COUNT(reservation.id_materiel)  FROM `reservation` WHERE reservation.id_materiel = :materiel)  as nb FROM `reservation`,`quantite` WHERE 1;", [
+        'materiel' => $materiel
+    ]);
+    while ($row = $result->fetchAll(PDO::FETCH_ASSOC)) {
+        $count = $row[0]['nb'];
+        if ($count <= 0) {
+            return true;
+            echo "le materiel n'es pas disponible sur la periode demander ";
+        }
+    }
+
+
     /***************************
      *  recuperation des horraire dans la bdd == reservations_bdd
      ***************************/
+
     $result = execute("SELECT horraire_debut,horraire_fin FROM `reservation`,`materiel` WHERE reservation.id_materiel = materiel.id AND reservation.date = :date AND materiel.id = :id_materiel ;", [
         'date' => $date,
         'id_materiel' => $materiel
@@ -121,4 +140,18 @@ function verifConflit($heure_debut_nouvelle, $heure_fin_nouvelle, $date, $materi
     }
 
     return false; //  pas de conflit
+}
+
+/***************************
+ *  accepter ou refuser le statut d'une reservation par raport a son id  
+ ***************************/
+function statut($post)
+{
+    if (!empty($_POST[$post])) {
+        execute("UPDATE `reservation` SET `statut`=:accepter WHERE reservation.id = :id;", [
+            "id" => $_POST[$post],
+            "accepter" => $post
+        ]);
+        header("Refresh:0");
+    }
 }
