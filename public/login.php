@@ -17,13 +17,13 @@ $path = "../utile/";
 session_start();
 include $path . "link/linkPdo.php";
 include $path . "function.php";
-$logemail = isValid('logemail', false);
+$email = isValid('logemail', false);
 $password = isValid('logmdp', false);
-if (!empty($logemail) && !empty($password)) {
+if (!empty($email) && !empty($password)) {
   $password = crypte($password);
-  $result = execute("Select id,role,verified from `utilisateur` where logemail = :logemail AND logmdp = :password;", [
-    'logemail' => $logemail,
-    'password' => $password
+  $result = execute("Select id,role,verified from `utilisateur` where email = :email AND mdp = :password;", [
+    "email" => $email,
+    "password" => $password
   ]);
   if ($result->rowCount() > 0) {
     foreach ($result as $row) {

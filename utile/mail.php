@@ -8,7 +8,7 @@ use PHPMailer\PHPMailer\Exception;
 
 //Load Composer's autoloader
 require '../vendor/autoload.php';
-require 'pdf.php';
+//require 'pdf.php';
 //Create an instance; passing `true` enables exceptions
 
 function sendmail($addAddress, $Subject, $Body, $file = "")
@@ -38,10 +38,10 @@ function sendmail($addAddress, $Subject, $Body, $file = "")
     //Attachments
     $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
     $mail->addAttachment('/tmp/image.jpg', 'new.jpg');*/    //Optional name
-    if (!empty($file)) {
+    /* if (!empty($file)) {
       $file = pdf('TAMER', true);
       $mail->addStringAttachment($file, 'reservation.pdf');
-    }
+    }*/
 
 
 
@@ -59,9 +59,7 @@ function sendmail($addAddress, $Subject, $Body, $file = "")
 
 
     $mail->send();
-    echo 'Message has been sent';
   } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
   }
 }
-sendmail("thieblemontnicolas@gmail.com", 'test', "tst");

@@ -1,7 +1,6 @@
 <?php
 
 
-
 function isValid($post, $on = true)
 {
     if (!empty($_POST[$post])) {
@@ -13,7 +12,7 @@ function isValid($post, $on = true)
                         if (strlen($_POST[$post]) >= 6) {
                             return corect($_POST[$post]);
                         } else {
-                            ?>
+?>
                             <script type="text/javascript">
                                 document.getElementsByClassName('er<?= $post ?>')[0].innerHTML = 'Le mot de passe doit contenir au moins 6 caractères';
                             </script>
@@ -31,7 +30,9 @@ function isValid($post, $on = true)
                 case 'email':
 
                     if (filter_var($_POST[$post], FILTER_VALIDATE_EMAIL)) {
+
                         $email = corect($_POST[$post]);
+
                         $result = execute("SELECT * FROM `utilisateur` WHERE email =:email", [
                             'email' => $email
                         ]);
@@ -73,7 +74,7 @@ function crypte($text)
 }
 function corect($input)
 {
-    return htmlentities(trim($input));
+    return htmlspecialchars(strip_tags($input));
 }
 
 function isConflitHorraire($heure_debut_nouvelle, $heure_fin_nouvelle, $date, $materiel)

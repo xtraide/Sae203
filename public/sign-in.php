@@ -25,12 +25,13 @@ $path =   "../utile/";
     <div class="validmdp"></div>
     <input type="submit" name="submit" value="Créer son compte">
 </form>
+
 <?php
 
 if (!empty($_POST['submit']) && $_POST['submit'] == "Créer son compte") {
 
     include $path . 'function.php';
-
+    include $path . 'link/linkPdo.php';
     $nom = isValid('nom');
     $prenom = isValid('prenom');
     $date = isValid('date');
@@ -38,9 +39,6 @@ if (!empty($_POST['submit']) && $_POST['submit'] == "Créer son compte") {
     $mdp = isValid('mdp');
     if (!empty($nom) && !empty($prenom) && !empty($date) && !empty($email) && !empty($mdp)) {
         $mdp = crypte($mdp);
-
-        include $path . 'link/linkPdo.php';
-
         execute("INSERT INTO `utilisateur`(`nom`, `prenom`, `date`, `email`, `mdp`, `role`) VALUES (:nom,:prenom,:date,:email,:mdp,'utilisateur');", [
             'nom' => $nom,
             'prenom' => $prenom,
@@ -48,12 +46,21 @@ if (!empty($_POST['submit']) && $_POST['submit'] == "Créer son compte") {
             'email' => $email,
             'mdp' => $mdp
         ]);
+        $result = execute("SELECT MAX(id) as id FROM utilisateur;");
         include $path . "mail.php";
-        sendmail(
-            $email,
-            "Confirmation d'adresse email",
-            "cliquer ici pour activer votre compte"
-        );
+        while ($row = $result->fetchAll(PDO::FETCH_ASSOC)) {
+            foreach ($row as $row) {
+
+                sendmail(
+                    $email,
+                    "Confirmation d'adresse email",
+                    "cliquer ici pour activer votre compte
+                    <a href=`http://localhost/iut/Sae205/public/verif.php?id=`" . $row['id'] . ">test</a>
+                    "
+                );
+            }
+        }
+
         echo "votre compte doit etre verifier pour pouvoir vous y connecter ";
         //envoyer un mail de confirmation 
         //header("Location: login.php");// A SU¨PRIMER

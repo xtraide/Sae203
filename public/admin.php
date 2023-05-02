@@ -50,7 +50,7 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
     /*
      * Modification  d'un materiel
      * a refaire avec les autre 
-     */
+     
     ?> <div>
         <label for="ajout">
             <h2>Modification d'un materiel</h2>
