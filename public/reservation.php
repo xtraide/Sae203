@@ -1,9 +1,6 @@
 <?php
 $path =   "../utile/";
 include $path . "html/header.php";
-include $path . "link/linkPdo.php";
-include $path . "function.php";
-session_start();
 
 ?>
 <!--  faire un truck bot ADE ou on click-->
@@ -19,7 +16,7 @@ session_start();
     <div class="erhorrairef"></div>
     <button type="submit" name="reserver" value="1">click sa</button>
 </form>
-
+<a href="list-reservation.php">Voir la liste de reservation</a>
 <?php
 if (!empty($_POST['reserver']) && $_POST['reserver'] == "1") {
 

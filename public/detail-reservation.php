@@ -1,7 +1,7 @@
 <?php
 $path =   "../utile/";
 include $path . "html/header.php";
-include $path . "link/linkPdo.php";
+
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $result = execute("SELECT utilisateur.nom AS usernom, utilisateur.prenom AS userprenom,  reservation.id as resid ,reservation.horraire_debut,reservation.horraire_fin, reservation.date, reservation.statut, materiel.type, materiel.nom AS materielnom ,materiel.reference,materiel.description FROM `reservation`, `materiel`, `utilisateur` WHERE reservation.id_utilisateur = utilisateur.id AND reservation.id_materiel = materiel.id AND reservation.id = :id", [

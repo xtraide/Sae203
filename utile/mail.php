@@ -38,7 +38,7 @@ function sendmail($addAddress, $Subject, $Body, $file = "")
     //Attachments
     $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
     $mail->addAttachment('/tmp/image.jpg', 'new.jpg');*/    //Optional name
-    /* if (!empty($file)) {
+    /*if (!empty($file)) {
       $file = pdf('TAMER', true);
       $mail->addStringAttachment($file, 'reservation.pdf');
     }*/

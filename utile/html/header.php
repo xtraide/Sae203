@@ -11,8 +11,12 @@
 <body>
 	<header>
 		<h2>CA C'EST POUR TOI MON KILLIAN </h2>
+		<?php include_once("nav.php"); ?>
 	</header>
 	<?php
+	include "../utile/link/linkPdo.php";
+	include "../utile/function.php";
+	session_start();
 	if (empty($_SESSION['verified'])) {
 		if (empty($_COOKIE['id'])) {
 
@@ -24,6 +28,7 @@
 
 			<?php
 		} else {
+
 			$result = execute("SELECT * FROM `utilisateur` WHERE id = :id", [
 				"id" => $_COOKIE['id']
 			]);
@@ -37,7 +42,7 @@
 
 	<?php
 					} else {
-						$_SESSION['verified'] == 1;
+						$_SESSION['verified'] = 1;
 					}
 				}
 			}

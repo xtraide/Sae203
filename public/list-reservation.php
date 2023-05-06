@@ -3,8 +3,7 @@
 if (!empty($_COOKIE)) {
     $path =   "../utile/";
     include $path . "html/header.php";
-    include $path . "function.php";
-    include $path . "link/linkPdo.php";
+
 ?>
     <div>
         <h3>liste des demandes de réservation</h3>
@@ -20,7 +19,7 @@ if (!empty($_COOKIE)) {
             if (!empty($_SESSION['role']) && $_SESSION['role'] == 'admin') {
                 $result = execute(" SELECT utilisateur.nom AS usernom, utilisateur.prenom AS userprenom,  reservation.id as resid ,reservation.horraire_debut,reservation.horraire_fin, reservation.date, reservation.statut, materiel.type, materiel.nom AS materielnom FROM `reservation`, `materiel`, `utilisateur` WHERE reservation.id_utilisateur = utilisateur.id AND reservation.id_materiel = materiel.id;");
             }
-            session_start();
+
             $result = execute("SELECT utilisateur.nom AS usernom, utilisateur.prenom AS userprenom, reservation.id as resid ,reservation.horraire_debut,reservation.horraire_fin, reservation.date, reservation.statut, materiel.type, materiel.nom AS materielnom FROM `reservation`,  `materiel`, `utilisateur` WHERE reservation.id_utilisateur = utilisateur.id AND reservation.id_materiel = materiel.id; AND utilisateur.id = :user ;", [
                 'user' => $_COOKIE['id']
             ]);

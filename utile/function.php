@@ -53,6 +53,8 @@ function isValid($post, $on = true)
         <?php
                     }
                     break;
+
+
                 default:
                     return corect($_POST[$post]);
             }
@@ -64,7 +66,7 @@ function isValid($post, $on = true)
         <script type="text/javascript">
             document.getElementsByClassName('er<?= $post ?>')[0].innerHTML = 'Le champ <?= $post ?> est vide 😃 😅 😨 💩';
         </script>
-<?php
+    <?php
     }
 }
 function crypte($text)
@@ -155,4 +157,88 @@ function statut($post)
         ]);
         header("Refresh:0");
     }
+}
+function editUn($id, $post)
+{
+    $postcut = substr($post, 2);
+
+    execute("UPDATE materiel SET {$postcut} =:nom WHERE id = :id", [
+        "id" => $id,
+        "nom" => htmlspecialchars($_POST[$post])
+    ]);
+    header("Refresh:0");
+}
+function isValidImage(String $img)
+{
+    $validFileSize = 9000000;
+    $validExt = array("jpeg", "jpg", "png");
+    $fileSize = $_FILES[$img]['size'];
+    $fileName = $_FILES[$img]["name"];
+    $fileExt = strtolower(substr(strrchr($fileName, '.'), 1));
+    $er = true;
+    if ($_FILES[$img]['error'] > 0) {
+    ?>
+        <script type="text/javascript">
+            document.getElementsByClassName('erimg')[0].innerHTML = "ereeur";
+        </script>
+    <?php
+        $er = false;
+    }
+    if (!in_array($fileExt, $validExt)) {
+    ?>
+        <script type="text/javascript">
+            document.getElementsByClassName('erimg')[0].innerHTML = "fichier trop gros";
+        </script>
+    <?php
+        $er = false;
+    }
+
+    if ($fileSize > $validFileSize) {
+    ?>
+        <script type="text/javascript">
+            document.getElementsByClassName('erimg')[0].innerHTML = "fichier trop gros";
+        </script>
+<?php
+        $er = false;
+    }
+
+    if ($er) {
+        return $_FILES[$img];
+    }
+}
+function getImage()
+{
+    $fileName = $_FILES['img']["name"];
+    $tmpName = $_FILES['img']['tmp_name'];
+    $uniqueName = md5(uniqid(rand()));
+    $fileExt = "." . strtolower(substr(strrchr($fileName, '.'), 1));
+    $fileName = "../assets/ressources/upload/" . $uniqueName . $fileExt;
+    move_uploaded_file($tmpName, $fileName);
+    $Newsize = getSize();
+    var_dump($Newsize);
+    $size = getimagesize($fileName);
+    foreach ($Newsize as $Newsize) {
+        $thumb = imagecreatetruecolor($Newsize, $Newsize);
+        switch ($size['mime']) {
+
+            case 'image/jpeg':
+
+                $source = imagecreatefromjpeg($fileName);
+                imagecopyresized($thumb, $source, 0, 0, 0, 0, $Newsize, $Newsize, $size[0], $size[1]);
+                imagejpeg($thumb, "../assets/ressources/materiel/{$Newsize}/" . $uniqueName . $fileExt);
+
+                break;
+            case 'image/png':
+                $source = imagecreatefromjpeg($fileName);
+                imagecopyresized($thumb, $source, 0, 0, 0, 0, $Newsize, $Newsize, $size[0], $size[1]);
+                imagepng($thumb, "../assets/ressources/{$Newsize}/" . $fileName);
+                break;
+            default:
+        }
+    }
+    return   $uniqueName . $fileExt;
+}
+function getSize()
+{
+    return  array_diff(scandir("../assets/ressources/materiel"), [".", ".."]);
 }
