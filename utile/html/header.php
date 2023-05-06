@@ -17,7 +17,9 @@
 	include "../utile/link/linkPdo.php";
 	include "../utile/function.php";
 	session_start();
+
 	if (empty($_SESSION['verified'])) {
+
 		if (empty($_COOKIE['id'])) {
 
 			header("Location: login.php");
@@ -34,14 +36,16 @@
 			]);
 			while ($row = $result->fetchAll(PDO::FETCH_ASSOC)) {
 				foreach ($row as $row) {
+
 					if ($row['verified'] != 1) {
 			?>
 						<script>
 							alert("vous devez verifier votre adresse mail  pour utiliser cette page vous allez etre rediriger vers la page de connection ")
 						</script>
-
 	<?php
+						die;
 					} else {
+
 						$_SESSION['verified'] = 1;
 					}
 				}

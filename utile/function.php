@@ -210,7 +210,7 @@ function getImage()
 {
     $fileName = $_FILES['img']["name"];
     $tmpName = $_FILES['img']['tmp_name'];
-    $uniqueName = md5(uniqid(rand()));
+    $uniqueName = md5(uniqid(rand(), true));
     $fileExt = "." . strtolower(substr(strrchr($fileName, '.'), 1));
     $fileName = "../assets/ressources/upload/" . $uniqueName . $fileExt;
     move_uploaded_file($tmpName, $fileName);

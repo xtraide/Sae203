@@ -50,12 +50,13 @@ if (!empty($_POST['submit']) && $_POST['submit'] == "Créer son compte") {
         include $path . "mail.php";
         while ($row = $result->fetchAll(PDO::FETCH_ASSOC)) {
             foreach ($row as $row) {
-
+                $token = md5(uniqid(rand(), true));
+                setcookie('token', $token, time() + 604800, "/");
                 sendmail(
                     $email,
                     "Confirmation d'adresse email",
                     "cliquer ici pour activer votre compte
-                    <a href=`http://localhost/iut/Sae205/public/verif.php?id=`" . $row['id'] . ">test</a>
+                    <a href=`http://localhost/iut/Sae205/public/verif.php?id=`" . $row['id'] . "`&token=`" . $token . ">test</a>
                     "
                 );
             }
