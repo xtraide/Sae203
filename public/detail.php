@@ -55,7 +55,7 @@ if (isset($_GET['id'])) {
                     }
                     ?>
                 </form>
-                <form action="reservation.php" method="get">
+                <form action="reservation.php" method="post">
                     <button name="id" value="<?= $row['id']; ?>">Reserver</button>
                 </form>
 <?php

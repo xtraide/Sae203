@@ -23,7 +23,7 @@ if (!empty($_POST['reserver']) && $_POST['reserver'] == "1") {
     $heure_debut_nouvelle = isValid('horraired');
     $heure_fin_nouvelle = isValid('horrairef');
     $date = isValid('date');
-    $materiel =  '6'; //corect($_POST['id_materiel'])
+    $materiel = corect($_POST['id_materiel']);
     if (!empty($date) && !empty($heure_debut_nouvelle) && !empty($heure_fin_nouvelle)) {
 
         if (!isConflitHorraire($heure_debut_nouvelle, $heure_fin_nouvelle, $date, $materiel)) {

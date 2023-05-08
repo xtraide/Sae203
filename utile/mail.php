@@ -43,8 +43,6 @@ function sendmail($addAddress, $Subject, $Body, $file = "")
       $mail->addStringAttachment($file, 'reservation.pdf');
     }*/
 
-
-
     $mail->SMTPOptions = [
       'ssl' => [
         'verify_peer' => false,
