@@ -27,6 +27,14 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
             <div class="erdesc"></div>
             <label for="image">Ajouter une image</label>
             <input type="file" placeholder="choisir une image" name="img" value="">
+            <label for="image">Ajouter une image 2</label>
+            <input type="file" placeholder="choisir une image" name="img2" value="">
+            <label for="image">Ajouter une image 3</label>
+            <input type="file" placeholder="choisir une image" name="img3" value="">
+            <label for="image">Ajouter une image 4</label>
+            <input type="file" placeholder="choisir une image" name="img4" value="">
+            <label for="image">Ajouter une image 5</label>
+            <input type="file" placeholder="choisir une image" name="img5" value="">
             <div class="erimg"></div>
             <button type="submit" name="Ajouter" value="1">Ajouter un materiel</button>
         </form>
@@ -40,8 +48,22 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
         $type = isValid('type');
         $ref = isValid('ref');
         $desc = isValid('desc');
+        /* recupere tout les image */
+
         if (!empty($nom) && !empty($type) && !empty($ref) && !empty($desc) && !empty($img)) {
             $img = getImage($_FILES['img']);
+            if (!empty($_POST['img2'])) {
+                getImage($_FILES['img2'], $img);
+            }
+            if (!empty($_POST['img3'])) {
+                getImage($_FILES['img3'], $img);
+            }
+            if (!empty($_POST['img4'])) {
+                getImage($_FILES['img4'], $img);
+            }
+            if (!empty($_POST['img5'])) {
+                getImage($_FILES['img5'], $img);
+            }
             execute("INSERT INTO `materiel`( `nom`, `type`, `reference`, `description`,`img`) VALUES (:nom,:type,:ref,:desc,:img);", [
                 'nom' => $nom,
                 'type' => $type,

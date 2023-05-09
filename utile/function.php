@@ -168,6 +168,10 @@ function editUn($id, $post)
     ]);
     header("Refresh:0");
 }
+
+/**
+ * verifier qu'e c'est bien une image 
+ */
 function isValidImage(String $img)
 {
     $validFileSize = 9000000;
@@ -206,32 +210,49 @@ function isValidImage(String $img)
         return $_FILES[$img];
     }
 }
-function getImage()
+/**
+ * recuperer les image 
+ */
+function getImage($file, $uniqueNameDir = '')
 {
-    $fileName = $_FILES['img']["name"];
-    $tmpName = $_FILES['img']['tmp_name'];
+    /*Atribution de toute les variable */
+    $fileName = $file['img']["name"];
+    $tmpName = $file['img']['tmp_name'];
     $uniqueName = md5(uniqid(rand(), true));
+    if (empty($uniqueName)){
+        $mk = true;
+        $uniqueNameDir = md5(uniqid(rand(), true));
+    }
     $fileExt = "." . strtolower(substr(strrchr($fileName, '.'), 1));
-    $fileName = "../assets/ressources/upload/" . $uniqueName . $fileExt;
+    $filePath = "../assets/ressources/upload/" . $uniqueName;
+    $fileName =  $filePath . $uniqueName . $fileExt;
+    /*cree un dossier pour les image  */
     move_uploaded_file($tmpName, $fileName);
+    /*recupere la taille de l'image */
     $Newsize = getSize();
-    var_dump($Newsize);
+   
+
     $size = getimagesize($fileName);
     foreach ($Newsize as $Newsize) {
         $thumb = imagecreatetruecolor($Newsize, $Newsize);
         switch ($size['mime']) {
 
             case 'image/jpeg':
-
+                if ($mk){
+                    mkdir($filePath);
+                }
                 $source = imagecreatefromjpeg($fileName);
                 imagecopyresized($thumb, $source, 0, 0, 0, 0, $Newsize, $Newsize, $size[0], $size[1]);
-                imagejpeg($thumb, "../assets/ressources/materiel/{$Newsize}/" . $uniqueName . $fileExt);
+                imagejpeg($thumb, "../assets/ressources/materiel/{$Newsize}/" . $uniqueNameDir . "/" . $uniqueName . $fileExt);
 
                 break;
             case 'image/png':
+                if ($mk) {
+                    mkdir($filePath);
+                }
                 $source = imagecreatefromjpeg($fileName);
                 imagecopyresized($thumb, $source, 0, 0, 0, 0, $Newsize, $Newsize, $size[0], $size[1]);
-                imagepng($thumb, "../assets/ressources/{$Newsize}/" . $fileName);
+                imagepng($thumb, "../assets/ressources/materiel/{$Newsize}/" . $uniqueNameDir . "/" . $uniqueName . $fileExt);
                 break;
             default:
         }

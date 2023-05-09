@@ -9,8 +9,10 @@ $array = scandir("../public/");/*, [
     "login.php",
     "sign-in.php"
 ]);*/
+
 foreach ($array as $test) {
 ?>
+
     <a href="<?= $test ?>"><?= $test ?></a> <br>
 <?php
 } ?>
