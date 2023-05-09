@@ -41,3 +41,4 @@ function suprUnUser(string $idUser)
         "id" => $idUser
     ]);
 }
+include $path . "html/footer.php";

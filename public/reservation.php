@@ -58,4 +58,5 @@ if (!empty($_POST['reserver']) && $_POST['reserver'] == "1") {
         }*/
     }
 }
+include $path . "html/footer.php";
 ?>

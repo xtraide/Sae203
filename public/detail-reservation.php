@@ -33,5 +33,5 @@ if (isset($_GET['id'])) {
     }
 }
 
-
+include $path . "html/footer.php";
 ?>

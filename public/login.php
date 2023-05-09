@@ -48,3 +48,4 @@ if (!empty($email) && !empty($password)) {
 <?php
   }
 }
+include $path . "html/footer.php";

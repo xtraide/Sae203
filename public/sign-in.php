@@ -68,3 +68,4 @@ if (!empty($_POST['submit']) && $_POST['submit'] == "Créer son compte") {
         //header("Location: login.php");// A SU¨PRIMER
     }
 }
+include $path . "html/footer.php";
