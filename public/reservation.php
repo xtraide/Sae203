@@ -1,8 +1,7 @@
 <?php
 $path =   "../utile/";
-$css = str_replace(".php", "", basename(__FILE__));
+$css = str_replace(".php","",basename(__FILE__)); 
 include $path . "html/header.php";
-
 
 ?>
 <!--  faire un truck bot ADE ou on click-->

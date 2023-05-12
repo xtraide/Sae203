@@ -4,6 +4,7 @@ $css = str_replace(".php","",basename(__FILE__));
 include $path . "html/header.php";
 
 
+echo  "<br>";
 $result = execute("SELECT * FROM materiel");
 if ($result->rowCount() > 0) {
     while ($row = $result->fetchAll(PDO::FETCH_ASSOC)) {
