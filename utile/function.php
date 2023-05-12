@@ -1,18 +1,26 @@
 <?php
-
+/**
+ * verifie si la variable recuperer par $post est valid par raport a ce quelle est   
+ */
 
 function isValid($post, $on = true)
 {
-    if (!empty($_POST[$post])) {
-        if ($on) {
-            switch ($post) {
+    // verifie si la variable contien quelquechose 
+    if (!empty($_POST[$post])) { 
+        // on active ce if  par default mais si inutile on peut le desactiver pour gagner du temps
+        if ($on) { 
+            // on regarde le post  pour savoir ce que la variable est(nom prenon email ...)
+            switch ($post) { 
+                // si la variable est un mdp 
                 case 'mdp':
-
+                    // verifie si le mdp est = a la verification 
                     if ($_POST[$post] == $_POST['valid' . $post]) {
+                        //si oui on verifie qu'il soit plus grand que 6 character
                         if (strlen($_POST[$post]) >= 6) {
                             return corect($_POST[$post]);
                         } else {
-?>
+                            // on affiche une erreur 
+?>  
                             <script type="text/javascript">
                                 document.getElementsByClassName('er<?= $post ?>')[0].innerHTML = 'Le mot de passe doit contenir au moins 6 caractères';
                             </script>
@@ -28,15 +36,14 @@ function isValid($post, $on = true)
                     break;
 
                 case 'email':
-
+                    // si email on verif que ce soit bine un email valide
                     if (filter_var($_POST[$post], FILTER_VALIDATE_EMAIL)) {
 
                         $email = corect($_POST[$post]);
-
-                        $result = execute("SELECT * FROM `utilisateur` WHERE email =:email", [
-                            'email' => $email
-                        ]);
+                        // on verifi si l'email est deja dans la base 
+                        $result = execute("SELECT * FROM `utilisateur` WHERE email =:email", ['email' => $email]);
                         if ($result->rowCount() == 0) {
+                            // si il n'y en a pas allor on renvoi la valeur 
                             return corect($_POST[$post]);
                         } else {
                         ?>
@@ -69,15 +76,25 @@ function isValid($post, $on = true)
     <?php
     }
 }
+/**
+ * Crypte le string avec sha 256
+ */
 function crypte($text)
 {
     $hash_text = hash("sha256", $text);
     return $hash_text;
 }
+
+/**
+ * renvoie  le string protoger  pour eviter les probleme 
+ */
 function corect($input)
 {
     return htmlspecialchars(strip_tags($input));
 }
+/**
+ * renvoie  false si il ny a pas de  confit  avec les horraire renvoie true sinon 
+ */
 
 function isConflitHorraire($heure_debut_nouvelle, $heure_fin_nouvelle, $date, $materiel)
 {
@@ -95,9 +112,8 @@ function isConflitHorraire($heure_debut_nouvelle, $heure_fin_nouvelle, $date, $m
         }
     }
 
-
     /***************************
-     *  recuperation des horraire dans la bdd == reservations_bdd
+     *  recuperation des horraire dans la bdd mis dans reservations_bdd
      ***************************/
 
     $result = execute("SELECT horraire_debut,horraire_fin FROM `reservation`,`materiel` WHERE reservation.id_materiel = materiel.id AND reservation.date = :date AND materiel.id = :id_materiel ;", [
@@ -118,7 +134,7 @@ function isConflitHorraire($heure_debut_nouvelle, $heure_fin_nouvelle, $date, $m
         }
     }
     /***************************
-     *  comparaison avec les heur de la bdd 
+     *  utilise reservation_bdd pour comparer l'heur du client  avec les heur de la bdd 
      ***************************/
     if (!empty($reservations_bdd)) {
 
@@ -145,9 +161,9 @@ function isConflitHorraire($heure_debut_nouvelle, $heure_fin_nouvelle, $date, $m
     return false; //  pas de conflit
 }
 
-/***************************
+/*
  *  accepter ou refuser le statut d'une reservation par raport a son id  
- ***************************/
+ */
 function statut($post)
 {
     if (!empty($_POST[$post])) {
@@ -180,6 +196,7 @@ function isValidImage(String $img)
     $fileName = $_FILES[$img]["name"];
     $fileExt = strtolower(substr(strrchr($fileName, '.'), 1));
     $er = true;
+    //verifi si il y a une erreur dans l'image 
     if ($_FILES[$img]['error'] > 0) {
     ?>
         <script type="text/javascript">
@@ -188,15 +205,16 @@ function isValidImage(String $img)
     <?php
         $er = false;
     }
+    // verifie si l'extention est suporter 
     if (!in_array($fileExt, $validExt)) {
     ?>
         <script type="text/javascript">
-            document.getElementsByClassName('erimg')[0].innerHTML = "fichier trop gros";
+            document.getElementsByClassName('erimg')[0].innerHTML = "fichier n'a pas la bonne extention ";
         </script>
     <?php
         $er = false;
     }
-
+    // verifi   si lea taille  est valide 
     if ($fileSize > $validFileSize) {
     ?>
         <script type="text/javascript">
