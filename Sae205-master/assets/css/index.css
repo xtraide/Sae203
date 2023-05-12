@@ -1,0 +1,72 @@
+.container{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap:nowrap;
+}
+
+.images{
+    max-width: 500px;
+}
+.produit{
+    display: inline-block;
+    border: 1px solid white;
+    max-width: 520px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+p{
+    color: white;
+}
+
+.titre{
+    padding: 20px;
+    margin-left: 200px;
+    text-decoration: underline;
+    color: white;
+}
+
+.voir{
+    background-color: #525252;
+    color: white;
+    border-radius: 10px;
+    height: 30px;
+    width: 100px;
+    border: none;
+    margin-bottom: 10px;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+
+.voir:hover{
+    background-color: #1a1a1a;
+    transition: all ease 0.5s;
+}
+.mic{
+    max-width: 450px;
+}
+
+.suivant{
+
+    margin-right: 20px;
+}
+
+.prece{
+
+    margin-left: 20px;
+}
+
+.prece,.suivant{
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    background:none;
+    border: 3px solid white;
+    color: white;
+}
