@@ -1,5 +1,5 @@
 body{
-background-image: url("fond.png");
+background-image: url("../ressources/utile/fond.png");
 background-repeat: no-repeat;
 justify-content: center;
 background-color: black;
@@ -78,12 +78,6 @@ background-color: black;
 
 }
 
-#bouton:hover ~ #fleche{
-
-    color: white;
-    background-color: black;
-    
-    }
 
     a{
         text-decoration: none;

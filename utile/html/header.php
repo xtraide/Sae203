@@ -10,7 +10,6 @@
 
 <body>
 	<header>
-		<h2>CA C'EST POUR TOI MON KILLIAN </h2>
 		<?php include_once("nav.php"); ?>
 	</header>
 	<?php
@@ -27,8 +26,9 @@
 			<script>
 				alert("vous devez etre connecter pour utiliser cette page vous allez etre rediriger vers la page de connection ")
 			</script>
-
+			
 			<?php
+			die;
 		} else {
 
 			$result = execute("SELECT * FROM `utilisateur` WHERE id = :id", [
@@ -43,7 +43,7 @@
 							alert("vous devez verifier votre adresse mail  pour utiliser cette page vous allez etre rediriger vers la page de connection ")
 						</script>
 	<?php
-						die;
+						
 					} else {
 
 						$_SESSION['verified'] = 1;
