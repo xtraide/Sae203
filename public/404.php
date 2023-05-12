@@ -1,6 +1,7 @@
 <?php
-$path = "../utile/";
-include $path . "html/header.php"; ?>
+$path =   "../utile/";
+$css = str_replace(".php", "", basename(__FILE__));
+include $path . "html/header.php";?>
 <div id="suite">
     <p id="top">404</p>
     <p>Page introuvable</p>

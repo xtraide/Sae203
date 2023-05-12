@@ -1,7 +1,7 @@
 <?php
 $path =   "../utile/";
-
-
+$css = str_replace(".php", "", basename(__FILE__));
+include $path . "html/header.php";
 ?>
 <a href="login.php">Deja un compte connecter vous</a>
 <form action="<?= basename(__FILE__); ?>" method="post">

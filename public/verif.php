@@ -1,4 +1,9 @@
 <?php
+$path =   "../utile/";
+$css = str_replace(".php", "", basename(__FILE__));
+include $path . "html/header.php";
+
+
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if (!empty($_GET['id'])) {
         echo $_GET['token'] . "1<br>2" . $_COOKIE['token'];

@@ -2,6 +2,7 @@
 
 
 $path =   "../utile/";
+$css = str_replace(".php", "", basename(__FILE__));
 include $path . "html/header.php";
 
 ?>

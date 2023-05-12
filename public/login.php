@@ -1,5 +1,7 @@
 <?php
 $path = "../utile/";
+$css = str_replace(".php", "", basename(__FILE__));
+include $path . "html/header.php";
 ?>
 
 <a href="sign-in.php">Créer son compte</a>
