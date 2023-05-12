@@ -6,7 +6,7 @@ include $path . "html/header.php";
 
 ?>
 <!--  faire un truck bot ADE ou on click-->
-<form action="<?= basename(__FILE__); ?>" method="post">
+<form action="<?= basename(__FILE__) . "?id_materiel=" . $_GET['id_materiel']; ?>" method="post">
     <label for="date">Choisier votre date de reservation</label>
     <input type="date" name="date"><br>
     <div class="erdate"></div>
@@ -25,7 +25,7 @@ if (!empty($_POST['reserver']) && $_POST['reserver'] == "1") {
     $heure_debut_nouvelle = isValid('horraired');
     $heure_fin_nouvelle = isValid('horrairef');
     $date = isValid('date');
-    $materiel = corect($_POST['id_materiel']);
+    $materiel = corect($_GET['id_materiel']);
     if (!empty($date) && !empty($heure_debut_nouvelle) && !empty($heure_fin_nouvelle)) {
 
         if (!isConflitHorraire($heure_debut_nouvelle, $heure_fin_nouvelle, $date, $materiel)) {
