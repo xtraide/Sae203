@@ -1,43 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/login.css">
-    <title>index</title>
-</head>
-<body>
-
-<form action="<?= basename(__FILE__); ?>" method="post">
-<div class="gradient">
-<div class="sign-up-wraper">
-    <div id="sign" class="sign-up">
-        <h2 class="sign-up">Connexion</h2>
-        <div class="input-box">
-            <span>Email</span>
-            <img src="../assets/ressources/login_&_sign-in/mail.png" alt="Email" class="imges" width="20px" height="20px" >
-            <input type="email" class="input" placeholder="Entrer votre Email" name="email" value="<?= !empty($_POST['email']) ?  $_POST['email'] : '' ?>">
-            <div class="eremail"></div>
-        </div>
-        <div class="input-box">
-            <span>Mot de passe</span>
-            <img src="../assets/ressources/login_&_sign-in/pws.png" alt="Pasword" width="20px" height="20px" class="imges">
-            <input type="password" class="input" placeholder="Entrer votre mot de passe" name="mdp" value="<?= !empty($_POST['mdp']) ?  $_POST['mdp'] : '' ?>">
-            <div class="ermdp" class="erreur"></div>
-        </div>
-        <a class="forgot" href="#">mot de passe oublier</a>
-        <a class="forgot" href="../public/sign-in.php">Pas de compte ? Inscrivez-vous ici</a>
-        <input type="submit" class="submit" name="login " value="Connexion">
-    </div>
-</div>
-</div>
-</form>
 <?php
 $path = "../utile/";
- ?>
+?>
 
-
+<a href="sign-in.php">Créer son compte</a>
+<form action="<?= basename(__FILE__); ?>" method="post">
+  <label for="logemail">Email : </label>
+  <input type="logemail" name="logemail" id="" placeholder="exemple@gmail.com" value="<?= !empty($_POST['logemail']) ?  $_POST['logemail'] : '' ?>">
+  <div class="eremail"></div>
+  <label for="logmdp">Mot de passe : </label>
+  <input type="password" placeholder="Mot de passe de 6 caracteres" name="logmdp" value="<?= !empty($_POST['logmdp']) ?  $_POST['logmdp'] : '' ?>">
+  <div class="ermdp"></div>
+  <input type="submit" value="💩">
+  <div class="er"></div>
+</form>
 <?php
 session_start();
 include $path . "link/linkPdo.php";
@@ -73,6 +48,4 @@ if (!empty($email) && !empty($password)) {
 <?php
   }
 }
-?>
-</body>
-</html>
+include $path . "html/footer.php";
