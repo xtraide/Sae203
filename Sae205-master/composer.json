@@ -1,0 +1,30 @@
+{
+    "name": "xtraide/sae205",
+    "description": "sae 205",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Xtraide\\Sae205\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "nicolas",
+            "email": "xxtraide@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "phpmailer/phpmailer": "^6.8",
+        "setasign/fpdf": "^1.8",
+        "setasign/fpdi": "^2.3"
+
+
+    },
+    "config": {
+        "allow-plugins": {
+            "typo3/cms-composer-installers": true,
+            "typo3/class-alias-loader": false
+        }
+    }
+}
