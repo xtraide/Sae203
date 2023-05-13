@@ -2,7 +2,7 @@
 
 
 $path =   "../utile/";
-$css = str_replace(".php","",basename(__FILE__)); 
+$css = str_replace(".php", "", basename(__FILE__));
 include $path . "html/header.php";
 
 ?>
@@ -10,7 +10,6 @@ include $path . "html/header.php";
     <h3>liste des demandes de réservation</h3>
     <table style="border:solid;">
         <tr>
-            <a href=""></a>
             <th style="border:solid;">Nom . prenom</th>
             <td style="border:solid;">Date </td>
             <td style="border:solid;">heur debut heur fin </td>

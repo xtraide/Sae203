@@ -1,6 +1,6 @@
 <?php
 $path =   "../utile/";
-$css = str_replace(".php","",basename(__FILE__)); 
+$css = str_replace(".php", "", basename(__FILE__));
 include $path . "html/header.php";
 
 ?>
@@ -43,20 +43,6 @@ if (!empty($_POST['reserver']) && $_POST['reserver'] == "1") {
 
             echo 'Il y a un conflit avec une réservation existante';
         }
-        // requete pour les heure des matos sur le jour SELECT horraire_debut,horraire_fin FROM `panier`,`reservation`,`materiel` WHERE panier.id_reservation = reservation.id and panier.id_materiel = materiel.id and date =date and materiel.id = "4";
-
-        /*execute("INSERT INTO `reservation`(`horraire_debut`, `horraire_fin`, `date`) VALUES (:horraired,:horrairef,:date)", [
-            'horraired' => $horraired,
-            'horrairef' => $horrairef,
-            'date' => $date
-        ]);
-
-        foreach ($_SESSION['panier'] as $idmat) {
-            execute("INSERT INTO `panier`(`id_reservation`, `id_utilisateur`, `id_materiel`) VALUES ((SELECT MAX(id) FROM `reservation`),:id_utilisateur,:id_materiel)", [
-                "id_utilisateur" => $user,
-                "id_materiel" => $idmat
-            ]);
-        }*/
     }
 }
 include $path . "html/footer.php";

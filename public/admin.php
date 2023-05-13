@@ -1,6 +1,6 @@
 <?php
 $path =   "../utile/";
-$css = str_replace(".php","",basename(__FILE__)); 
+$css = str_replace(".php", "", basename(__FILE__));
 include $path . "html/header.php";
 
 
@@ -48,7 +48,7 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
         $nom = isValid('nom');
         $type = isValid('type');
         $ref = isValid('ref');
-        $desc = isValid('desc');
+        $desc = isValid('desc', false);
         /* recupere tout les image */
 
         if (!empty($nom) && !empty($type) && !empty($ref) && !empty($desc) && !empty($img)) {
@@ -124,7 +124,6 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
     </div>
 <?php
 } else {
-    echo "gg";
     header("Location: login.php");
 }
 include $path . "html/footer.php";
