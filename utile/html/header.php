@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="../assets/css/all.css">
 	<link rel="stylesheet" type="text/css" href="../assets/css/nav.css">
 	<link rel="stylesheet" type="text/css" href="../assets/css/<?= $css ?>.css">
-	<link rel="stylesheet" type="text/css" href="../assets/css/all.css">
+
 	<title>SAE 203</title>
 </head>
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,13 +8,15 @@
     <link rel="stylesheet" href="">
     <title>Document</title>
 </head>
+
 <body>
-    
+
 </body>
+
 </html>
 <?php
 $path =   "../utile/";
-$css = str_replace(".php","",basename(__FILE__)); 
+$css = str_replace(".php", "", basename(__FILE__));
 include $path . "html/header.php";
 
 
@@ -22,24 +25,24 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
      * Ajouter un materiel 
      */
 ?>
-     <div class="container">
+    <div class="container">
         <div>
-        <label for="ajout" class="label">Ajouter un materiel</label>
-        <form action="admin.php" method="post">
+            <label for="ajout" class="label">Ajouter un materiel</label>
+            <form action="admin.php" method="post">
         </div>
-            <div>
+        <div>
             <label for="Nom" class="label">Nom : </label>
         </div>
         <div>
             <input type="text" placeholder="Nom" class="input" name="nom" value="<?= !empty($_POST['nom']) ?  $_POST['nom'] : '' ?>">
         </div>
-            <div class="ernom"></div>
+        <div class="ernom"></div>
 
 
-            <div>
-            <label for="type"class="label">Type :         </label>
-            </div>
-            <div>
+        <div>
+            <label for="type" class="label">Type : </label>
+        </div>
+        <div>
             <select class="input" placeholder="Type de materiel" class="input" name="type" value="<?= !empty($_POST['nom']) ?  $_POST['nom'] : '' ?>">
                 <option value="invalid">--Please choose an option--</option>
                 <option value="cam" class="option">Caméra</option>
@@ -47,25 +50,25 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
                 <option value="pied" class="option">Tripied</option>
                 <option value="vert" class="option">Fond vert</option>
             </select>
-            </div>
-            <div class="ertype"></div>
+        </div>
+        <div class="ertype"></div>
 
-            <div>
+        <div>
             <label for="type" class="label">Référence : </label>
-            </div>
-            <div>
+        </div>
+        <div>
             <input type="text" placeholder="Référence :" class="input" name="ref" value="<?= !empty($_POST['ref']) ?  $_POST['ref'] : '' ?>">
         </div>
-            <div class="erref"></div>
+        <div class="erref"></div>
 
-            <div>
+        <div>
             <label for="type" class="label">Description (Zone de texte) </label>
         </div>
-    <div>
+        <div>
             <input type="text" placeholder="blablabla" name="desc" class="input" value="<?= !empty($_POST['desc']) ?  $_POST['desc'] : '' ?>">
             <div class="erdesc"></div>
         </div>
-            <button  name="Ajouter" value="1" class="submit">Ajouter un materiel</button>
+        <button name="Ajouter" value="1" class="submit">Ajouter un materiel</button>
         </form>
     </div>
     <br>
@@ -118,7 +121,7 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
                 <td class="td">Statut de la demande</td>
             </tr>
 
-           
+
 
 
             <?php $result = execute(" SELECT utilisateur.nom AS usernom, utilisateur.prenom AS userprenom,  reservation.id as resid ,reservation.horraire_debut,reservation.horraire_fin, reservation.date, reservation.statut, materiel.type, materiel.nom AS materielnom FROM `reservation`, `materiel`, `utilisateur` WHERE reservation.id_utilisateur = utilisateur.id AND reservation.id_materiel = materiel.id;");
