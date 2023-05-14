@@ -1,19 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="">
-    <title>Document</title>
-</head>
-
-<body>
-
-</body>
-
-</html>
 <?php
 $path =   "../utile/";
 $css = str_replace(".php", "", basename(__FILE__));
@@ -106,7 +90,6 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
             echo "l'ajout a bien ete fait";
         }
     }
-
     /**
      * liste des demandes de réservation
      */
@@ -120,9 +103,6 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
                 <td class="td">Type . nom du materiel</td>
                 <td class="td">Statut de la demande</td>
             </tr>
-
-
-
 
             <?php $result = execute(" SELECT utilisateur.nom AS usernom, utilisateur.prenom AS userprenom,  reservation.id as resid ,reservation.horraire_debut,reservation.horraire_fin, reservation.date, reservation.statut, materiel.type, materiel.nom AS materielnom FROM `reservation`, `materiel`, `utilisateur` WHERE reservation.id_utilisateur = utilisateur.id AND reservation.id_materiel = materiel.id;");
             if ($result->rowCount() > 0) {

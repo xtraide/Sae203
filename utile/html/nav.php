@@ -10,18 +10,13 @@
             <li><a href="">A PROPOS DE NOUS</a></li>
         </ul>
 
-
-
         <img src="../assets/ressources/utile/navimg/pp.png" alt="photo utilisateur" class="user-pic" onclick="toggleMenu()">
-
 
         <div class="sub-menu-wrap" id="submenu">
             <div class="sub-menu">
                 <div class="user-info">
                     <img src="../assets/ressources/utile/navimg/pp.jpg" alt="">
                 </div>
-
-                <hr>
 
                 <a href="" class="sub-menu-link">
                     <img src="../assets/ressources/utile/navimg/logo_pp.png" alt="">
@@ -42,7 +37,6 @@
         </div>
     </nav>
 </div>
-
 
 <?php
 $array = scandir("../public/");/*, [

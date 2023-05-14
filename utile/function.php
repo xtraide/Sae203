@@ -219,7 +219,7 @@ function getImage($file, $uniqueNameDir = '')
     $fileName = $file['img']["name"];
     $tmpName = $file['img']['tmp_name'];
     $uniqueName = md5(uniqid(rand(), true));
-    if (empty($uniqueName)){
+    if (empty($uniqueName)) {
         $mk = true;
         $uniqueNameDir = md5(uniqid(rand(), true));
     }
@@ -230,7 +230,7 @@ function getImage($file, $uniqueNameDir = '')
     move_uploaded_file($tmpName, $fileName);
     /*recupere la taille de l'image */
     $Newsize = getSize();
-   
+
 
     $size = getimagesize($fileName);
     foreach ($Newsize as $Newsize) {
@@ -238,7 +238,7 @@ function getImage($file, $uniqueNameDir = '')
         switch ($size['mime']) {
 
             case 'image/jpeg':
-                if ($mk){
+                if ($mk) {
                     mkdir($filePath);
                 }
                 $source = imagecreatefromjpeg($fileName);

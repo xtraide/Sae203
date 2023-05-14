@@ -1,5 +1,5 @@
 <?php
-$css = str_replace(".php","",basename(__FILE__)); 
+$css = str_replace(".php", "", basename(__FILE__));
 $path = "../utile/";
 ?>
 
