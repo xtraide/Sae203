@@ -1,10 +1,12 @@
+body{
+    background-image: url("../ressources/utile/fond.png"); 
+    background-repeat: no-repeat;
+    justify-content: center;
+    background-color: black;
+    
+    
+    }
 
-.hero{
-    width: 100%;
-    min-height: 100hv;
-    background: #eceaff;
-
-}
 
 nav{
 
@@ -42,7 +44,7 @@ nav ul li{
 
 nav ul li a {
     text-decoration: none;
-    color: #ffff;
+    color: black;
 }
 
 .sub-menu-wrap{
@@ -147,8 +149,12 @@ nav ul li a {
     border-radius: 6px;
 }
 
-
-html, body{
+.navtexte {
     font-size: 18px;
     font-family: sans-serif;
+    color: black!important; 
+
 }
+
+
+
