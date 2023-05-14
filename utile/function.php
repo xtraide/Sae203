@@ -232,7 +232,6 @@ function getImage($file, $uniqueNameDir = '')
     /*recupere la taille de l'image */
     $Newsize = getSize();
 
-
     $size = getimagesize($fileName);
     foreach ($Newsize as $Newsize) {
         $thumb = imagecreatetruecolor($Newsize, $Newsize);

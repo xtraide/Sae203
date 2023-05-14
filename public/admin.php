@@ -23,7 +23,6 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
             </div>
             <div class="ernom"></div>
 
-
             <div>
                 <label for="type" class="label">Type : </label>
             </div>
