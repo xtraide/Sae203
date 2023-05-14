@@ -3,6 +3,7 @@ body{
     background-repeat: no-repeat;
     justify-content: center;
     background-color: black;
+    background-size: cover;
     
     
     }
@@ -44,7 +45,7 @@ nav ul li{
 
 nav ul li a {
     text-decoration: none;
-    color: black;
+    color: #ffff;
 }
 
 .sub-menu-wrap{
@@ -152,7 +153,7 @@ nav ul li a {
 .navtexte {
     font-size: 18px;
     font-family: sans-serif;
-    color: black!important; 
+    color: white;
 
 }
 
