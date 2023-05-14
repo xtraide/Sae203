@@ -216,9 +216,10 @@ function isValidImage(String $img)
 function getImage($file, $uniqueNameDir = '')
 {
     /*Atribution de toute les variable */
-    $fileName = $file['img']["name"];
-    $tmpName = $file['img']['tmp_name'];
+    $fileName = $file["name"];
+    $tmpName = $file['tmp_name'];
     $uniqueName = md5(uniqid(rand(), true));
+    $mk = false;
     if (empty($uniqueName)) {
         $mk = true;
         $uniqueNameDir = md5(uniqid(rand(), true));
@@ -244,6 +245,7 @@ function getImage($file, $uniqueNameDir = '')
                 $source = imagecreatefromjpeg($fileName);
                 imagecopyresized($thumb, $source, 0, 0, 0, 0, $Newsize, $Newsize, $size[0], $size[1]);
                 imagejpeg($thumb, "../assets/ressources/materiel/{$Newsize}/" . $uniqueNameDir . "/" . $uniqueName . $fileExt);
+                echo "../assets/ressources/materiel/{$Newsize}/" . $uniqueNameDir . "/" . $uniqueName . $fileExt;
 
                 break;
             case 'image/png':

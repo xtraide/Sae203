@@ -10,57 +10,72 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
      */
 ?>
     <div class="container">
-        <div>
-            <label for="ajout" class="label">Ajouter un materiel</label>
-            <form action="admin.php" method="post">
-        </div>
-        <div>
-            <label for="Nom" class="label">Nom : </label>
-        </div>
-        <div>
-            <input type="text" placeholder="Nom" class="input" name="nom" value="<?= !empty($_POST['nom']) ?  $_POST['nom'] : '' ?>">
-        </div>
-        <div class="ernom"></div>
+        <form action="<?= basename(__FILE__); ?>" method="post" enctype="multipart/form-data">
+            <div>
+                <label for="ajout" class="label">Ajouter un materiel</label>
+
+            </div>
+            <div>
+                <label for="Nom" class="label">Nom : </label>
+            </div>
+            <div>
+                <input type="text" placeholder="Nom" class="input" name="nom" value="<?= !empty($_POST['nom']) ?  $_POST['nom'] : '' ?>">
+            </div>
+            <div class="ernom"></div>
 
 
-        <div>
-            <label for="type" class="label">Type : </label>
-        </div>
-        <div>
-            <select class="input" placeholder="Type de materiel" class="input" name="type" value="<?= !empty($_POST['nom']) ?  $_POST['nom'] : '' ?>">
-                <option value="invalid">--Please choose an option--</option>
-                <option value="cam" class="option">Caméra</option>
-                <option value="mic" class="option">Micro</option>
-                <option value="pied" class="option">Tripied</option>
-                <option value="vert" class="option">Fond vert</option>
-            </select>
-        </div>
-        <div class="ertype"></div>
+            <div>
+                <label for="type" class="label">Type : </label>
+            </div>
+            <div>
+                <select class="input" placeholder="Type de materiel" class="input" name="type" value="<?= !empty($_POST['nom']) ?  $_POST['nom'] : '' ?>">
+                    <option value="invalid">--Please choose an option--</option>
+                    <option value="cam" class="option">Caméra</option>
+                    <option value="mic" class="option">Micro</option>
+                    <option value="pied" class="option">Tripied</option>
+                    <option value="vert" class="option">Fond vert</option>
+                </select>
+            </div>
+            <div class="ertype"></div>
 
-        <div>
-            <label for="type" class="label">Référence : </label>
-        </div>
-        <div>
-            <input type="text" placeholder="Référence :" class="input" name="ref" value="<?= !empty($_POST['ref']) ?  $_POST['ref'] : '' ?>">
-        </div>
-        <div class="erref"></div>
+            <div>
+                <label for="type" class="label">Référence : </label>
+            </div>
+            <div>
+                <input type="text" placeholder="Référence :" class="input" name="ref" value="<?= !empty($_POST['ref']) ?  $_POST['ref'] : '' ?>">
+            </div>
+            <div class="erref"></div>
 
-        <div>
-            <label for="type" class="label">Description (Zone de texte) </label>
-        </div>
-        <div>
-            <input type="text" placeholder="blablabla" name="desc" class="input" value="<?= !empty($_POST['desc']) ?  $_POST['desc'] : '' ?>">
-            <div class="erdesc"></div>
-        </div>
-        <button name="Ajouter" value="1" class="submit">Ajouter un materiel</button>
+            <div>
+                <label for="type" class="label">Description (Zone de texte) </label>
+            </div>
+            <div>
+                <input type="text" placeholder="blablabla" name="desc" class="input" value="<?= !empty($_POST['desc']) ?  $_POST['desc'] : '' ?>">
+                <div class="erdesc"></div>
+            </div>
+            <label for="image">Ajouter une image</label>
+            <input type="file" placeholder="choisir une image" name="img" value="">
+            <label for="image">Ajouter une image 2</label>
+            <input type="file" placeholder="choisir une image" name="img2" value="">
+            <label for="image">Ajouter une image 3</label>
+            <input type="file" placeholder="choisir une image" name="img3" value="">
+            <label for="image">Ajouter une image 4</label>
+            <input type="file" placeholder="choisir une image" name="img4" value="">
+            <label for="image">Ajouter une image 5</label>
+            <input type="file" placeholder="choisir une image" name="img5" value="">
+            <div class="erimg"></div>
+            <button name="Ajouter" value="1" class="submit">Ajouter un materiel</button>
 
         </form>
     </div>
+
     <br>
     <?php
 
     if (!empty($_POST['Ajouter'])) {
+
         $img = isValidImage('img');
+        var_dump($img);
         $nom = isValid('nom');
         $type = isValid('type');
         $ref = isValid('ref');
