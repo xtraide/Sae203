@@ -4,6 +4,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../assets/css/all.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/nav.css">
 	<link rel="stylesheet" type="text/css" href="../assets/css/<?= $css ?>.css">
 	<link rel="stylesheet" type="text/css" href="../assets/css/all.css">
 	<title>SAE 203</title>
@@ -27,7 +29,7 @@
 			<script>
 				alert("vous devez etre connecter pour utiliser cette page vous allez etre rediriger vers la page de connection ")
 			</script>
-			
+
 			<?php
 			die;
 		} else {
@@ -44,7 +46,7 @@
 							alert("vous devez verifier votre adresse mail  pour utiliser cette page vous allez etre rediriger vers la page de connection ")
 						</script>
 	<?php
-						
+
 					} else {
 
 						$_SESSION['verified'] = 1;

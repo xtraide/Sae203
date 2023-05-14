@@ -2,7 +2,7 @@
 
 
 $path =   "../utile/";
-$css = str_replace(".php","",basename(__FILE__)); 
+$css = str_replace(".php", "", basename(__FILE__));
 include $path . "html/header.php";
 
 ?>
@@ -10,9 +10,9 @@ include $path . "html/header.php";
     <h3>liste des demandes de réservation</h3>
     <table style="border:solid;">
         <tr>
-            <a href=""></a>
             <th style="border:solid;">Nom . prenom</th>
-            <td style="border:solid;">Date de debut . Date de fin de pret</td>
+            <td style="border:solid;">Date </td>
+            <td style="border:solid;">heur debut heur fin </td>
             <td style="border:solid;">Type . nom du materiel</td>
             <td style="border:solid;">Statut de la demande</td>
         </tr>
@@ -48,7 +48,8 @@ include $path . "html/header.php";
                     echo "
                         <tr>
                             <td>" . $row['usernom'] . " . " . $row['userprenom'] . "</td>
-                            <td>" . $row['date'] . " . " . "</td>
+                            <td>" . $row['date'] . "</td>
+                            <td>" . $row['horraire_debut'] . " . " . $row['horraire_fin'] . "</td>
                             <td>" . $row['type'] . " . " . $row['materielnom'] . "</td>
                             <td>" . $statut . "<td>
                             <a href='detail-reservation.php?id={$row["resid"]}'>eeee</a>

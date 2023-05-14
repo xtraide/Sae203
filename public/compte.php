@@ -1,5 +1,5 @@
 <?php $path =   "../utile/";
-$css = str_replace(".php","",basename(__FILE__)); 
+$css = str_replace(".php", "", basename(__FILE__));
 include $path . "html/header.php"; ?>
 
 <div class="compteInfo">
@@ -33,7 +33,6 @@ include $path . "html/header.php"; ?>
         ?>
     </table>
 </div>
-
 
 <button onclick="<?php suprUnUser($_COOKIE['id']); ?>">Suprimer votre compte</button>
 <?php

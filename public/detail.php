@@ -1,6 +1,6 @@
 <?php
 $path =   "../utile/";
-$css = str_replace(".php","",basename(__FILE__)); 
+$css = str_replace(".php", "", basename(__FILE__));
 include $path . "html/header.php";
 
 if (isset($_GET['id'])) {
@@ -18,10 +18,10 @@ if (isset($_GET['id'])) {
 
                         <img src="../assets/ressources/materiel/400/<?= $row['img'] ?>" alt=" image du materiel">
                         <p class="sId">id : <?= $row['id']; ?></p>
-                        <p class="sNom">nom : <?= $row['nom']; ?> <input type="text" name="monom" class="monom none"></p>
-                        <p class="sType">Type : <?= $row['type']; ?> <input type="text" name="motype" class="motype none"></p>
-                        <p class="sRef">Refference : <?= $row['reference']; ?> <input type="text" name="moref" class="moref none"></p>
-                        <p class="sDesc">description : <?= $row['description']; ?> <input type="text" name="modesc" class="modesc none"></p>
+                        <p class="sNom">nom : <?= $row['nom']; ?><input type="text" name="monom" class="monom none"></p>
+                        <p class="sType">Type : <?= $row['type']; ?><input type="text" name="motype" class="motype none"></p>
+                        <p class="sRef">Refference : <?= $row['reference']; ?><input type="text" name="moref" class="moref none"></p>
+                        <p class="sDesc">description : <?= $row['description']; ?><input type="text" name="modesc" class="modesc none"></p>
                     </div>
 
                     <?php
@@ -56,8 +56,8 @@ if (isset($_GET['id'])) {
                     }
                     ?>
                 </form>
-                <form action="reservation.php" method="post">
-                    <button name="id" value="<?= $row['id']; ?>">Reserver</button>
+                <form action="reservation.php" method="GET">
+                    <button name="id_materiel" value="<?= $row['id']; ?>">Reserver</button>
                 </form>
 <?php
             }
