@@ -1,6 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
 <?php
 $path =   "../utile/";
-$css = str_replace(".php", "", basename(__FILE__));
+$css = str_replace(".php","",basename(__FILE__)); 
 include $path . "html/header.php";
 
 
@@ -9,35 +22,50 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
      * Ajouter un materiel 
      */
 ?>
-    <div>
-        <label for="ajout">
-            <h2>Ajouter un materiel</h2>
-        </label>
-        <form action="<?= basename(__FILE__); ?>" method="post" enctype="multipart/form-data">
-            <label for="Nom">Nom : </label>
-            <input type="text" placeholder="Nom" name="nom" value="<?= !empty($_POST['nom']) ?  $_POST['nom'] : '' ?>">
+     <div class="container">
+        <div>
+        <label for="ajout" class="label">Ajouter un materiel</label>
+        <form action="admin.php" method="post">
+        </div>
+            <div>
+            <label for="Nom" class="label">Nom : </label>
+        </div>
+        <div>
+            <input type="text" placeholder="Nom" class="input" name="nom" value="<?= !empty($_POST['nom']) ?  $_POST['nom'] : '' ?>">
+        </div>
             <div class="ernom"></div>
-            <label for="type">Type : • Type (Liste déroulante)</label>
-            <input type="text" placeholder="Type de materiel" name="type" value="<?= !empty($_POST['type']) ?  $_POST['type'] : '' ?>">
+
+
+            <div>
+            <label for="type"class="label">Type :         </label>
+            </div>
+            <div>
+            <select class="input" placeholder="Type de materiel" class="input" name="type" value="<?= !empty($_POST['nom']) ?  $_POST['nom'] : '' ?>">
+                <option value="invalid">--Please choose an option--</option>
+                <option value="cam" class="option">Caméra</option>
+                <option value="mic" class="option">Micro</option>
+                <option value="pied" class="option">Tripied</option>
+                <option value="vert" class="option">Fond vert</option>
+            </select>
+            </div>
             <div class="ertype"></div>
-            <label for="type">Référence : </label>
-            <input type="text" placeholder="Référence :" name="ref" value="<?= !empty($_POST['ref']) ?  $_POST['ref'] : '' ?>">
+
+            <div>
+            <label for="type" class="label">Référence : </label>
+            </div>
+            <div>
+            <input type="text" placeholder="Référence :" class="input" name="ref" value="<?= !empty($_POST['ref']) ?  $_POST['ref'] : '' ?>">
+        </div>
             <div class="erref"></div>
-            <label for="type">Description (Zone de texte) </label>
-            <input type="text" placeholder="blablabla" name="desc" value="<?= !empty($_POST['desc']) ?  $_POST['desc'] : '' ?>">
+
+            <div>
+            <label for="type" class="label">Description (Zone de texte) </label>
+        </div>
+    <div>
+            <input type="text" placeholder="blablabla" name="desc" class="input" value="<?= !empty($_POST['desc']) ?  $_POST['desc'] : '' ?>">
             <div class="erdesc"></div>
-            <label for="image">Ajouter une image</label>
-            <input type="file" placeholder="choisir une image" name="img" value="">
-            <label for="image">Ajouter une image 2</label>
-            <input type="file" placeholder="choisir une image" name="img2" value="">
-            <label for="image">Ajouter une image 3</label>
-            <input type="file" placeholder="choisir une image" name="img3" value="">
-            <label for="image">Ajouter une image 4</label>
-            <input type="file" placeholder="choisir une image" name="img4" value="">
-            <label for="image">Ajouter une image 5</label>
-            <input type="file" placeholder="choisir une image" name="img5" value="">
-            <div class="erimg"></div>
-            <button type="submit" name="Ajouter" value="1">Ajouter un materiel</button>
+        </div>
+            <button  name="Ajouter" value="1" class="submit">Ajouter un materiel</button>
         </form>
     </div>
     <br>
@@ -48,7 +76,7 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
         $nom = isValid('nom');
         $type = isValid('type');
         $ref = isValid('ref');
-        $desc = isValid('desc', false);
+        $desc = isValid('desc');
         /* recupere tout les image */
 
         if (!empty($nom) && !empty($type) && !empty($ref) && !empty($desc) && !empty($img)) {
@@ -80,15 +108,18 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
      * liste des demandes de réservation
      */
     ?>
-    <div>
-        <h2>Liste des demandes de réservation</h2>
-        <table style="border:solid;">
-            <tr>
+    <div class="tableau">
+        <h3>liste des demandes de réservation</h3>
+        <table>
+            <tr class="tr">
                 <th>Nom . prenom</th>
-                <td>Date de debut . Date de fin de pret</td>
-                <td>Type . nom du materiel</td>
-                <td>Statut de la demande</td>
+                <td class="td">Date de debut . Date de fin de pret</td>
+                <td class="td">Type . nom du materiel</td>
+                <td class="td">Statut de la demande</td>
             </tr>
+
+           
+
 
             <?php $result = execute(" SELECT utilisateur.nom AS usernom, utilisateur.prenom AS userprenom,  reservation.id as resid ,reservation.horraire_debut,reservation.horraire_fin, reservation.date, reservation.statut, materiel.type, materiel.nom AS materielnom FROM `reservation`, `materiel`, `utilisateur` WHERE reservation.id_utilisateur = utilisateur.id AND reservation.id_materiel = materiel.id;");
             if ($result->rowCount() > 0) {
@@ -110,7 +141,7 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
                                 </form>";
                     }
                     echo "
-                        <tr>
+                        <tr class=tr>
                             <td>" . $row['usernom'] . " . " . $row['userprenom'] . "</td>
                             <td>" . $row['date'] . " . " . "</td>
                             <td>" . $row['type'] . " . " . $row['materielnom'] . "</td>
@@ -124,6 +155,8 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
     </div>
 <?php
 } else {
+    echo "gg";
     header("Location: login.php");
 }
 include $path . "html/footer.php";
+//ajt 2bouton pour refu ou accepter
