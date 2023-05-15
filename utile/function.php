@@ -213,7 +213,7 @@ function isValidImage(String $img)
 /**
  * recuperer les image 
  */
-function getImage($file, $uniqueNameDir = '')
+function getImage($file, $uniqueNameDir = '', $isImgHead = false)
 {
 
     /*Atribution de toute les variable */
@@ -263,7 +263,10 @@ function getImage($file, $uniqueNameDir = '')
             }
         }
     }
-    return   $uniqueNameDir;
+    if ($isImgHead) {
+        return [$uniqueNameDir, $uniqueName . $fileExt];
+    }
+    return $uniqueNameDir;
 }
 function getSize()
 {

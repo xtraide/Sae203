@@ -52,7 +52,7 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
                 <input type="text" placeholder="blablabla" name="desc" class="input" value="<?= !empty($_POST['desc']) ?  $_POST['desc'] : '' ?>">
                 <div class="erdesc"></div>
             </div>
-            <label for="image">Ajouter une image</label>
+            <label for="image">Ajouter une principale(Image aficher dans l'a liste de materiel)</label>
             <input type="file" placeholder="choisir une image" name="img">
             <label for="image">Ajouter une image 2</label>
             <input type="file" placeholder="choisir une image" name="img2">
@@ -81,25 +81,26 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
         /* recupere tout les image */
 
         if (!empty($nom) && !empty($type) && !empty($ref) && !empty($desc) && !empty($img)) {
-            $img = getImage($_FILES['img']);
+            $img = getImage($_FILES['img'], '', true);
             if (!empty($_FILES['img2'])) {
-                getImage($_FILES['img2'], $img);
+                getImage($_FILES['img2'], $img[0]);
             }
             if (!empty($_FILES['img3'])) {
-                getImage($_FILES['img3'], $img);
+                getImage($_FILES['img3'], $img[0]);
             }
             if (!empty($_FILES['img4'])) {
-                getImage($_FILES['img4'], $img);
+                getImage($_FILES['img4'], $img[0]);
             }
             if (!empty($_FILES['img5'])) {
-                getImage($_FILES['img5'], $img);
+                getImage($_FILES['img5'], $img[0]);
             }
-            execute("INSERT INTO `materiel`( `nom`, `type`, `reference`, `description`,`img`) VALUES (:nom,:type,:ref,:desc,:img);", [
+            execute("INSERT INTO `materiel`( `nom`, `type`, `reference`, `description`,`img`,`imghead`) VALUES (:nom,:type,:ref,:desc,:img,:imghead);", [
                 'nom' => $nom,
                 'type' => $type,
                 'ref' => $ref,
                 'desc' => $desc,
-                'img' => $img
+                'img' => $img[0],
+                'imghead' => $img[1]
             ]);
         }
     }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 09 mai 2023 à 10:34
+-- Généré le : lun. 15 mai 2023 à 20:42
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -35,22 +35,17 @@ CREATE TABLE IF NOT EXISTS `materiel` (
   `reference` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `img` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `imghead` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=164 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `materiel`
 --
 
-INSERT INTO `materiel` (`id`, `nom`, `type`, `reference`, `description`, `img`) VALUES
-(1, 'camera', 'cameraa', 'camera', 'balbla', '1'),
-(2, 'x1', 'camera', 'ref1', 'description', '2'),
-(3, 'x2', 'camera', 'ref2', 'description', '3'),
-(4, 'x3', 'camera', 'ref3', 'description', '5'),
-(5, 'x4', 'camera', 'ref4', 'description', '4'),
-(6, 'x5', 'camera', 'ref5', 'description', '6'),
-(74, 'testimg', 'testimg', 'testimg', 'testimg', 'f953453fe3a90b7584e85a12cb459456.jpg'),
-(75, 'camera', 'testimg', 'testimg', 'testimg', 'e7045dc77316021223dcdb6714d721d9.jpg');
+INSERT INTO `materiel` (`id`, `nom`, `type`, `reference`, `description`, `img`, `imghead`) VALUES
+(162, 'thieblemont', 'pied', 'testimg', 'testimg', 'aac3c4688d9316481ca51aba3a61c201', '60cccdbfce819e917d28ebdf0f48d5b6.jpg'),
+(163, 'thieblemont', 'pied', 'testimg', 'testimg', '5d459bbceb693327e905fbb01f990bf5', 'dea4d13ae5f2b7423458aa5b3eaa8d41.jpg');
 
 -- --------------------------------------------------------
 
@@ -97,14 +92,16 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   PRIMARY KEY (`id`),
   KEY `reservation_utilisateur_FK` (`id_utilisateur`),
   KEY `reservation_materiel_AK` (`id_materiel`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `reservation`
 --
 
 INSERT INTO `reservation` (`id`, `date`, `horraire_debut`, `horraire_fin`, `statut`, `id_utilisateur`, `id_materiel`) VALUES
-(32, '2023-05-25', '10:00:00', '18:00:00', 'accepter', 1, 6);
+(32, '2023-05-25', '10:00:00', '18:00:00', 'accepter', 1, 6),
+(33, '2023-05-23', '15:00:00', '18:00:00', 'accepter', 1, 1),
+(34, '2020-01-18', '14:00:00', '18:00:00', 'en attente', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -123,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `role` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `verified` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `utilisateur`
@@ -131,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 
 INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `date`, `email`, `mdp`, `role`, `verified`) VALUES
 (1, 'the', 'admin', '2023-04-12', 'admin@gmail.com', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'admin', 1),
-(17, 'thieblemont', 'nicolas', '2023-05-04', 'thieblemontnicolas@gmail.com', '61a986a5d79097918a51b692781788cd94384a3486f5f61285ab78ecc9f3be2b', 'utilisateur', 1);
+(18, 'thieblemont', 'nicolas', '2023-05-23', 'thieblemontnicolas@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'utilisateur', 1);
 
 --
 -- Contraintes pour les tables déchargées

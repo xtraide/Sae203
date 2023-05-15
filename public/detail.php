@@ -15,8 +15,13 @@ if (isset($_GET['id'])) {
 ?>
                 <form action="<?= basename(__FILE__) . "?id=" . $id ?>" method="post">
                     <div class="itemcard">
+                        <?php
+                        $img = array_diff(scandir("../assets/ressources/materiel/400/" . $row['img']), [".", ".."]);
+                        foreach ($img as $img) {
+                        ?>
+                            <img src="../assets/ressources/materiel/400/<?= $row['img'] ?>/<?= $img ?>" alt=" image du materiel">
+                        <?php } ?>
 
-                        <img src="../assets/ressources/materiel/400/<?= $row['img'] ?>" alt=" image du materiel">
                         <p class="sId">id : <?= $row['id']; ?></p>
                         <p class="sNom">nom : <?= $row['nom']; ?><input type="text" name="monom" class="monom none"></p>
                         <p class="sType">Type : <?= $row['type']; ?><input type="text" name="motype" class="motype none"></p>
