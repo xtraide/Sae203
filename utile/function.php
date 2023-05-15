@@ -215,50 +215,55 @@ function isValidImage(String $img)
  */
 function getImage($file, $uniqueNameDir = '')
 {
+
     /*Atribution de toute les variable */
     $fileName = $file["name"];
     $tmpName = $file['tmp_name'];
     $uniqueName = md5(uniqid(rand(), true));
     $mk = false;
-    if (empty($uniqueName)) {
-        $mk = true;
-        $uniqueNameDir = md5(uniqid(rand(), true));
-    }
-    $fileExt = "." . strtolower(substr(strrchr($fileName, '.'), 1));
-    $filePath = "../assets/ressources/upload/" . $uniqueName;
-    $fileName =  $filePath . $uniqueName . $fileExt;
-    /*cree un dossier pour les image  */
-    move_uploaded_file($tmpName, $fileName);
-    /*recupere la taille de l'image */
-    $Newsize = getSize();
+    if (!empty(strtolower(substr(strrchr($fileName, '.'), 1)))) {
+        $fileExt = "." . strtolower(substr(strrchr($fileName, '.'), 1));
+        $filePath = "../assets/ressources/upload/" . $uniqueName;
+        $fileName =  $filePath . $uniqueName . $fileExt;
 
-    $size = getimagesize($fileName);
-    foreach ($Newsize as $Newsize) {
-        $thumb = imagecreatetruecolor($Newsize, $Newsize);
-        switch ($size['mime']) {
+        /*cree un dossier pour les image  */
+        move_uploaded_file($tmpName, $fileName);
+        /*recupere la taille de l'image */
+        $Newsize = getSize();
 
-            case 'image/jpeg':
-                if ($mk) {
-                    mkdir($filePath);
-                }
-                $source = imagecreatefromjpeg($fileName);
-                imagecopyresized($thumb, $source, 0, 0, 0, 0, $Newsize, $Newsize, $size[0], $size[1]);
-                imagejpeg($thumb, "../assets/ressources/materiel/{$Newsize}/" . $uniqueNameDir . "/" . $uniqueName . $fileExt);
-                echo "../assets/ressources/materiel/{$Newsize}/" . $uniqueNameDir . "/" . $uniqueName . $fileExt;
+        $size = getimagesize($fileName);
 
-                break;
-            case 'image/png':
-                if ($mk) {
-                    mkdir($filePath);
-                }
-                $source = imagecreatefromjpeg($fileName);
-                imagecopyresized($thumb, $source, 0, 0, 0, 0, $Newsize, $Newsize, $size[0], $size[1]);
-                imagepng($thumb, "../assets/ressources/materiel/{$Newsize}/" . $uniqueNameDir . "/" . $uniqueName . $fileExt);
-                break;
-            default:
+        if (empty($uniqueNameDir)) {
+            $mk = true;
+            $uniqueNameDir = md5(uniqid(rand(), true));
+        }
+
+        foreach ($Newsize as $Newsize) {
+            $thumb = imagecreatetruecolor($Newsize, $Newsize);
+            switch ($size['mime']) {
+
+                case 'image/jpeg':
+                    if ($mk) {
+                        mkdir("../assets/ressources/materiel/{$Newsize}/" . $uniqueNameDir . "/",);
+                    }
+                    $source = imagecreatefromjpeg($fileName);
+                    imagecopyresized($thumb, $source, 0, 0, 0, 0, $Newsize, $Newsize, $size[0], $size[1]);
+                    imagejpeg($thumb, "../assets/ressources/materiel/{$Newsize}/" . $uniqueNameDir . "/" . $uniqueName . $fileExt);
+
+                    break;
+                case 'image/png':
+                    if ($mk) {
+                        mkdir($filePath);
+                    }
+                    $source = imagecreatefromjpeg($fileName);
+                    imagecopyresized($thumb, $source, 0, 0, 0, 0, $Newsize, $Newsize, $size[0], $size[1]);
+                    imagepng($thumb, "../assets/ressources/materiel/{$Newsize}/" . $uniqueNameDir . "/" . $uniqueName . $fileExt);
+                    break;
+                default:
+            }
         }
     }
-    return   $uniqueName . $fileExt;
+    return   $uniqueNameDir;
 }
 function getSize()
 {

@@ -53,15 +53,15 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
                 <div class="erdesc"></div>
             </div>
             <label for="image">Ajouter une image</label>
-            <input type="file" placeholder="choisir une image" name="img" value="">
+            <input type="file" placeholder="choisir une image" name="img">
             <label for="image">Ajouter une image 2</label>
-            <input type="file" placeholder="choisir une image" name="img2" value="">
+            <input type="file" placeholder="choisir une image" name="img2">
             <label for="image">Ajouter une image 3</label>
-            <input type="file" placeholder="choisir une image" name="img3" value="">
+            <input type="file" placeholder="choisir une image" name="img3">
             <label for="image">Ajouter une image 4</label>
-            <input type="file" placeholder="choisir une image" name="img4" value="">
+            <input type="file" placeholder="choisir une image" name="img4">
             <label for="image">Ajouter une image 5</label>
-            <input type="file" placeholder="choisir une image" name="img5" value="">
+            <input type="file" placeholder="choisir une image" name="img5">
             <div class="erimg"></div>
             <button name="Ajouter" value="1" class="submit">Ajouter un materiel</button>
 
@@ -74,7 +74,6 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
     if (!empty($_POST['Ajouter'])) {
 
         $img = isValidImage('img');
-        var_dump($img);
         $nom = isValid('nom');
         $type = isValid('type');
         $ref = isValid('ref');
@@ -83,16 +82,16 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
 
         if (!empty($nom) && !empty($type) && !empty($ref) && !empty($desc) && !empty($img)) {
             $img = getImage($_FILES['img']);
-            if (!empty($_POST['img2'])) {
+            if (!empty($_FILES['img2'])) {
                 getImage($_FILES['img2'], $img);
             }
-            if (!empty($_POST['img3'])) {
+            if (!empty($_FILES['img3'])) {
                 getImage($_FILES['img3'], $img);
             }
-            if (!empty($_POST['img4'])) {
+            if (!empty($_FILES['img4'])) {
                 getImage($_FILES['img4'], $img);
             }
-            if (!empty($_POST['img5'])) {
+            if (!empty($_FILES['img5'])) {
                 getImage($_FILES['img5'], $img);
             }
             execute("INSERT INTO `materiel`( `nom`, `type`, `reference`, `description`,`img`) VALUES (:nom,:type,:ref,:desc,:img);", [
@@ -102,7 +101,6 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
                 'desc' => $desc,
                 'img' => $img
             ]);
-            echo "l'ajout a bien ete fait";
         }
     }
     /**
