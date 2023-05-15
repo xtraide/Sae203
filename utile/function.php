@@ -158,16 +158,7 @@ function statut($post)
         header("Refresh:0");
     }
 }
-function editUn($id, $post)
-{
-    $postcut = substr($post, 2);
 
-    execute("UPDATE materiel SET {$postcut} =:nom WHERE id = :id", [
-        "id" => $id,
-        "nom" => htmlspecialchars($_POST[$post])
-    ]);
-    header("Refresh:0");
-}
 
 /**
  * verifier qu'e c'est bien une image 

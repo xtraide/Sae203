@@ -39,16 +39,7 @@
 </div>
 
 <?php
-$array = scandir("../public/");/*, [
-    ".",
-    "..",
-    "detail.php",
-    "admin.php",
-    "verif.php",
-    "404.php",
-    "login.php",
-    "sign-in.php"
-]);*/
+$array = scandir("../public/");
 
 foreach ($array as $test) {
 ?>
