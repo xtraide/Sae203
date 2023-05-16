@@ -6,9 +6,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../../assets/css/reservation.css">
 </head>
 
 <body>
+    <style>
+        header {
+            white-space: nowrap;
+        }
+
+
+        header div {
+            display: inline-block;
+            width: 30%;
+
+
+            box-sizing: border-box;
+        }
+
+        #mid {
+            text-align: center;
+        }
+
+        #right {
+            text-align: right;
+        }
+
+        table {
+            border: 2px solid #050505;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        table th {
+            border: 2px solid #050505;
+            background: #f0f0f0;
+            color: #000000;
+        }
+
+        table td {
+            border: 2px solid #050505;
+            text-align: center;
+            background: #ffffff;
+            color: #313030;
+        }
+
+        .deter {
+            width: 45%;
+        }
+
+        .userinfo {
+            background-color: #F4FFB7;
+
+        }
+
+        .red {
+            font-style: italic;
+            color: red;
+        }
+
+        .separ {
+            height: 30px;
+            width: 100%;
+            background-color: blue;
+        }
+    </style>
+    <header>
+        <div id="left">
+            <img src="https://cdn.discordapp.com/attachments/1086329363265490967/1108160527965896811/logo_iut.jpg" alt="" height="65px" class="iut">
+
+        </div>
+        <div id="mid">
+            <p>
+                Demande d'accès à la salle VR (B212)
+            </p>
+        </div>
+        <div id="right">
+            <p>
+                IUT de MEAUX<br>
+                Département MMI
+            </p>
+        </div>
+    </header>
     <h3>
         Adressez par mail cette demande d’accès à la salle VR 2 jours ouvrés avant la date d’accès souhaitée à:<br>
         M. ZAIDI Fares, enseignant responsable de la salle VR: fares.zaidi@univ-eiffel.fr<br>
@@ -22,49 +101,60 @@
             porte à clé
         </p>
     </h3>
-    <style>
-        table {
-            border: 2px solid #050505;
-            border-collapse: collapse;
-            padding: 100%;
-        }
+    <p class="red">
+        Il est obligatoire de respecter l’heure de remise des clés, un contrôle du matériel sera effectué juste après la remise
 
-        table th {
-            border: 2px solid #050505;
-            padding: 10px;
-            background: #f0f0f0;
-            color: #000000;
-        }
+    </p>
 
-        table td {
-            border: 2px solid #050505;
-            text-align: center;
-            padding: 15px;
-            background: #ffffff;
-            color: #313030;
-        }
-    </style>
-    <table>
+    <br>
+    <div class="separ"></div>
+    <br>
+    <table id="1">
         <tr>
-            <td>
+            <td class="deter">
                 Nom*:
             </td>
-            <td>
-                <?= $row['usernom']; ?>
-            </td>
+            <td class="userinfo"><?= 'usernom' ?></td>
         </tr>
         <tr>
-            <td>
+            <td class="deter">
                 Prénom*:
             </td>
-            <td>
-                <?= $row['userprenom']; ?>
-            </td>
+            <td class="userinfo"><?= 'userprenom' ?></td>
         </tr>
 
+        <tr>
+            <td class="deter">
+                Adresse mail*:
+            </td>
+            <td class="userinfo"><?= 'userprenom' ?></td>
+        </tr>
 
+        <tr>
+            <td class="deter">
+                Date d'accès souhaitée*: jj/mm/aaaa
+            </td>
+            <td class="userinfo"><?= 'userprenom' ?></td>
+        </tr>
+
+        <tr>
+            <td class="deter">
+                Heure d'accès*: (à partir de 08h30)
+            </td>
+            <td class="userinfo"><?= 'userprenom' ?></td>
+        </tr>
+
+        <tr>
+            <td class="deter">
+                Heure de remise des Clés*: (jusqu'à 18h00 max)
+            </td>
+            <td class="userinfo"><?= 'userprenom' ?></td>
+        </tr>
     </table>
-    <table>
+    <br>
+    <div class="separ"></div>
+    <br>
+    <table id="2">
         <tr>
             <th>Matériel souhaité</th>
             <th>Quantité souhaitée</th>
@@ -74,16 +164,16 @@
         <?php
 
 
-        foreach ($row as $row) {
+
         ?>
-            <tr>
-                <td><?= $row['nom'] ?></td>
-                <td><?= $row['id'] == $materielId ? '1' : '' ?></td>
-                <td><?= $row['quantite'] ?> </td>
-                <td><?= $row['reference'] ?></td>
-            </tr>
+        <tr>
+            <td><?= "nom" ?></td>
+            <td class="userinfo"><?= "id" == $materielId ? '1' : '' ?></td>
+            <td><?= 'quantite' ?> </td>
+            <td class="userinfo"><?= 'reference' ?></td>
+        </tr>
         <?php
-        }
+
         ?>
     </table>
 </body>
