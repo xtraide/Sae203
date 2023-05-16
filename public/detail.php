@@ -59,7 +59,7 @@ if (isset($_GET['id'])) {
                             const form = forms[0];
                             Array.from(form.elements).forEach((input) => {
                                 if (input.value != '') {
-                                    fetch("<?= $path ?>test.php?id=<?= $row['id'] ?>&table=" + input.id + "&value=" + input.value)
+                                    fetch("<?= $path ?>editun.php?id=<?= $row['id'] ?>&table=" + input.id + "&value=" + input.value)
                                         .then(function() {
 
                                             location.reload();

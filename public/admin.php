@@ -52,6 +52,13 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
                 <input type="text" placeholder="blablabla" name="desc" class="input" value="<?= !empty($_POST['desc']) ?  $_POST['desc'] : '' ?>">
                 <div class="erdesc"></div>
             </div>
+            <div>
+                <label for="type" class="label">quantite</label>
+            </div>
+            <div>
+                <input type="number" placeholder="quantite" name="quantite" class="input" value="<?= !empty($_POST['quantite']) ?  $_POST['quantite'] : '' ?>">
+                <div class="erdesc"></div>
+            </div>
             <label for="image">Ajouter une principale(Image aficher dans l'a liste de materiel)</label>
             <input type="file" placeholder="choisir une image" name="img">
             <label for="image">Ajouter une image 2</label>
@@ -72,7 +79,7 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
     <?php
 
     if (!empty($_POST['Ajouter'])) {
-
+        $quantite = isValid('quantite');
         $img = isValidImage('img');
         $nom = isValid('nom');
         $type = isValid('type');
@@ -101,6 +108,9 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
                 'desc' => $desc,
                 'img' => $img[0],
                 'imghead' => $img[1]
+            ]);
+            execute("INSERT INTO `quantite`(`quantite`,`id_materiel`) VALUES(:quantite,(SELECT MAX(id) FROM `materiel`))", [
+                'quantite' => $quantite
             ]);
         }
     }

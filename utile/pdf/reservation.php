@@ -1,53 +1,91 @@
+<?php $materielId = 165 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 
 <body>
-    <div class="logo"><img src="../../assets/ressources/utile/iutLogo.png" alt="logo"></div>
-    <h1>Rapport de reservation de materiel</h1>
-    <h3>Information materiel</h3>
-    <table style="
-    border-bottom: solid;
-    border-top :solid;
-    ">
+    <h3>
+        Adressez par mail cette demande d’accès à la salle VR 2 jours ouvrés avant la date d’accès souhaitée à:<br>
+        M. ZAIDI Fares, enseignant responsable de la salle VR: fares.zaidi@univ-eiffel.fr<br>
+        et mettez en copie Mme Jean-Louis: chantal.jean-louis@univ-eiffel.fr<br>
+    </h3>
+    <h3>
+        <p>
+            Nom et prénom de l’étudiant référent, qui se chargera de récupérer et de remettre les clés de la
+            salle à l'accueil, il est tenu responsable du matériel lors de l'utilisation de la salle VR.
+            En quittant cette dernière, il doit s’assurer de remettre le matériel à sa place, et de bien fermer la
+            porte à clé
+        </p>
+    </h3>
+    <style>
+        table {
+            border: 2px solid #050505;
+            border-collapse: collapse;
+            padding: 100%;
+        }
+
+        table th {
+            border: 2px solid #050505;
+            padding: 10px;
+            background: #f0f0f0;
+            color: #000000;
+        }
+
+        table td {
+            border: 2px solid #050505;
+            text-align: center;
+            padding: 15px;
+            background: #ffffff;
+            color: #313030;
+        }
+    </style>
+    <table>
         <tr>
-            <th>Id</th>
-            <th>Nom</th>
-            <th>Type</th>
-            <th>Reference</th>
+            <td>
+                Nom*:
+            </td>
+            <td>
+                <?= $row['usernom']; ?>
+            </td>
         </tr>
         <tr>
-            <td>$row['id'] </td>
-            <td>$row['nom'] </td>
-            <td>$row['type'] </td>
-            <td>$row['reference'] </td>
+            <td>
+                Prénom*:
+            </td>
+            <td>
+                <?= $row['userprenom']; ?>
+            </td>
         </tr>
+
+
     </table>
-    <h3>Information utilisateur</h3>
-    <table style="
-    border-bottom: solid;
-    border-top :solid;
-    ">
+    <table>
         <tr>
-            <th>Id</th>
-            <th>Nom</th>
-            <th>Prenom</th>
+            <th>Matériel souhaité</th>
+            <th>Quantité souhaitée</th>
+            <th>Quantité disponible</th>
+            <th>Référence du matériel</th>
         </tr>
-        <tr>
-            <td>$row['id'] </td>
-            <td>$row['nom'] </td>
-            <td>$row['type'] </td>
-            <td>$row['reference'] </td>
-        </tr>
+        <?php
+
+
+        foreach ($row as $row) {
+        ?>
+            <tr>
+                <td><?= $row['nom'] ?></td>
+                <td><?= $row['id'] == $materielId ? '1' : '' ?></td>
+                <td><?= $row['quantite'] ?> </td>
+                <td><?= $row['reference'] ?></td>
+            </tr>
+        <?php
+        }
+        ?>
     </table>
-    <h2>pour le 18/02 </h2>
-    <h2>de 18:00 a 20:00 </h2>
 </body>
 
 </html>
