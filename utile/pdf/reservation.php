@@ -1,4 +1,3 @@
-<?php $materielId = 165 ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +16,7 @@
 
         header div {
             display: inline-block;
-            width: 30%;
+            width: 31%;
             box-sizing: border-box;
         }
 
@@ -69,7 +68,7 @@
     </style>
     <header>
         <div id="left">
-            <img src="https://cdn.discordapp.com/attachments/1086329363265490967/1108160527965896811/logo_iut.jpg" alt="" height="65px" class="iut">
+            <img src="http://localhost/iut/Sae205/assets/ressources/utile/navimg/logo_iut.jpg" alt="logo" width="180px" height="40px" class="iut">
 
         </div>
         <div id="mid">
@@ -105,73 +104,83 @@
     <br>
     <div class="separ"></div>
     <br>
+
     <table id="1">
-        <tr>
-            <td class="deter">
-                Nom*:
-            </td>
-            <td class="userinfo"><?= 'usernom' ?></td>
-        </tr>
-        <tr>
-            <td class="deter">
-                Prénom*:
-            </td>
-            <td class="userinfo"><?= 'userprenom' ?></td>
-        </tr>
-
-        <tr>
-            <td class="deter">
-                Adresse mail*:
-            </td>
-            <td class="userinfo"><?= 'userprenom' ?></td>
-        </tr>
-
-        <tr>
-            <td class="deter">
-                Date d'accès souhaitée*: jj/mm/aaaa
-            </td>
-            <td class="userinfo"><?= 'userprenom' ?></td>
-        </tr>
-
-        <tr>
-            <td class="deter">
-                Heure d'accès*: (à partir de 08h30)
-            </td>
-            <td class="userinfo"><?= 'userprenom' ?></td>
-        </tr>
-
-        <tr>
-            <td class="deter">
-                Heure de remise des Clés*: (jusqu'à 18h00 max)
-            </td>
-            <td class="userinfo"><?= 'userprenom' ?></td>
-        </tr>
-    </table>
-    <br>
-    <div class="separ"></div>
-    <br>
-    <table id="2">
-        <tr>
-            <th>Matériel souhaité</th>
-            <th>Quantité souhaitée</th>
-            <th>Quantité disponible</th>
-            <th>Référence du matériel</th>
-        </tr>
         <?php
-
-
-
+        foreach ($row as $row) {
         ?>
-        <tr>
-            <td><?= "nom" ?></td>
-            <td class="userinfo"><?= "id" == $materielId ? '1' : '' ?></td>
-            <td><?= 'quantite' ?> </td>
-            <td class="userinfo"><?= 'reference' ?></td>
-        </tr>
-        <?php
+            <tr>
+                <td class="deter">
+                    Nom*:
+                </td>
+                <td class="userinfo"><?= $row['usernom'] ?></td>
+            </tr>
+            <tr>
+                <td class="deter">
+                    Prénom*:
+                </td>
+                <td class="userinfo"><?= $row['userprenom'] ?></td>
+            </tr>
 
-        ?>
+            <tr>
+                <td class="deter">
+                    Adresse mail*:
+                </td>
+                <td class="userinfo"><?= $row['email'] ?></td>
+            </tr>
+
+            <tr>
+                <td class="deter">
+                    Date d'accès souhaitée*: jj/mm/aaaa
+                </td>
+                <td class="userinfo"><?= $row['date'] ?></td>
+            </tr>
+
+            <tr>
+                <td class="deter">
+                    Heure d'accès*: (à partir de 08h30)
+                </td>
+                <td class="userinfo"><?= $row['horraire_debut'] ?></td>
+            </tr>
+
+            <tr>
+                <td class="deter">
+                    Heure de remise des Clés*: (jusqu'à 18h00 max)
+                </td>
+                <td class="userinfo"><?= $row['horraire_fin'] ?></td>
+            </tr>
     </table>
+<?php
+        } ?>
+
+<br>
+<div class="separ"></div>
+<br>
+<table id="2">
+    <tr>
+        <th>Matériel souhaité</th>
+        <th>Quantité souhaitée</th>
+        <th>Quantité disponible</th>
+        <th>Référence du matériel</th>
+    </tr>
+    <?php
+
+    foreach ($row2 as $row2) {
+    ?>
+        <tr>
+            <td><?= $row2["materiel_nom"] ?></td>
+            <td class="userinfo"><?= $row2["id"] == $id ? '1' : '' ?></td>
+            <td><?= $row2['quantite'] ?> </td>
+            <td class="userinfo"><?= $row2['reference'] ?></td>
+        </tr>
+    <?php
+
+
+
+    } ?>
+
+
+</table>
 </body>
 
 </html>

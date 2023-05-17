@@ -21,7 +21,7 @@
 	include "../utile/function.php";
 	session_start();
 
-	if (empty($_SESSION['verified'])) {
+	if (!array_key_exists('verified', $_SESSION)) {
 
 		if (empty($_COOKIE['id'])) {
 
@@ -32,7 +32,7 @@
 			</script>
 
 			<?php
-			die;
+
 		} else {
 
 			$result = execute("SELECT * FROM `utilisateur` WHERE id = :id", [
@@ -49,6 +49,7 @@
 	<?php
 
 					} else {
+						echo $_SESSION['verified'], $_COOKIE['id'];
 
 						$_SESSION['verified'] = 1;
 					}
