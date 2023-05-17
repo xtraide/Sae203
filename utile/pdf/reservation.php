@@ -15,12 +15,9 @@
             white-space: nowrap;
         }
 
-
         header div {
             display: inline-block;
             width: 30%;
-
-
             box-sizing: border-box;
         }
 
@@ -57,7 +54,6 @@
 
         .userinfo {
             background-color: #F4FFB7;
-
         }
 
         .red {
