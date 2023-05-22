@@ -7,13 +7,13 @@ include $path . "html/header.php";
 <!--  faire un truck bot ADE ou on click-->
 <form action="<?= basename(__FILE__) . "?id_materiel=" . $_GET['id_materiel']; ?>" method="post">
     <label for="date">Choisier votre date de reservation</label>
-    <input type="date" name="date"><br>
+    <input type="date" name="date" value="<?= !empty($_POST['date']) ?  $_POST['date'] : '' ?>"><br>
     <div class="erdate"></div>
     <label for="heur">Horraire debut</label>
-    <input type="time" min="8:00" max="16:00" name="horraired"><br>
+    <input type="time" min="8:00" max="16:00" name="horraired" value="<?= !empty($_POST['horraired']) ?  $_POST['horraired'] : '' ?>"><br>
     <div class="erhorraired"></div>
     <label for="heur">Horraire debut</label>
-    <input type="time" min="10:00" max="18:00" name="horrairef"><br>
+    <input type="time" min="10:00" max="18:00" name="horrairef" value="<?= !empty($_POST['horrairef']) ?  $_POST['horrairef'] : '' ?>"><br>
     <div class="erhorrairef"></div>
     <button type="submit" name="reserver" value="1">click sa</button>
 </form>
@@ -40,8 +40,7 @@ if (!empty($_POST['reserver']) && $_POST['reserver'] == "1") {
 
             echo "La commande a bien ete enregistrer ";
         } else {
-
-            echo 'Il y a un conflit avec une réservation existante';
+            echo '<br> Il y a un conflit avec une réservation existante';
         }
     }
 }

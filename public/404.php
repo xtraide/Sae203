@@ -8,7 +8,6 @@ include $path . "html/header.php"; ?>
     <p>Page introuvable</p>
     <p id="erreur">UNE ERREUR EST SURVENU</p>
 
-
     <button id="bouton"><a href="../public/index.php">
             <span> retour à l'accueil</span>
             <span id="fleche">></span>
