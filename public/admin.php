@@ -13,6 +13,7 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
         <form action="<?= basename(__FILE__); ?>" method="post" enctype="multipart/form-data">
             <div>
                 <label for="ajout" class="label">Ajouter un materiel</label>
+
             </div>
             <div>
                 <label for="Nom" class="label">Nom : </label>

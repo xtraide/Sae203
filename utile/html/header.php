@@ -8,7 +8,6 @@
 	<link rel="stylesheet" type="text/css" href="../assets/css/nav.css">
 	<link rel="stylesheet" type="text/css" href="../assets/css/<?= $css ?>.css">
 
-
 	<title>SAE 203</title>
 </head>
 
@@ -22,7 +21,7 @@
 	include "../utile/function.php";
 	session_start();
 
-	if (array_key_exists('verified', $_SESSION)) {
+	if (!array_key_exists('verified', $_SESSION)) {
 
 		if (empty($_COOKIE['id'])) {
 
@@ -50,6 +49,7 @@
 	<?php
 
 					} else {
+						echo $_SESSION['verified'], $_COOKIE['id'];
 
 						$_SESSION['verified'] = 1;
 					}

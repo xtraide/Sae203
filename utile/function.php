@@ -9,9 +9,7 @@ function isValid($post, $on = true)
                 case 'mdp':
 
                     if ($_POST[$post] == $_POST['valid' . $post]) {
-
                         if (strlen($_POST[$post]) >= 6) {
-
                             return corect($_POST[$post]);
                         } else {
 ?>
@@ -80,9 +78,9 @@ function corect($input)
 {
     return htmlspecialchars(strip_tags($input));
 }
-function isMaterielToRes($materiel)
-{
 
+function isConflitHorraire($heure_debut_nouvelle, $heure_fin_nouvelle, $date, $materiel)
+{
     /**
      * recuperer le nombre de  materiel disponible dans la base par rapport au quantiter
      */
@@ -91,17 +89,13 @@ function isMaterielToRes($materiel)
     ]);
     while ($row = $result->fetchAll(PDO::FETCH_ASSOC)) {
         $count = $row[0]['nb'];
-
-        if ($count == 0) {
-            return false;
-            echo "le materiel n'es pas disponible sur la periode demander ";
-        } else {
+        if ($count <= 0) {
             return true;
+            echo "le materiel n'es pas disponible sur la periode demander ";
         }
     }
-}
-function isConflitHorraire($heure_debut_nouvelle, $heure_fin_nouvelle, $date, $materiel)
-{
+
+
     /***************************
      *  recuperation des horraire dans la bdd == reservations_bdd
      ***************************/
@@ -126,34 +120,29 @@ function isConflitHorraire($heure_debut_nouvelle, $heure_fin_nouvelle, $date, $m
     /***************************
      *  comparaison avec les heur de la bdd 
      ***************************/
-    if (!isMaterielToRes($materiel)) {
-        if (!empty($reservations_bdd)) {
+    if (!empty($reservations_bdd)) {
 
-            foreach ($reservations_bdd as $reservation) {
+        foreach ($reservations_bdd as $reservation) {
 
-                $heure_debut_bdd  = $reservation['heure_debut'];
-                $heure_fin_bdd = $reservation['heure_fin'];
+            $heure_debut_bdd  = $reservation['heure_debut'];
+            $heure_fin_bdd = $reservation['heure_fin'];
 
-                // Vérifier si l'heure de début de la nouvelle réservation est entre l'heure de début et l'heure de fin de la réservation existante
-                if ($heure_debut_nouvelle >= $heure_debut_bdd && $heure_debut_nouvelle < $heure_fin_bdd) {
-                    return true; // Il y a un conflit
-                }
-                // Vérifier si l'heure de fin de la nouvelle réservation est entre l'heure de début et l'heure de fin de la réservation existante
-                if ($heure_fin_nouvelle > $heure_debut_bdd && $heure_fin_nouvelle <= $heure_fin_bdd) {
-
-
-                    return true;
-                }
-                // Vérifier si l'heure de début de la nouvelle réservation est avant l'heure de début de la réservation existante et que l'heure de fin de la nouvelle réservation est après l'heure de fin de la réservation existante
-                if ($heure_debut_nouvelle < $heure_debut_bdd && $heure_fin_nouvelle > $heure_fin_bdd) {
-
-                    return true;
-                }
+            // Vérifier si l'heure de début de la nouvelle réservation est entre l'heure de début et l'heure de fin de la réservation existante
+            if ($heure_debut_nouvelle >= $heure_debut_bdd && $heure_debut_nouvelle < $heure_fin_bdd) {
+                return true; // Il y a un conflit
+            }
+            // Vérifier si l'heure de fin de la nouvelle réservation est entre l'heure de début et l'heure de fin de la réservation existante
+            if ($heure_fin_nouvelle > $heure_debut_bdd && $heure_fin_nouvelle <= $heure_fin_bdd) {
+                return true;
+            }
+            // Vérifier si l'heure de début de la nouvelle réservation est avant l'heure de début de la réservation existante et que l'heure de fin de la nouvelle réservation est après l'heure de fin de la réservation existante
+            if ($heure_debut_nouvelle < $heure_debut_bdd && $heure_fin_nouvelle > $heure_fin_bdd) {
+                return true;
             }
         }
     }
-    return false; //  pas de conflit
 
+    return false; //  pas de conflit
 }
 
 /***************************
