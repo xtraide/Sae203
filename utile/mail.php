@@ -40,7 +40,7 @@ function sendmail(string $addAddress, string $Subject, string  $Body, int $pdfid
 
     //Attachments
     //Optional name
-    if ($pdfid == 0) {
+    if ($pdfid != 0) {
       $file = pdf($pdfid);
       $mail->addStringAttachment($file, 'reservation.pdf');
     }

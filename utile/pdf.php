@@ -41,6 +41,7 @@ function pdf(int $id)
 
     // Render the HTML as PDF
     $dompdf->render();
+
     $dompdf->output();
     // Output the generated PDF to Browser
     return $dompdf;
