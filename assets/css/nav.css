@@ -1,6 +1,9 @@
 
 .hero{
     width: 100%;
+    min-height: 100hv;
+
+
 }
 
 .navbar{
@@ -143,10 +146,7 @@ nav ul li a {
         outline: none;
 }
 
-.search{
-    bottom: 0;
-    border-radius: 6px;
-}
+
 
 
 html, body{

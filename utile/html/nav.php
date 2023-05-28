@@ -9,9 +9,8 @@ if ($result->rowCount() > 0) {
 
                     <a href="/sae205-master/public/index.php"><img src="../assets/ressources/utile/navimg/iutLogo.png" alt="" height="65px" class="iut"></a>
                     <ul class="nav-links">
-
-                        <li><a href="/sae205-master/public/list-reservation.php">RESERVATION</a></li>
-                        <li><a href="/sae205-master/public/nous.php">A PROPOS DE NOUS</a></li>
+                        <li><a href="">RESERVATION</a></li>
+                        <li><a href="">A PROPOS DE NOUS</a></li>
                     </ul>
 
                     <img src="../assets/ressources/utile/navimg/pp.png" alt="photo utilisateur" class="user-pic" onclick="toggleMenu()">
@@ -47,6 +46,7 @@ if ($result->rowCount() > 0) {
         }
     }
 }
+
 $array = scandir("../public/");
 
 foreach ($array as $test) {
@@ -57,3 +57,5 @@ foreach ($array as $test) {
 }
 
 ?>
+?>
+<script type="text/javascript" src="../assets/js/nav.js"></script>
