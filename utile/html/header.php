@@ -37,7 +37,6 @@
 					<script>
 						alert("vous devez verifier votre adresse mail  pour utiliser cette page vous allez etre rediriger vers la page de connection ")
 					</script>
-
 	<?php
 					header("Location: login.php");
 				}

@@ -20,7 +20,6 @@ include $path . "html/header.php";
 <a href="list-reservation.php">Voir la liste de reservation</a>
 <?php
 if (!empty($_POST['reserver']) && $_POST['reserver'] == "1") {
-
     $heure_debut_nouvelle = isValid('horraired');
     $heure_fin_nouvelle = isValid('horrairef');
     $date = isValid('date');

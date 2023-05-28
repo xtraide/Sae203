@@ -11,7 +11,6 @@ $css = str_replace(".php", "", basename(__FILE__));
     </div>
     <div class="gradient">
       <div class="sign-up-wraper">
-
         <div id="sign" class="sign-up">
           <h2 class="sign-up">Connexion</h2>
           <div class="input-box">
@@ -27,11 +26,8 @@ $css = str_replace(".php", "", basename(__FILE__));
             <div class="ermdp" class="erreur"></div>
           </div>
           <div class="er"></div>
-
           <a class="forgot" href="../public/sign-in.php">Pas de compte ? Inscrivez-vous ici</a>
           <input type="submit" class="submit" name="Connexion" value="Connexion">
-
-
         </div>
       </div>
       <div>
@@ -41,6 +37,7 @@ $css = str_replace(".php", "", basename(__FILE__));
   </div>
 </form>
 <?php
+
 session_start();
 if (!empty($_POST['Connexion'])) {
   include $path . "link/linkPdo.php";

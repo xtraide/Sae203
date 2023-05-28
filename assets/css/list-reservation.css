@@ -1,51 +1,57 @@
-.footer{
+.footer {
     position: absolute;
     bottom: 0;
 }
 
-td a{
+td a {
     border: 1px solid white;
     color: rgb(0, 153, 255);
     text-decoration: none;
     border-radius: 10px;
     margin-bottom: 20px;
     padding: 5px;
-    
-   
+
+
 }
-a:hover{
+
+a:hover {
     transition: all ease 0.3s;
-    
+
 }
-@keyframes gradient-animation{
-    0%{
-        background-position:0% 50% ;
-    }
-    50%{
-        background-position:100% 50% ;
-    }
-    100%{
-        background-position:0% 50% ;
-    }
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
     }
 
-    tbody{
-        text-align: center;
+    50% {
+        background-position: 100% 50%;
     }
 
-    td{
-        width: 200px;
+    100% {
+        background-position: 0% 50%;
     }
-    .detail{
-        display: flex;
-        width: 50%;
-        justify-content: center;
-        align-items: center;
-        margin-right: 0;
-    }
-    .td{
-        display: flex;
-        justify-content: center;
-        align-items: center;
+}
 
-    }
+tbody {
+    text-align: center;
+}
+
+td {
+    width: 200px;
+}
+
+.detail {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0;
+}
+
+.td {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}

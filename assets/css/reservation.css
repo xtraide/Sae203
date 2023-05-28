@@ -1,18 +1,19 @@
-.footer{
+.footer {
     position: absolute;
-    bottom: 0;    
+    bottom: 0;
 }
-body{
+
+body {
     color: white;
 }
 
-.submit{
+.submit {
     margin-top: 10px;
     width: 300px;
     padding: 10px 20px;
     border: 1px solid white;
     border-radius: 20px;
-    cursor: pointer ;
+    cursor: pointer;
     font-size: 20px;
     color: #fff;
     background: linear-gradient(334deg, #22B3e9, #000000, #22B3e9);
@@ -22,33 +23,43 @@ body{
     justify-content: center;
     margin-bottom: 10px;
 }
-@keyframes gradient-animation{
-    0%{
-        background-position:0% 50% ;
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
     }
-    50%{
-        background-position:100% 50% ;
+
+    50% {
+        background-position: 100% 50%;
     }
-    100%{
-        background-position:0% 50% ;
+
+    100% {
+        background-position: 0% 50%;
     }
 }
-label{
-    font-size: 20px!important;
+
+label {
+    font-size: 20px !important;
 }
-.erhorrairef, .erhorraired, .erdate{
+
+.erhorrairef,
+.erhorraired,
+.erdate {
     color: red;
 }
-form{
-    display:flex;
+
+form {
+    display: flex;
 
     flex-direction: column;
     border-radius: 10px;
 }
-.date{
+
+.date {
     max-width: 115px;
 
 }
-.heur{
+
+.heur {
     max-width: 75px;
 }

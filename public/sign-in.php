@@ -107,8 +107,6 @@ if (!empty($_POST['submit']) && $_POST['submit'] == "Créer son compte") {
         }
 
         echo "votre compte doit etre verifier pour pouvoir vous y connecter ";
-        //envoyer un mail de confirmation 
-        //header("Location: login.php");// A SU¨PRIMER
     }
 }
 ?>
