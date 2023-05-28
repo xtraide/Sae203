@@ -57,5 +57,5 @@ foreach ($array as $test) {
 }
 
 ?>
-?>
+
 <script type="text/javascript" src="../assets/js/nav.js"></script>
