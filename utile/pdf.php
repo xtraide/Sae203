@@ -1,5 +1,4 @@
 <?php
-require 'link/linkPdo.php';
 require '../vendor/autoload.php';
 
 use Dompdf\Dompdf;
@@ -11,7 +10,7 @@ use Dompdf\Options;
  * @return string
  */
 
-function pdf(int $id)
+function pdf(int $id, int $output = 0)
 {
     $options = new Options();
     $options->setIsRemoteEnabled(true);
@@ -39,11 +38,12 @@ function pdf(int $id)
     // (Optional) Setup the paper size and orientation
     $dompdf->setPaper('A4');
 
-    // Render the HTML as PDF
-    $dompdf->render();
-
-    $dompdf->output();
-    // Output the generated PDF to Browser
-    return $dompdf;
+    if ($output != 0) {
+        $dompdf->output();
+        // Output the generated PDF to Browser
+        return $dompdf;
+    } else {
+        $dompdf->stream();
+    }
 }
 // reference the Dompdf namespace
