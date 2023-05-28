@@ -1,6 +1,5 @@
 <?php
 $path =   "../utile/";
-
 include "../utile/link/linkPdo.php";
 include "../utile/function.php";
 $table = $_GET['table'];

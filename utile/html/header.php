@@ -14,7 +14,6 @@
 	<?php
 	include "../utile/link/linkPdo.php";
 	include "../utile/function.php";
-
 	session_start();
 	if (empty($_COOKIE['id'])) {
 	?>

@@ -22,7 +22,7 @@ if ($result->rowCount() > 0) {
         foreach ($row as $row) {
 ?>
             <a href="detail.php?id=<?= $row['id'] ?>">
-                <img src="../assets/ressources/materiel/<?= $row['img']; ?>/<?= $row['imghead']; ?>" alt=" image du materiel">
+                <img src="../assets/ressources/materiel/<?= $row['img']; ?>/<?= $row['imghead']; ?>" alt="image du materiel">
                 <div class="itemcard">
                     <p>nom : <?= $row['nom']; ?></p>
                     <p>Type : <?= $row['type']; ?></p>
