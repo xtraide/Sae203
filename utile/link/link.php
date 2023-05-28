@@ -1,6 +1,4 @@
 <?php
-
-
 /*
 function  execute($query){
     include "../utile/link/config.php";

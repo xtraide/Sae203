@@ -1,0 +1,106 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+html,
+body {
+    font-size: 18px;
+    font-family: sans-serif;
+}
+
+.slider-next,
+.slider-prev {
+    margin-top: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background: none;
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+.slider-next:hover,
+.slider-prev:hover {
+    transition: all ease 0.5s;
+    background-color: white;
+    color: black;
+}
+
+.container {
+    max-width: 1200px;
+    padding: 30px;
+    display: flex;
+    justify-content: space-around;
+    max-width: 2560px;
+
+
+}
+
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.slider {
+    width: 500px;
+    height: auto;
+    overflow: hidden;
+}
+
+.slider-line {
+    width: 2000px;
+    height: 400px;
+    display: flex;
+    position: relative;
+    left: 0;
+    transition: all ease 1s;
+}
+
+.description {
+    text-align: right;
+}
+
+.bouton {
+    text-align: center;
+
+}
+
+p {
+    color: white;
+}
+
+.admin {
+    float: right;
+    color: white;
+    background: none;
+    border-radius: 12px;
+    border: 2px solid white;
+    margin-right: 15px;
+
+}
+
+.admin:hover {
+    transition: all ease 0.3s;
+    background-color: #2a2e44;
+
+}
+
+#modifier {
+    margin-right: 30px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.img_matos {
+    width: 500px;
+}

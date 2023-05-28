@@ -1,40 +1,82 @@
+<link rel="stylesheet" href="../assets/css/sign-in.css">
+<img src="../assets/ressources/utile/fond.png" alt="" class="back">
+
+
 <?php
 $path =   "../utile/";
 $css = str_replace(".php", "", basename(__FILE__));
 
 
 ?>
-<a href="login.php">Deja un compte connecter vous</a>
-<form action="<?= basename(__FILE__); ?>" method="post">
-    <label for="Nom ">Nom:</label>
-    <input type="text" placeholder="Nom" name="nom" value="<?= !empty($_POST['nom']) ?  $_POST['nom'] : '' ?>">
-    <div class="ernom"></div>
-    <label for="prenom">Prenom : </label>
-    <input type="text" placeholder="Prénom" name="prenom" value="<?= !empty($_POST['prenom']) ?  $_POST['prenom'] : '' ?>">
-    <div class="erprenom"></div>
-    <label for="email">Email : </label>
-    <input type="text" name="email" id="" placeholder="exemple@gmail.com" value="<?= !empty($_POST['email']) ?  $_POST['email'] : '' ?>">
-    <div class="eremail"></div>
-    <label for="date">Date de naissance : </label>
-    <input type="date" placeholder="Date de naissance" name="date" value="<?= !empty($_POST['date']) ?  $_POST['date'] : '' ?>">
-    <div class="erdate"></div>
-    <label for="mdp">Mot de passe : </label>
-    <input type="password" placeholder="Mot de passe de 6 caracteres" name="mdp" value="<?= !empty($_POST['mdp']) ?  $_POST['mdp'] : '' ?>">
-    <div class="ermdp"></div>
-    <label for="confimmdp">Confirmation de mot de passe : </label>
-    <input type="password" placeholder="Mot de passe de 6 caracteres" name="validmdp" value="<?= !empty($_POST['validmdp']) ?  $_POST['validmdp'] : '' ?>">
-    <div class="validmdp"></div>
-    <input type="submit" name="submit" value="Créer son compte">
-</form>
 
+<form action="<?= basename(__FILE__); ?>" method="post">
+    <div class="container">
+        <div>
+            <img src="../assets/ressources/utile/Plan_de_travail_2.png" alt="" class="plan">
+        </div>
+        <div class="gradient">
+            <div class="sign-up-wraper">
+                <div class="sign-up" id="sign">
+                    <h2 class="sign-up">Inscription</h2>
+                    <div class="input-box">
+                        <label for="email">Email : </label>
+                        <img src="../assets/ressources/utile/navimg/mail.png" alt="Email" class="imges" width="20px" height="20px">
+                        <input type="text" name="email" id="" class="input" placeholder="exemple@gmail.com" value="<?= !empty($_POST['email']) ?  $_POST['email'] : '' ?>">
+                        <div class="eremail" class="erreur"></div>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="Nom ">Nom:</label>
+                        <input type="text" class="input" placeholder="Nom" name="nom" value="<?= !empty($_POST['nom']) ?  $_POST['nom'] : '' ?>">
+                        <div class="ernom" class="erreur"></div>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="prenom">Prenom : </label>
+                        <input type="text" placeholder="Prénom" class="input" name="prenom" value="<?= !empty($_POST['prenom']) ?  $_POST['prenom'] : '' ?>">
+                        <div class="erprenom" class="erreur"></div>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="date">Date de naissance : </label>
+                        <input type="date" placeholder="Date de naissance" class="input" name="date" value="<?= !empty($_POST['date']) ?  $_POST['date'] : '' ?>">
+                        <div class="erdate" class="erreur"></div>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="mdp">Mot de passe : </label>
+                        <img src="../assets/ressources/utile/navimg/pws.png" alt="Pasword" width="20px" height="20px" class="imges">
+                        <input type="password" placeholder="Mot de passe de 6 caracteres" class="input" name="mdp" value="<?= !empty($_POST['mdp']) ?  $_POST['mdp'] : '' ?>">
+                        <div class="ermdp" class="erreur"></div>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="confimmdp">Confirmation de mot de passe : </label>
+                        <img src="../assets/ressources/utile/navimg/pws.png" alt="Pasword" width="20px" height="20px" class="imges">
+                        <input type="password" placeholder="Mot de passe de 6 caracteres" class="input" name="validmdp" value="<?= !empty($_POST['validmdp']) ?  $_POST['validmdp'] : '' ?>">
+                        <div class="validmdp" class="erreur"></div>
+                    </div>
+                    <div class="forgot" class="erreur">
+                        <a href="login.php" class="forgot">Deja un compte connecter vous</a>
+                    </div>
+
+                    <input type="submit" class="submit" name="submit" value="Créer son compte">
+                </div>
+            </div>
+            <div>
+                <img src="../assets/ressources/utile/iconorange.png" alt="" height="400px" class="conexion">
+            </div>
+        </div>
+    </div>
+</form>
 <?php
 
 if (!empty($_POST['submit']) && $_POST['submit'] == "Créer son compte") {
 
     include $path . 'function.php';
     include $path . 'link/linkPdo.php';
-    $nom = isValid('nom', false);
-    $prenom = isValid('prenom', false);
+    $nom = isValid('nom');
+    $prenom = isValid('prenom');
     $date = isValid('date');
     $email = isValid('email');
     $mdp = isValid('mdp');
@@ -65,8 +107,6 @@ if (!empty($_POST['submit']) && $_POST['submit'] == "Créer son compte") {
         }
 
         echo "votre compte doit etre verifier pour pouvoir vous y connecter ";
-        //envoyer un mail de confirmation 
-        //header("Location: login.php");// A SU¨PRIMER
     }
 }
-include $path . "html/footer.php";
+?>

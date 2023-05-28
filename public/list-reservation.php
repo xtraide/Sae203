@@ -51,8 +51,8 @@ include $path . "html/header.php";
                             <td>" . $row['date'] . "</td>
                             <td>" . $row['horraire_debut'] . " . " . $row['horraire_fin'] . "</td>
                             <td>" . $row['type'] . " . " . $row['materielnom'] . "</td>
-                            <td>" . $statut . "<td>
-                            <a href='detail-reservation.php?id={$row["resid"]}'>eeee</a>
+                            <td>" . $statut . "</td>
+                            <td class='td'><a href='detail-reservation.php?id={$row["resid"]}' class='detail'>détail</a></td>
                         </tr>";
                 }
             }
@@ -61,6 +61,7 @@ include $path . "html/header.php";
         ?>
     </table>
 </div>
+
 <?php
 //SELECT utilisateur.nom AS usernom, utilisateur.prenom AS userprenom, reservation.dateD, reservation.dateF, reservation.statut, materiel.type, materiel.nom AS materielnom FROM `reservation`, `souhait_client`, `materiel`, `utilisateur` WHERE reservation.id_utilisateur = utilisateur.id AND souhait_client.id_materiel = materiel.id AND souhait_client.id_reservation = reservation.id;
 include "../utile/html/footer.php";

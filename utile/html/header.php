@@ -14,47 +14,37 @@
 	<?php
 	include "../utile/link/linkPdo.php";
 	include "../utile/function.php";
+
+	session_start();
+	if (empty($_COOKIE['id'])) {
+	?>
+		<script>
+			alert("vous devez etre connecter pour utiliser cette page vous allez etre rediriger vers la page de connection ")
+		</script>
+		<?php
+		header("Location: login.php");
+	}
+	if (!array_key_exists('verified', $_SESSION)) {
+		$result = execute("SELECT verified FROM `utilisateur` WHERE id = :id", [
+			"id" => $_COOKIE['id']
+		]);
+		while ($row = $result->fetchAll(PDO::FETCH_ASSOC)) {
+			foreach ($row as $row) {
+				if ($row['verified'] == 1) {
+					$_SESSION['verified'] = 1;
+				} else {
+		?>
+					<script>
+						alert("vous devez verifier votre adresse mail  pour utiliser cette page vous allez etre rediriger vers la page de connection ")
+					</script>
+	<?php
+					header("Location: login.php");
+				}
+			}
+		}
+	}
 	?>
 	<header>
 		<?php include_once("nav.php");
 		?>
 	</header>
-	<?php
-	session_start();
-
-	if (!array_key_exists('verified', $_SESSION)) {
-
-		if (empty($_COOKIE['id'])) {
-
-			header("Location: login.php");
-	?>
-			<script>
-				alert("vous devez etre connecter pour utiliser cette page vous allez etre rediriger vers la page de connection ")
-			</script>
-
-			<?php
-
-		} else {
-
-			$result = execute("SELECT * FROM `utilisateur` WHERE id = :id", [
-				"id" => $_COOKIE['id']
-			]);
-			while ($row = $result->fetchAll(PDO::FETCH_ASSOC)) {
-				foreach ($row as $row) {
-
-					if ($row['verified'] != 1) {
-			?>
-						<script>
-							alert("vous devez verifier votre adresse mail  pour utiliser cette page vous allez etre rediriger vers la page de connection ")
-						</script>
-	<?php
-
-					} else {
-						echo $_SESSION['verified'], $_COOKIE['id'];
-
-						$_SESSION['verified'] = 1;
-					}
-				}
-			}
-		}
-	}

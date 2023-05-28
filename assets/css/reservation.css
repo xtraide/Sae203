@@ -1,0 +1,65 @@
+.footer {
+    position: absolute;
+    bottom: 0;
+}
+
+body {
+    color: white;
+}
+
+.submit {
+    margin-top: 10px;
+    width: 300px;
+    padding: 10px 20px;
+    border: 1px solid white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #fff;
+    background: linear-gradient(334deg, #22B3e9, #000000, #22B3e9);
+    background-size: 180% 180%;
+    animation: gradient-animation 6s ease infinite;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+label {
+    font-size: 20px !important;
+}
+
+.erhorrairef,
+.erhorraired,
+.erdate {
+    color: red;
+}
+
+form {
+    display: flex;
+
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.date {
+    max-width: 115px;
+
+}
+
+.heur {
+    max-width: 75px;
+}
