@@ -206,8 +206,78 @@ function isValidImage(String $img)
  */
 function getImage($file, $uniqueNameDir = '', $isImgHead = false)
 {
-
     /*Atribution de toute les variable */
+    $fileName = $file["name"];
+    $tmpName = $file['tmp_name'];
+    $uniqueName = md5(uniqid(rand(), true));
+    $mk = false;
+    if (empty($uniqueNameDir)) {
+        $mk = true;
+        $uniqueNameDir = md5(uniqid(rand(), true));
+    }
+    if (!empty(strtolower(substr(strrchr($fileName, '.'), 1)))) {
+        $fileExt = "." . strtolower(substr(strrchr($fileName, '.'), 1));
+        $filePath = "../assets/ressources/upload/" . $uniqueName;
+        $filefull = $filePath . $uniqueName . $fileExt;
+        $fileName =   $uniqueName . $fileExt;
+        if ($mk) {
+            mkdir("../assets/ressources/materiel/" . $uniqueNameDir . "/",);
+            move_uploaded_file($tmpName, "../assets/ressources/materiel/" . $uniqueNameDir . "/" . $fileName);
+        }
+    }
+    if ($isImgHead) {
+        return [$uniqueNameDir, $uniqueName . $fileExt];
+    }
+    return $uniqueNameDir;
+}
+
+/*
+function isValidImage(String $img)
+{
+    $validFileSize = 9000000;
+    $validExt = array("jpeg", "jpg", "png");
+    $fileSize = $_FILES[$img]['size'];
+    $fileName = $_FILES[$img]["name"];
+    $fileExt = strtolower(substr(strrchr($fileName, '.'), 1));
+    $er = true;
+    if ($_FILES[$img]['error'] > 0) {
+    ?>
+        <script type="text/javascript">
+            document.getElementsByClassName('erimg')[0].innerHTML = "ereeur";
+        </script>
+    <?php
+        $er = false;
+    }
+    if (!in_array($fileExt, $validExt)) {
+    ?>
+        <script type="text/javascript">
+            document.getElementsByClassName('erimg')[0].innerHTML = "fichier trop gros";
+        </script>
+    <?php
+        $er = false;
+    }
+
+    if ($fileSize > $validFileSize) {
+    ?>
+        <script type="text/javascript">
+            document.getElementsByClassName('erimg')[0].innerHTML = "fichier trop gros";
+        </script>
+<?php
+        $er = false;
+    }
+
+    if ($er) {
+        return $_FILES[$img];
+    }
+}
+/**
+ * recuperer les image 
+ */
+/*
+function getImage($file, $uniqueNameDir = '', $isImgHead = false)
+{
+
+    //Atribution de toute les variable 
     $fileName = $file["name"];
     $tmpName = $file['tmp_name'];
     $uniqueName = md5(uniqid(rand(), true));
@@ -217,9 +287,9 @@ function getImage($file, $uniqueNameDir = '', $isImgHead = false)
         $filePath = "../assets/ressources/upload/" . $uniqueName;
         $fileName =  $filePath . $uniqueName . $fileExt;
 
-        /*cree un dossier pour les image  */
+        //cree un dossier pour les image  
         move_uploaded_file($tmpName, $fileName);
-        /*recupere la taille de l'image */
+        //recupere la taille de l'image 
         $Newsize = getSize();
 
         $size = getimagesize($fileName);
@@ -262,4 +332,4 @@ function getImage($file, $uniqueNameDir = '', $isImgHead = false)
 function getSize()
 {
     return  array_diff(scandir("../assets/ressources/materiel"), [".", ".."]);
-}
+}*/

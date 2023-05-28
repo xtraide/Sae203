@@ -6,13 +6,13 @@ include $path . "html/header.php";
 ?>
 <!--  faire un truck bot ADE ou on click-->
 <form action="<?= basename(__FILE__) . "?id_materiel=" . $_GET['id_materiel']; ?>" method="post">
-    <label for="date" >Choisier votre date de reservation</label>
+    <label for="date">Choisier votre date de reservation</label>
     <input type="date" name="date" class="date">
     <div class="erdate"></div><br>
-    <label for="heur" >Horraire debut</label>
+    <label for="heur">Horraire debut</label>
     <input type="time" min="8:00" max="16:00" name="horraired" class="heur">
     <div class="erhorraired"></div><br>
-    <label for="heur" >Horraire fin</label>
+    <label for="heur">Horraire fin</label>
     <input type="time" min="10:00" max="18:00" name="horrairef" class="heur">
     <div class="erhorrairef"></div><br>
     <button type="submit" name="reserver" value="1" class="submit">click sa</button>
