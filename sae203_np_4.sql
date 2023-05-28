@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 15 mai 2023 à 20:42
+-- Généré le : dim. 28 mai 2023 à 14:47
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -37,15 +37,18 @@ CREATE TABLE IF NOT EXISTS `materiel` (
   `img` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `imghead` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=164 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=170 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `materiel`
 --
 
 INSERT INTO `materiel` (`id`, `nom`, `type`, `reference`, `description`, `img`, `imghead`) VALUES
-(162, 'thieblemont', 'pied', 'testimg', 'testimg', 'aac3c4688d9316481ca51aba3a61c201', '60cccdbfce819e917d28ebdf0f48d5b6.jpg'),
-(163, 'thieblemont', 'pied', 'testimg', 'testimg', '5d459bbceb693327e905fbb01f990bf5', 'dea4d13ae5f2b7423458aa5b3eaa8d41.jpg');
+(165, 'thieblemont', 'vert', 'testimg', 'testimg', '983f167bac425df0f61f6a11662da46b', '8f6bba6eaf4dc10d77a63c985d2886d1.jpg'),
+(166, 'The', 'pied', 'testimg', 'testimg', 'b31b070514802c103255f86dd2c1c98e', 'efa3ed8f946e83c1346bee094f43d5a1.jpg'),
+(167, 'The', 'invalid', 'testimg', 'testimg', '0ab26bfbdc42a4743558f6c5c9a3c37a', '06868294adbe4ed14e5ea01239032f0c.jpg'),
+(168, 'g', 'ggggg', '4f4ff55', 'ttttttttt', '56a9b7d761127edd9b517471a2e1ad90', '25d529eddc659dfe515db6a9eb9f78ea.jpg'),
+(169, 'g', 'pied', 'testimg', 'testimg', '1db0873fc886adc63ab801b4f58ec698', 'df3bd332dc667a7a180b38dba65f5530.jpg');
 
 -- --------------------------------------------------------
 
@@ -60,19 +63,18 @@ CREATE TABLE IF NOT EXISTS `quantite` (
   `id_materiel` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `quantite_materiel_AK` (`id_materiel`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `quantite`
 --
 
 INSERT INTO `quantite` (`id`, `quantite`, `id_materiel`) VALUES
-(1, 4, 1),
-(2, 4, 2),
-(3, 4, 3),
-(4, 4, 4),
-(5, 4, 5),
-(6, 4, 6);
+(7, 6, 165),
+(8, 1, 166),
+(9, 5, 167),
+(10, 5, 168),
+(11, 28, 169);
 
 -- --------------------------------------------------------
 
@@ -92,16 +94,19 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   PRIMARY KEY (`id`),
   KEY `reservation_utilisateur_FK` (`id_utilisateur`),
   KEY `reservation_materiel_AK` (`id_materiel`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `reservation`
 --
 
 INSERT INTO `reservation` (`id`, `date`, `horraire_debut`, `horraire_fin`, `statut`, `id_utilisateur`, `id_materiel`) VALUES
-(32, '2023-05-25', '10:00:00', '18:00:00', 'accepter', 1, 6),
-(33, '2023-05-23', '15:00:00', '18:00:00', 'accepter', 1, 1),
-(34, '2020-01-18', '14:00:00', '18:00:00', 'en attente', 1, 1);
+(53, '1111-02-17', '16:00:00', '18:00:00', 'en attente', 1, 165),
+(54, '1111-02-17', '16:00:00', '18:00:00', 'en attente', 1, 165),
+(55, '1111-02-17', '16:00:00', '18:00:00', 'en attente', 1, 165),
+(56, '1111-02-17', '16:00:00', '18:00:00', 'en attente', 1, 165),
+(57, '1111-02-17', '16:00:00', '18:00:00', 'en attente', 1, 165),
+(58, '1111-02-17', '16:00:00', '18:00:00', 'en attente', 1, 165);
 
 -- --------------------------------------------------------
 

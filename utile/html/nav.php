@@ -9,9 +9,6 @@ if ($result->rowCount() > 0) {
 
                     <img src="../assets/ressources/utile/navimg/iutLogo.png" alt="" height="65px" class="iut">
                     <ul class="nav-links">
-                        <li class="search">
-                            <input type="text" placeholder="Recherche" value="" class="reinput" name="recherche">
-                        </li>
                         <li><a href="">RESERVATION</a></li>
                         <li><a href="">A PROPOS DE NOUS</a></li>
                     </ul>
@@ -50,14 +47,5 @@ if ($result->rowCount() > 0) {
     }
 }
 
-
-
-$array = scandir("../public/");
-
-foreach ($array as $test) {
-    ?>
-
-    <a href="<?= $test ?>"><?= $test ?></a> <br>
-<?php
-} ?>
+?>
 <script type="text/javascript" src="../assets/js/nav.js"></script>
