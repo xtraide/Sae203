@@ -12,20 +12,20 @@ include $path . "html/header.php"; ?>
             foreach ($row as $row) {
         ?>
                 <tr>
-                    <td>Nom</td>
-                    <td><?= $row['nom']; ?></td>
+                    <td class="gauche">Nom</td>
+                    <td class="droite"><?= $row['nom']; ?></td>
                 </tr>
                 <tr>
-                    <td>Prenom</td>
+                    <td class="gauche">Prenom</td>
                     <td><?= $row['prenom']; ?></td>
                 </tr>
                 <tr>
-                    <td>Date de naissance</td>
-                    <td><?= $row['date']; ?></td>
+                    <td class="gauche">Date de naissance</td>
+                    <td class="droite"><?= $row['date']; ?></td>
                 </tr>
                 <tr>
-                    <td>Email</td>
-                    <td><?= $row['email']; ?></td>
+                    <td class="gauche">Email</td>
+                    <td class="droite"><?= $row['email']; ?></td>
                 </tr>
         <?php
             }
