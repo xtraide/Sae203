@@ -49,4 +49,4 @@
 		<?php include_once("nav.php");
 		?>
 	</header>
-	<?php
+	

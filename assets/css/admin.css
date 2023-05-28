@@ -1,28 +1,17 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    bottom: 0;
-}
 
-body{
-    width: 100%;
-    height: 100%;
-    min-height: 100vh;
-    background-color: #000000;
-    bottom: 0;
-}
+
+
 
 .submit{
     margin-top: 10px;
     width: 300px;
     padding: 10px 20px;
-    border: none;
+    border: 1px solid white;
     border-radius: 20px;
     cursor: pointer ;
     font-size: 20px;
     color: #fff;
-    background: linear-gradient(334deg, #800000, #000000, #800000);
+    background: linear-gradient(334deg, #22B3e9, #000000, #22B3e9);
     background-size: 180% 180%;
     animation: gradient-animation 6s ease infinite;
     align-items: center;
@@ -58,9 +47,6 @@ align-items: center;
     width: 1000px;
     height: 50px;
 }
-.tr{
-    
-}
 
 table{
     border: solid white;
@@ -90,4 +76,30 @@ h3{
 
     .tableau{
         color: white;
+    }
+    label{
+        color: white;
+    }
+
+    input{
+        color: white;
+    }
+    .label2{
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+    }
+    .erimg, .ertype, .erref, .erdesc, .ernom{
+        color: red;
+    }
+    .ajt_img{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .footer{
+        position: absolute;
+        bottom: 0;
     }
