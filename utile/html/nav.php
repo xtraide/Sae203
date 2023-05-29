@@ -42,15 +42,11 @@ if ($result->rowCount() > 0) {
                 </nav>
             </div>
 
-    <?php
+<?php
         }
     }
 }
 $array = scandir("../public/");
-foreach ($array as $test) {
-    ?>
-    <a href="<?= $test ?>"><?= $test ?></a> <br>
-<?php
-}
+
 ?>
 <script type="text/javascript" src="../assets/js/nav.js"></script>

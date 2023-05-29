@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="../assets/css/all.css">
 	<link rel="stylesheet" type="text/css" href="../assets/css/nav.css">
 	<link rel="stylesheet" type="text/css" href="../assets/css/<?= $css ?>.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<title>SAE 203</title>
 </head>
 
