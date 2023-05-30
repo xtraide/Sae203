@@ -6,10 +6,10 @@ include $path . "html/header.php"; ?>
 <div id="flex">
     <div>
         <p id="titre">Réserver <br> dès maintenant <br> du matériel</p>
-        <button id="bouton" onclick="scrollToDestination()">><a href="../public/index.php">
-                <span>Réserver</span>
+        <button id="bouton" onclick="scrollToDestination()">>
+                <span >Commencer ici</span>
                 <span id="fleche">></span>
-            </a>
+
         </button>
     </div>
     <div id="cam"><img id="camimg" src="../assets/ressources/utile/navimg/cam.png" alt="camera"></div>
