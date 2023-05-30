@@ -47,7 +47,5 @@ if ($result->rowCount() > 0) {
     }
 }
 
-
-
  ?>
 <script type="text/javascript" src="../assets/js/nav.js"></script>

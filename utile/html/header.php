@@ -11,6 +11,7 @@
 </head>
 
 <body>
+<img src="/Sae205/assets/ressources/utile/fond.png" alt="" class="background">
 	<?php
 	include "../utile/link/linkPdo.php";
 	include "../utile/function.php";
