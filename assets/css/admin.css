@@ -30,8 +30,11 @@
     height: 40px;
     border: 1px solid gray;
     border-radius: 10px;
+    color: #000000;
 
-
+}
+body{
+    color: white;
 }
 
 .option {

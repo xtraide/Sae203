@@ -63,9 +63,6 @@ button {
     transition: all ease 1s;
 }
 
-.description {
-
-}
 
 .bouton {
     text-align: center;
@@ -124,7 +121,7 @@ p {
     transition: all ease 0.3s;
     background-color: #2a2e44;
 }
-hfnfrht{
+.hfnfrht{
     text-align: center;
 }
 #bouton{
@@ -139,4 +136,8 @@ hfnfrht{
 }
 #text{
     width: 600px;
+}
+
+.footer{
+    margin-top: 200px;
 }
