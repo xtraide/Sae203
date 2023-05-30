@@ -28,11 +28,6 @@ if ($result->rowCount() > 0) {
                                 <p class="navtexte">profile</p>
                                 <span><img src="../assets/ressources/utile/navimg/fleche_droite.png" alt=""></span>
                             </a>
-                            <a href="" class="sub-menu-link">
-                                <img src="../assets/ressources/utile/navimg/logo_para.png" alt="">
-                                <p class="navtexte">paramètre</p>
-                                <span><img src="../assets/ressources/utile/navimg/fleche_droite.png" alt=""></span>
-                            </a>
                             <a href="../utile/link/deco.php" class="sub-menu-link">
                                 <img src="../assets/ressources/utile/navimg/log_out.jpg" alt="">
                                 <p class="navtexte">deconexion</p>
