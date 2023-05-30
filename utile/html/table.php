@@ -19,7 +19,6 @@
 
                 //SELECT utilisateur.nom as usernom, utilisateur.prenom as userprenom,demande.dateD,demande.dateF,demande.statut,materiel.type,materiel.nom as materielnom FROM `materiel`,`utilisateur`,`demande` WHERE demande.materielId = materiel.id AND utilisateur.id = demande.id_utilisateur;
                 if ($row['statut'] != "en attente") {
-
                     $statut =  $row['statut'];
                 } else {
                     $statut = "EN ATTENTE";

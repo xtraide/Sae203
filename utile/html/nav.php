@@ -46,7 +46,6 @@ if ($result->rowCount() > 0) {
         }
     }
 }
-$array = scandir("../public/");
 
 ?>
 <script type="text/javascript" src="../assets/js/nav.js"></script>
