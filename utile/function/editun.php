@@ -1,7 +1,7 @@
 <?php
 $path =   "../utile/";
-include "../utile/link/linkPdo.php";
-include "../utile/function.php";
+include "../link/linkPdo.php";
+include "function.php";
 $table = $_GET['table'];
 $post = htmlspecialchars($_GET['value']);
 $id = $_GET['id'];

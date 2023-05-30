@@ -71,7 +71,8 @@ if (isset($_GET['id'])) {
                                                 fetch("<?= $path ?>function/editun.php?id=<?= $row['id'] ?>&table=" + input.id + "&value=" +
                                                         input.value)
                                                     .then(function() {
-
+                                                        console.log("<?= $path ?>function/editun.php?id=<?= $row['id'] ?>&table=" + input.id + "&value=" +
+                                                            input.value);
                                                         location.reload();
                                                     });
                                             }
