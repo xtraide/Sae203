@@ -9,8 +9,6 @@ include $path . "html/header.php"; ?>
         <button id="bouton" onclick="scrollToDestination()">>
             <span>Commencer ici</span>
             <span id="fleche">></span>
-            <span>Commencer ici</span>
-            <span id="fleche">></span>
 
         </button>
     </div>
