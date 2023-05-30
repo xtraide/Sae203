@@ -41,6 +41,7 @@
                             <td>" . $statut . "</td>
                             <td class='td'><a href='detail-reservation.php?id={$row["resid"]}' class='detail'>détail</a></td>
                         </tr>";
+                        
             }
         }
     }
