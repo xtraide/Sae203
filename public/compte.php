@@ -16,7 +16,7 @@ include $path . "html/header.php"; ?>
                     <td class="droite"><?= $row['nom']; ?></td>
                 </tr>
                 <tr>
-                    <td class="gauche">Prenom</td>
+                    <td class="gauche">Prénom</td>
                     <td><?= $row['prenom']; ?></td>
                 </tr>
                 <tr>
@@ -34,7 +34,7 @@ include $path . "html/header.php"; ?>
     </table>
 </div>
 
-<button id="supr">Suprimer votre compte</button>
+<button id="supr">Supprimez votre compte</button>
 <script>
     $('#supr').on('click', function() {
         var confirm = confirm('voulez vous vraiment  SUPRIMER VOTRE COMPTE ');

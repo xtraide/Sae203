@@ -6,7 +6,7 @@ include $path . "html/header.php"; ?>
     <h1>À propos de nous</h1>
 
 <p>
-Bienvenue sur [Nom du site], la plateforme de réservation de matériel dédiée aux étudiants. Nous sommes un groupe de trois étudiants passionnés de la formation MMI (Métiers du Multimédia et de l'Internet). Ensemble, nous avons créé ce site web dans le but de faciliter l'accès au matériel nécessaire à votre réussite académique.
+Bienvenue sur la plateforme de réservation de matériel dédiée aux étudiants. Nous sommes un groupe de trois étudiants passionnés de la formation MMI (Métiers du Multimédia et de l'Internet). Ensemble, nous avons créé ce site web dans le but de faciliter l'accès au matériel nécessaire à votre réussite académique.
 </p>
 
 <h2>Notre Objectif</h2>
@@ -23,7 +23,7 @@ Bienvenue sur [Nom du site], la plateforme de réservation de matériel dédiée
 
 <p>En tant qu'étudiants de MMI, nous sommes profondément passionnés par le monde de la technologie, du multimédia et de l'Internet. Nous sommes déterminés à vous offrir une expérience exceptionnelle sur notre site web. Notre équipe est constamment à l'écoute de vos commentaires et suggestions pour améliorer notre service. N'hésitez pas à nous contacter si vous avez des questions, des préoccupations ou des idées pour rendre notre plateforme encore meilleure.
 
-Nous vous remercions de votre confiance et espérons que [Nom du site] deviendra votre destination de choix pour la réservation de matériel. Nous sommes impatients de vous aider à concrétiser vos projets et de contribuer à votre succès académique.</p>
+Nous vous remercions de votre confiance et espérons que cette plateforme deviendra votre destination de choix pour la réservation de matériel. Nous sommes impatients de vous aider à concrétiser vos projets et de contribuer à votre succès académique.</p>
   </p>
   
 </div>

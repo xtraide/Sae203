@@ -22,8 +22,8 @@ if (isset($_GET['id'])) {
                                     <img src="../assets/ressources/materiel/<?= $row['img'] ?>/<?= $img ?>" alt=" image du materiel" class="img_matos">
                                 <?php } ?>
                             </div>
-                            <button class="slider-prev">prece</button>
-                            <button class="slider-next" type="none">next</button>
+                            <button class="slider-prev">précédent</button>
+                            <button class="slider-next" type="none">suivant</button>
                         </div>
                     </div>
                     <div class="modif_reserv">
@@ -31,7 +31,7 @@ if (isset($_GET['id'])) {
                             <div class="description">
                                 <p class="sNom">Nom : <?= $row['nom']; ?><input type="text" id="nom" class="modif none"></p>
                                 <p class="sType">Type : <?= $row['type']; ?><input type="text" id="type" class="modif none"></p>
-                                <p class="sRef">Refference : <?= $row['reference']; ?><input type="text" id="reference" class="modif none"></p>
+                                <p class="sRef">Reférence : <?= $row['reference']; ?><input type="text" id="reference" class="modif none"></p>
                                 <p class="sDesc">Description : <?= $row['description']; ?><input type="text" id="description" class="modif none"></p>
                             </div>
                         </form>
@@ -43,9 +43,9 @@ if (isset($_GET['id'])) {
                         if ($_SESSION['role'] == "admin") {
                         ?>
                             <div id="bouton">
-                                <button name="submit" value="1" class="admin modifier" id="modifier">Modifier</button>
+                                <button name="submit" value="1" class="admin modifier" id="modifier">Modifiez</button>
                                 <button name="submit" value="1" id="validmodif" class="none">
-                                    <p class="hfnfrht"> Valider la modification</p>
+                                    <p class="hfnfrht"> Validez la modification</p>
                                 </button>
                                 <script>
                                     function switchInput() {
@@ -83,7 +83,7 @@ if (isset($_GET['id'])) {
                         }
                             ?>
                             <form action="reservation.php" method="GET">
-                                <button name="id_materiel" value="<?= $row['id']; ?>" class="admin">Reserver</button>
+                                <button name="id_materiel" value="<?= $row['id']; ?>" class="admin">Reservez</button>
                             </form>
                             </div>
                     </div>
