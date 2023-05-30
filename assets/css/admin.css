@@ -31,7 +31,7 @@
     border: 1px solid gray;
     border-radius: 10px;
 
-    
+
 }
 
 .option {
@@ -76,7 +76,6 @@ h3 {
 }
 
 .tableau {
-
     color: white;
 }
 
@@ -114,4 +113,8 @@ input {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+input {
+    color: #000000;
 }

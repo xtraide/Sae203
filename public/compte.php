@@ -34,7 +34,15 @@ include $path . "html/header.php"; ?>
     </table>
 </div>
 
-<button onclick="<?php suprUnUser($_COOKIE['id']); ?>">Suprimer votre compte</button>
+<button id="supr">Suprimer votre compte</button>
+<script>
+    $('#supr').on('click', function() {
+        var confirm = confirm('voulez vous vraiment  SUPRIMER VOTRE COMPTE ');
+        if (confirm) {
+            fetch('../utile/function/suprUn.php?id=<?= $_COOKIE['id']; ?>')
+        }
+    })
+</script>
 <?php
 
 include $path . "html/footer.php";

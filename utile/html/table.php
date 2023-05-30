@@ -34,7 +34,7 @@
                 }
                 echo "
                         <tr>
-                            <td>" . $row['usernom'] . " . " . $row['userprenom'] . "</td>
+                            <td>" . $row['userprenom'] . " . " . $row['usernom'] . "</td>
                             <td>" . $row['date'] . "</td>
                             <td>" . $row['horraire_debut'] . " . " . $row['horraire_fin'] . "</td>
                             <td>" . $row['type'] . " . " . $row['materielnom'] . "</td>
