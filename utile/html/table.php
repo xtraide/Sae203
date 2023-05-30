@@ -6,11 +6,11 @@
 <table style="border:solid;">
 
     <tr>
-        <th style="border:solid;">Nom . prenom</th>
-        <td style="border:solid;">Date </td>
-        <td style="border:solid;">heur debut heur fin </td>
-        <td style="border:solid;">Type . nom du materiel</td>
-        <td style="border:solid;">Statut de la demande</td>
+        <th style="border-bottom:solid;">Nom . prenom</th>
+        <td style="border-bottom:solid;">Date </td>
+        <td style="border-bottom:solid;">heur debut heur fin </td>
+        <td style="border-bottom:solid;">Type . nom du materiel</td>
+        <td style="border-bottom:solid;">Statut de la demande</td>
     </tr>
     <?php
     if (!empty($_SESSION['role']) && $_SESSION['role'] == 'admin') {
@@ -32,8 +32,8 @@
                         $statut .= "
                                 
                                     <td>
-                                        <button type='submit' onclick='" . statut("accepter") . "' name='accepter'value='{$row["resid"]}' class='test2'>Accepter</button>
-                                        <button type='submit' onclick='" . statut("refuser") . "'name='refuser' value='{$row["resid"]}' class='test2'>Refuser</button>
+                                        <button type='submit' class='test2' onclick='statut(`accepter`,`" . $row['resid'] . "`)' name='accepter'value='{$row["resid"]}'>Accepter</button>
+                                        <button type='submit' class='test2' onclick='statut(`refuser`,`" . $row['resid'] . "`)' name='refuser' value='{$row["resid"]}'>Refuser</button>
                                     </td>
                                 ";
                     }
@@ -46,9 +46,10 @@
                     <td> <?= $row['type'] ?> . <?= $row['materielnom']; ?></td>
                     <td> <?= $statut; ?></td>
                     <td class='td'><a href='detail-reservation.php?id=<?= $row["resid"]; ?>' class='detail'>détail</a></td>
-                </tr><?php
-                    }
-                }
+                </tr>
+    <?php
             }
-                        ?>
+        }
+    }
+    ?>
 </table>

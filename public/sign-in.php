@@ -72,7 +72,7 @@ $css = str_replace(".php", "", basename(__FILE__));
 
 if (!empty($_POST['submit']) && $_POST['submit'] == "Créer son compte") {
 
-    include $path . 'function.php';
+    include $path . 'function/function.php';
     include $path . 'link/linkPdo.php';
     $nom = isValid('nom');
     $prenom = isValid('prenom');
