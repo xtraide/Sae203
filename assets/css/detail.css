@@ -54,6 +54,7 @@ button {
 }
 
 .slider-line {
+    width: 500px;
     width: 2000px;
     height: 400px;
     display: flex;
@@ -68,6 +69,7 @@ button {
 
 .bouton {
     text-align: center;
+    width: 500px;
 
 }
 
@@ -106,4 +108,22 @@ p {
 
 #modifier{
     height: 40px;
+}
+#validmodif{
+    text-align: center;
+    float: right;
+    color: white;
+    background: none;
+    border-radius: 12px;
+    border: 2px solid white;
+    margin-right: 15px;
+    height: 80px;
+    width: 100px;
+}
+.validmodif:hover {
+    transition: all ease 0.3s;
+    background-color: #2a2e44;
+}
+hfnfrht{
+    text-align: center;
 }

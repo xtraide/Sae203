@@ -5,6 +5,7 @@ include $path . "html/header.php";
 
 ?>
 <!--  faire un truck bot ADE ou on click-->
+<div class="container">
 <form action="<?= basename(__FILE__) . "?id_materiel=" . $_GET['id_materiel']; ?>" method="post">
     <label for="date">Choisier votre date de reservation</label>
     <input type="date" name="date" class="date">
@@ -17,7 +18,9 @@ include $path . "html/header.php";
     <div class="erhorrairef"></div><br>
     <button type="submit" name="reserver" value="1" class="submit">click sa</button>
 </form>
+
 <a href="list-reservation.php">Voir la liste de reservation</a>
+</div>
 <?php
 if (!empty($_POST['reserver']) && $_POST['reserver'] == "1") {
     $heure_debut_nouvelle = isValid('horraired');

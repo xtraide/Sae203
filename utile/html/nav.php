@@ -32,7 +32,7 @@ if ($result->rowCount() > 0) {
                                 <p class="navtexte">paramètre</p>
                                 <span><img src="../assets/ressources/utile/navimg/fleche_droite.png" alt=""></span>
                             </a>
-                            <a href="../link/deco.php" class="sub-menu-link">
+                            <a href="../utile/link/deco.php" class="sub-menu-link">
                                 <img src="../assets/ressources/utile/navimg/log_out.jpg" alt="">
                                 <p class="navtexte">deconexion</p>
                                 <span><img src="../assets/ressources/utile/navimg/fleche_droite.png" alt=""></span>
