@@ -4,11 +4,13 @@ $path =   "../utile/";
 $css = str_replace(".php", "", basename(__FILE__));
 include $path . "html/header.php";
 ?>
-<div>
+<div class="container">
+    <div class="test">
     <h3>liste des demandes de réservation</h3>
     <?php
     $page = basename(__FILE__);
     require_once('../utile/html/table.php'); ?>
+</div>
 </div>
 
 <?php
