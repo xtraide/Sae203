@@ -6,10 +6,10 @@ include $path . "html/header.php"; ?>
 <div id="flex">
     <div>
         <p id="titre">Réserver <br> dès maintenant <br> du matériel</p>
-        <button id="bouton"><a href="../public/index.php">
-                <span>retour à l'accueil</span>
-                <span id="fleche"></span>
-            </a>
+        <button id="bouton" onclick="scrollToDestination()">>
+                <span >Commencer ici</span>
+                <span id="fleche">></span>
+
         </button>
     </div>
     <div id="cam"><img id="camimg" src="../assets/ressources/utile/navimg/cam.png" alt="camera"></div>
@@ -21,6 +21,7 @@ if ($result->rowCount() > 0) {
     while ($row = $result->fetchAll(PDO::FETCH_ASSOC)) {
         foreach ($row as $row) {
 ?>
+<a id="destination"></a>
             <a href="detail.php?id=<?= $row['id'] ?>">
                 <img src="../assets/ressources/materiel/<?= $row['img']; ?>/<?= $row['imghead']; ?>" alt="image du materiel">
                 <div class="itemcard">
@@ -30,6 +31,12 @@ if ($result->rowCount() > 0) {
                     <p>description : <?= $row['description']; ?></p>
                 </div>
             </a>
+            <script>
+  function scrollToDestination() {
+    var destinationElement = document.getElementById("destination");
+    destinationElement.scrollIntoView({ behavior: "smooth" });
+  }
+</script>
 <?php
         }
     }
