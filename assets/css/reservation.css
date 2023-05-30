@@ -70,8 +70,27 @@ form {
 }
 
 .container{
+    padding: 5px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     text-align: center;
     align-items: center;
+}
+.input {
+    margin-bottom: 5px;
+    width: 400px;
+    height: 40px;
+    border: 1px solid gray;
+    border-radius: 10px;
+
+    
+}
+.a{
+    color: white;
+    text-decoration: none;
+}
+
+.a:hover{
+    color: purple;
 }
