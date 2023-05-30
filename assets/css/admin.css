@@ -42,18 +42,7 @@ body {
     text-align: center;
 }
 
-.td,
-.tr {
-    color: white;
-    text-align: center;
 
-    height: 50px;
-}
-
-table {
-    border: solid white;
-    border-radius: 15px;
-}
 
 .label {
     color: white;
@@ -130,6 +119,76 @@ input {
 }
 
 td {
+    text-align: center;
     border-bottom: 1px solid #ffffff;
     padding: 10px;
+}
+.test2{
+    border: 1px solid white;
+    color: rgb(0, 153, 255);
+    text-decoration: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 5px;
+    background: none;
+}
+
+.test2:hover {
+    transition: all ease 0.3s;
+    background-color: #2a2e44;
+}
+.detail {
+    height: 16px;
+    width: 112px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0;
+}
+
+.detail:hover {
+    transition: all ease 0.3s;
+    background-color: #2a2e44;
+}
+td a {
+    text-align: center;
+    border: 1px solid white;
+    color: rgb(0, 153, 255);
+    text-decoration: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+tbody {
+    text-align: center;
+}
+
+td {
+    width: 200px;
+}
+.td{
+    margin: 0;
+    text-align: center;
+
+}
+
+.td,
+.tr {
+    color: white;
+    text-align: center;
+
+    height: 50px;
+}
+
+table {
+    border: solid white;
+    border-radius: 15px;
+}
+.td {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }

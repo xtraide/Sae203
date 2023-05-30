@@ -32,9 +32,10 @@ include $path . "html/header.php"; ?>
         }
         ?>
     </table>
+    <button id="supr">Supprimez votre compte</button>
 </div>
 
-<button id="supr">Supprimez votre compte</button>
+
 <script>
     $('#supr').on('click', function() {
         var confirm = confirm('voulez vous vraiment  SUPRIMER VOTRE COMPTE ');

@@ -10,7 +10,7 @@
         <td style="border-bottom:solid;">Date </td>
         <td style="border-bottom:solid;">heur debut heur fin </td>
         <td style="border-bottom:solid;">Type . nom du materiel</td>
-        <td style="border-bottom:solid;">Statut de la demande</td>
+        <td style="border-bottom:solid;" class="statut">Statut de la demande</td>
     </tr>
     <?php
     if (!empty($_SESSION['role']) && $_SESSION['role'] == 'admin') {
