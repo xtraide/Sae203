@@ -28,11 +28,10 @@ if (isset($_GET['id'])) {
                     </div>
                     <form action="<?= basename(__FILE__) . "?id=" . $id ?>" method="post">
                         <div class="description">
-                            <p class="sId">id : <?= $row['id']; ?></p>
-                            <p class="sNom">nom : <?= $row['nom']; ?><input type="text" id="nom" class="modif none"></p>
+                            <p class="sNom">Nom : <?= $row['nom']; ?><input type="text" id="nom" class="modif none"></p>
                             <p class="sType">Type : <?= $row['type']; ?><input type="text" id="type" class="modif none"></p>
                             <p class="sRef">Refference : <?= $row['reference']; ?><input type="text" id="reference" class="modif none"></p>
-                            <p class="sDesc">description : <?= $row['description']; ?><input type="text" id="description" class="modif none"></p>
+                            <p class="sDesc">Description : <?= $row['description']; ?><input type="text" id="description" class="modif none"></p>
                         </div>
                     </form>
                     <script src="../assets/js/script.js"></script>

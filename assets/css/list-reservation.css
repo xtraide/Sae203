@@ -10,13 +10,10 @@ td a {
     border-radius: 10px;
     margin-bottom: 20px;
     padding: 5px;
-
-
 }
 
 a:hover {
     transition: all ease 0.3s;
-
 }
 
 @keyframes gradient-animation {
