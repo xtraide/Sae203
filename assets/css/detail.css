@@ -64,7 +64,7 @@ button {
 }
 
 .description {
-    text-align: right;
+
 }
 
 .bouton {
@@ -117,8 +117,8 @@ p {
     border-radius: 12px;
     border: 2px solid white;
     margin-right: 15px;
-    height: 80px;
-    width: 100px;
+
+
 }
 .validmodif:hover {
     transition: all ease 0.3s;
@@ -126,4 +126,17 @@ p {
 }
 hfnfrht{
     text-align: center;
+}
+#bouton{
+    display: flex;
+    margin-top: 20px;
+}
+.modif_reserv{
+    width: 600px;
+}
+.sDesc{
+    max-width: 600px;
+}
+#text{
+    width: 600px;
 }

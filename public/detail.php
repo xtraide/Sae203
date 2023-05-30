@@ -26,6 +26,7 @@ if (isset($_GET['id'])) {
                             <button class="slider-next" type="none">next</button>
                         </div>
                     </div>
+                    <div class="modif_reserv">
                     <form action="<?= basename(__FILE__) . "?id=" . $id ?>" method="post">
                         <div class="description">
                             <p class="sNom">Nom : <?= $row['nom']; ?><input type="text" id="nom" class="modif none"></p>
@@ -41,6 +42,7 @@ if (isset($_GET['id'])) {
                      */
                     if ($_SESSION['role'] == "admin") {
                     ?>
+                        <div id="bouton">
                         <button name="submit" value="1" class="admin modifier" id="modifier">Modifier</button>
                         <button name="submit" value="1" id="validmodif" class="none"><p class="hfnfrht"> Valider la modification</p></button>
                         <script>
@@ -81,6 +83,8 @@ if (isset($_GET['id'])) {
                     <form action="reservation.php" method="GET">
                         <button name="id_materiel" value="<?= $row['id']; ?>" class="admin">Reserver</button>
                     </form>
+                </div>
+                </div>
                 </div>
 <?php
             }
