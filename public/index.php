@@ -9,6 +9,8 @@ include $path . "html/header.php"; ?>
         <button id="bouton" onclick="scrollToDestination()">>
             <span>Commencer ici</span>
             <span id="fleche">></span>
+            <span>Commencer ici</span>
+            <span id="fleche">></span>
 
         </button>
     </div>
@@ -50,6 +52,9 @@ include $path . "html/header.php"; ?>
 
         echo "No results found. ";
     }
+        echo "No results found. ";
+    }
 
+    include "../utile/html/footer.php";
     include "../utile/html/footer.php";
 ?>
