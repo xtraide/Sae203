@@ -80,9 +80,9 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
                     <input type="file" placeholder="choisir une image" name="img5">
                 </div>
                 <div class="erimg"></div>
-            <div class="ajt_img">
-            <button name="Ajouter" value="1" class="submit">Ajouter un materiel</button>
-            </div>
+                <div class="ajt_img">
+                    <button name="Ajouter" value="1" class="submit">Ajouter un materiel</button>
+                </div>
             </div>
 
         </form>
@@ -132,15 +132,15 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
      */
     ?>
     <div class="tableau">
-    <div class="test">
-        <h3>liste des demandes de réservation</h3>
-        <?php
-        $page = basename(__FILE__);
-        require_once('../utile/html/table.php'); ?>
-    </div>
+        <div class="test">
+            <h3>liste des demandes de réservation</h3>
+            <?php
+            $page = basename(__FILE__);
+            require_once('../utile/html/table.php'); ?>
+        </div>
 
     </div>
-     
+
 <?php
 } else {
     header("Location: login.php");

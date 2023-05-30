@@ -41,7 +41,7 @@ $css = str_replace(".php", "", basename(__FILE__));
 session_start();
 if (!empty($_POST['Connexion'])) {
   include $path . "link/linkPdo.php";
-  include $path . "function.php";
+  include $path . "function/function.php";
   $email = isValid('email', false);
   $password = isValid('mdp', false);
   if (!empty($email) && !empty($password)) {

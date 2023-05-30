@@ -64,7 +64,7 @@ function isValid($post, $on = true)
     } else {
         ?>
         <script type="text/javascript">
-            document.getElementsByClassName('er<?= $post ?>')[0].innerHTML = 'Le champ <?= $post ?> est vide';
+            document.getElementsByClassName('er<?= $post ?>')[0].innerHTML = 'Le champ <?= $post == 'mdp' ? 'mot de passe ' : $post; ?> est vide';
         </script>
     <?php
     }
@@ -156,7 +156,7 @@ function isConflitHorraire($heure_debut_nouvelle, $heure_fin_nouvelle, $date, $m
  */
 function isValidImage(String $img)
 {
-    $validFileSize = 8*10^7;
+    $validFileSize = 8 * 10 ^ 7;
     $validExt = array("jpeg", "jpg", "png");
     $fileSize = $_FILES[$img]['size'];
     $fileName = $_FILES[$img]["name"];
