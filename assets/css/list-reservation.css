@@ -30,10 +30,13 @@ tbody {
 }
 
 td {
+    padding: 10px;
+    border-bottom: 1px solid #ffffff;
     width: 200px;
 }
 
 .detail {
+    text-align: center;
     display: flex;
     width: 50%;
     justify-content: center;
@@ -47,6 +50,7 @@ td {
 }
 
 .td {
+    text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,4 +84,7 @@ td {
 .test2:hover {
     transition: all ease 0.3s;
     background-color: #2a2e44;
+}
+table{
+    border-radius: 15px;
 }

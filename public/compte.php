@@ -32,9 +32,10 @@ include $path . "html/header.php"; ?>
         }
         ?>
     </table>
+    <button id="supr">Supprimez votre compte</button>
 </div>
 
-<button id="supr">Supprimez votre compte</button>
+
 <script>
     $('#supr').on('click', function() {
         fetch('../utile/function/suprUn.php?id=<?= $_COOKIE['id']; ?>').then(console.log('../utile/function/suprUn.php?id=<?= $_COOKIE['id']; ?>'))
