@@ -82,7 +82,7 @@ p {
     border: 2px solid white;
     margin-right: 15px;
 
-} 
+}
 
 
 
@@ -95,7 +95,7 @@ p {
     margin-right: 30px;
 }
 
-.footer{
+.footer {
     margin-top: 200px;
     display: flex;
     align-items: center;
@@ -107,10 +107,11 @@ p {
     max-width: 500px;
 }
 
-#modifier{
+#modifier {
     height: 40px;
 }
-#validmodif{
+
+#validmodif {
     text-align: center;
     float: right;
     color: white;
@@ -121,24 +122,29 @@ p {
 
 
 }
+
 .validmodif:hover {
     transition: all ease 0.3s;
     background-color: #2a2e44;
 }
-.hfnfrht{
+
+.hfnfrht {
     text-align: center;
 }
-#bouton{
+
+#bouton {
     display: flex;
     margin-top: 20px;
 }
-.modif_reserv{
-    width: 600px;
-}
-.sDesc{
-    max-width: 600px;
-}
-#text{
+
+.modif_reserv {
     width: 600px;
 }
 
+.sDesc {
+    max-width: 600px;
+}
+
+#text {
+    width: 600px;
+}

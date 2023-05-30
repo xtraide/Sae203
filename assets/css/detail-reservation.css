@@ -1,4 +1,4 @@
-.footer{
+.footer {
     margin-top: 200px;
     display: flex;
     align-items: center;
@@ -21,6 +21,7 @@
     transition: all ease 0.3s;
     background-color: #2a2e44;
 }
-.itemcard{
+
+.itemcard {
     padding: 15px;
 }
