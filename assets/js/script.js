@@ -1,13 +1,13 @@
 let submenu = document.getElementById("submenu")
 
-function toggleMenu(){
+function toggleMenu() {
     submenu.classList.toggle("open-menu")
 }
 let offset = 0;
 
 const sliderLine = document.querySelector('.slider-line')
 
-document.querySelector('.slider-next').addEventListener('click', function(){
+document.querySelector('.slider-next').addEventListener('click', function () {
     offset = offset + 500;
     if (offset > 2000) {
         offset = 0
@@ -15,7 +15,7 @@ document.querySelector('.slider-next').addEventListener('click', function(){
     sliderLine.style.left = -offset + 'px';
 });
 
-document.querySelector('.slider-prev').addEventListener('click', function(){
+document.querySelector('.slider-prev').addEventListener('click', function () {
     offset = offset - 500;
     if (offset < 0) {
         offset = 2000
