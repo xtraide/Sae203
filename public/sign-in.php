@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="../assets/css/sign-in.css">
-<img src="../assets/ressources/utile/fond.png" alt="" class="back">
+<img src="../assets/ressources/utile/fond.png" alt="background" class="background">
 
 
 <?php
@@ -12,7 +12,6 @@ $css = str_replace(".php", "", basename(__FILE__));
 <form action="<?= basename(__FILE__); ?>" method="post">
     <div class="container">
         <div>
-            <img src="../assets/ressources/utile/Plan_de_travail_2.png" alt="" class="plan">
         </div>
         <div class="gradient">
             <div class="sign-up-wraper">
@@ -109,4 +108,4 @@ if (!empty($_POST['submit']) && $_POST['submit'] == "Créer son compte") {
         echo "votre compte doit etre verifier pour pouvoir vous y connecter ";
     }
 }
-?>
+include $path . "html/footer.php";

@@ -82,7 +82,9 @@ p {
     border: 2px solid white;
     margin-right: 15px;
 
-}
+} 
+
+
 
 .admin:hover {
     transition: all ease 0.3s;
@@ -94,6 +96,7 @@ p {
 }
 
 .footer{
+    margin-top: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -139,6 +142,3 @@ p {
     width: 600px;
 }
 
-.footer{
-    margin-top: 200px;
-}
