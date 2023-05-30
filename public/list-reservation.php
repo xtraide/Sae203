@@ -3,9 +3,7 @@
 $path =   "../utile/";
 $css = str_replace(".php", "", basename(__FILE__));
 include $path . "html/header.php";
-
 ?>
-
 <div>
     <h3>liste des demandes de réservation</h3>
     <table style="border:solid;">
@@ -20,11 +18,9 @@ include $path . "html/header.php";
         if (!empty($_SESSION['role']) && $_SESSION['role'] == 'admin') {
             $result = execute(" SELECT utilisateur.nom AS usernom, utilisateur.prenom AS userprenom,  reservation.id as resid ,reservation.horraire_debut,reservation.horraire_fin, reservation.date, reservation.statut, materiel.type, materiel.nom AS materielnom FROM `reservation`, `materiel`, `utilisateur` WHERE reservation.id_utilisateur = utilisateur.id AND reservation.id_materiel = materiel.id;");
         }
-
         $result = execute("SELECT utilisateur.nom AS usernom, utilisateur.prenom AS userprenom, reservation.id as resid ,reservation.horraire_debut,reservation.horraire_fin, reservation.date, reservation.statut, materiel.type, materiel.nom AS materielnom FROM `reservation`,  `materiel`, `utilisateur` WHERE reservation.id_utilisateur = utilisateur.id AND reservation.id_materiel = materiel.id; AND utilisateur.id = :user ;", [
             'user' => $_COOKIE['id']
         ]);
-
         if ($result->rowCount() > 0) {
             while ($row = $result->fetchAll(PDO::FETCH_ASSOC)) {
                 foreach ($row as $row) {

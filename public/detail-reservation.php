@@ -29,7 +29,6 @@ if (isset($_GET['id'])) {
                     <button type="submit" value="AAA" name="pdf" id="pdf"> pdf moi sa </button>
                 </form>
 <?php
-
             }
         }
     } else {
