@@ -30,6 +30,8 @@
     height: 40px;
     border: 1px solid gray;
     border-radius: 10px;
+
+    
 }
 
 .option {
@@ -111,4 +113,8 @@ input {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+input{
+    color: #000000;
 }

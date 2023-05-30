@@ -26,7 +26,7 @@ if (isset($_GET['id'])) {
                     </p>
                 </div>
                 <form action="../utile/pdf/getpdf.php?id=<?= $_GET['id']; ?>" method="post">
-                    <button type="submit" value="AAA" name="pdf" id="pdf"> pdf moi sa </button>
+                    <button type="submit" value="AAA" name="pdf" id="pdf" class="admin"> pdf moi sa </button>
                 </form>
 <?php
             }
