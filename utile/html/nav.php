@@ -7,10 +7,10 @@ if ($result->rowCount() > 0) {
             <div class="hero">
                 <nav class="navbar">
 
-                    <a href="/sae205-master/public/index.php"><img src="../assets/ressources/utile/navimg/iutLogo.png" alt="" height="65px" class="iut"></a>
+                    <a href="index.php"><img src="../assets/ressources/utile/navimg/iutLogo.png" alt="" height="65px" class="iut"></a>
                     <ul class="nav-links">
-                        <li><a href="">RESERVATION</a></li>
-                        <li><a href="">A PROPOS DE NOUS</a></li>
+                        <li><a href="list-reservation.php">RESERVATION</a></li>
+                        <li><a href="about.php">A PROPOS DE NOUS</a></li>
                     </ul>
 
                     <img src="../assets/ressources/utile/navimg/pp.png" alt="photo utilisateur" class="user-pic" onclick="toggleMenu()">

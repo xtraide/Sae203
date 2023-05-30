@@ -16,7 +16,7 @@ if (isset($_GET['id'])) {
                     <div class="slider">
                         <div class="bouton">
                             <div class="slider-line">
-                                <?php $img = array_diff(scandir("../assets/ressources/materiel/400/" . $row['img']), [".", ".."]);
+                                <?php $img = array_diff(scandir("../assets/ressources/materiel/" . $row['img']), [".", ".."]);
                                 foreach ($img as $img) {
                                 ?>
                                     <img src="../assets/ressources/materiel/<?= $row['img'] ?>/<?= $img ?>" alt=" image du materiel" class="img_matos">
@@ -42,7 +42,7 @@ if (isset($_GET['id'])) {
                      */
                     if ($_SESSION['role'] == "admin") {
                     ?>
-                        <button name="submit" value="1" class="admin modifier" id="admin">Modifier</button>
+                        <button name="submit" value="1" class="admin modifier" id="modifier">Modifier</button>
                         <button name="submit" value="1" id="validmodif" class="none">Valider la modification</button>
                         <script>
                             function switchInput() {

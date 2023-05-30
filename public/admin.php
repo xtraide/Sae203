@@ -3,7 +3,6 @@ $path =   "../utile/";
 $css = str_replace(".php", "", basename(__FILE__));
 include $path . "html/header.php";
 
-
 if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
     /**
      * Ajouter un materiel 

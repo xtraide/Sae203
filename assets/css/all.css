@@ -2,6 +2,7 @@ body {
     background-repeat: no-repeat;
     justify-content: center;
     background-color: black;
+    color: white;
 }
 
 .background {
@@ -165,16 +166,8 @@ nav ul li a {
     display: none;
 }
 
-.footer {
-    position: absolute;
-    color: white !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .gauche {
-
     margin-left: 100px;
     margin-right: 100px;
 }
@@ -199,6 +192,5 @@ nav ul li a {
 }
 
 footer {
-    background-color: black;
-    opacity: 50%;
+    display: flex;
 }
