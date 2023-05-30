@@ -16,12 +16,13 @@ body {
 }
 
 .footer{    
-    margin-top: 470px;
+    margin-top: 430px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 #supr{
+    margin-top: 10px;
     border: 1px solid white;
     color: rgb(0, 153, 255);
     text-decoration: none;
