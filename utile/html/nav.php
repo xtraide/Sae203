@@ -22,8 +22,7 @@ if ($result->rowCount() > 0) {
                                 <img src="../assets/ressources/utile/navimg/pp.jpg" alt="">
                                 <p id="name"><?= $row['nom'] . ' ' . $row['prenom']; ?></p>
                             </div>
-
-                            <a href="/sae205-master/public/compte.php" class="sub-menu-link">
+                            <a href="compte.php" class="sub-menu-link">
                                 <img src="../assets/ressources/utile/navimg/logo_pp.png" alt="">
                                 <p class="navtexte">profile</p>
                                 <span><img src="../assets/ressources/utile/navimg/fleche_droite.png" alt=""></span>
