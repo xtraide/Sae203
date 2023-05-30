@@ -42,7 +42,7 @@ if (isset($_GET['id'])) {
                      */
                     if ($_SESSION['role'] == "admin") {
                     ?>
-                        <button name="submit" value="1" class="admin modifier" id="admin">Modifier</button>
+                        <button name="submit" value="1" class="admin modifier" id="modifier">Modifier</button>
                         <button name="submit" value="1" id="validmodif" class="none">Valider la modification</button>
                         <script>
                             function switchInput() {
