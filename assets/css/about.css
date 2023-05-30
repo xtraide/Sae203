@@ -25,6 +25,7 @@ height: 500px;
 
 
 .footer{
+    margin-top: 200px;
     display: flex;
     align-items: center;
     justify-content: center;

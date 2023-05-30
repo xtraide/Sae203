@@ -32,8 +32,8 @@
                         $statut .= "
                                 
                                     <td>
-                                        <button type='submit' onclick='statut(`accepter`,`" . $row['resid'] . "`)' name='accepter'value='{$row["resid"]}'>Accepter</button>
-                                        <button type='submit' onclick='statut(`refuser`,`" . $row['resid'] . "`)' name='refuser' value='{$row["resid"]}'>Refuser</button>
+                                        <button type='submit' onclick='" . statut("accepter") . "' name='accepter'value='{$row["resid"]}' class='test2'>Accepter</button>
+                                        <button type='submit' onclick='" . statut("refuser") . "'name='refuser' value='{$row["resid"]}' class='test2'>Refuser</button>
                                     </td>
                                 ";
                     }
