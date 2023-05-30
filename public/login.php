@@ -3,7 +3,7 @@ $path =   "../utile/";
 $css = str_replace(".php", "", basename(__FILE__));
 ?>
 <link rel="stylesheet" href="../assets/css/login.css">
-<img src="../assets/ressources/utile/fond.png" alt="" class="back">
+<img src="../assets/ressources/utile/fond.png" alt="background" class="background">
 <form action="<?= basename(__FILE__); ?>" method="post">
   <div class="container">
     <div>
