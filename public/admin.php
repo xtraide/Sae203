@@ -80,11 +80,13 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
                     <input type="file" placeholder="choisir une image" name="img5">
                 </div>
                 <div class="erimg"></div>
-            </div class="ajt_img">
+            <div class="ajt_img">
             <button name="Ajouter" value="1" class="submit">Ajouter un materiel</button>
+            </div>
+            </div>
 
         </form>
-    
+    </div>
 
     <br>
     <?php
@@ -138,6 +140,7 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
     </div>
 
     </div>
+    
 <?php
 } else {
     header("Location: login.php");
