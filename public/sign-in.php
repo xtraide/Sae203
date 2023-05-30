@@ -91,7 +91,7 @@ if (!empty($_POST['submit']) && $_POST['submit'] == "Créer son compte") {
             'mdp' => $mdp
         ]);
         $result = execute("SELECT MAX(id) as id FROM utilisateur;");
-        include $path . "mail.php";
+        include $path . "mail/mail.php";
         while ($row = $result->fetchAll(PDO::FETCH_ASSOC)) {
             foreach ($row as $row) {
                 $token = md5(uniqid(rand(), true));

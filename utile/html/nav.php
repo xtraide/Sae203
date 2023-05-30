@@ -1,5 +1,5 @@
 <?php
-$result = execute("SELECT nom,prenom FROM `utilisateur` where utilisateur.id = '" . $_COOKIE['id'] . "';");
+$result = execute("SELECT nom,prenom,role FROM `utilisateur` where utilisateur.id = '" . $_COOKIE['id'] . "';");
 if ($result->rowCount() > 0) {
     while ($row = $result->fetchAll(PDO::FETCH_ASSOC)) {
         foreach ($row as $row) {
@@ -11,6 +11,7 @@ if ($result->rowCount() > 0) {
                     <ul class="nav-links">
                         <li><a href="list-reservation.php">RESERVATION</a></li>
                         <li><a href="about.php">A PROPOS DE NOUS</a></li>
+                        <?= $row['role'] == 'admin' ? '<li><a href="admin.php">' .  strtoupper($row['role']) . '</a></li>' : '' ?>
                     </ul>
 
                     <img src="../assets/ressources/utile/navimg/pp.png" alt="photo utilisateur" class="user-pic" onclick="toggleMenu()">
