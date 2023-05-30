@@ -131,7 +131,9 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
     ?>
     <div class="tableau">
         <h3>liste des demandes de réservation</h3>
-        <?php require_once('../utile/html/table.php'); ?>
+        <?php
+        $page = basename(__FILE__);
+        require_once('../utile/html/table.php'); ?>
     </div>
 <?php
 } else {

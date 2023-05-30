@@ -24,7 +24,7 @@
                     $statut = "EN ATTENTE";
                     if ($_SESSION['role'] == 'admin') {
                         $statut .= "
-                                <form action=" . basename(__FILE__) . " method='post'>
+                                <form action='" . $page . "' method='post'>
                                     <td>
                                         <button type='submit' onclick='" . statut("accepter") . "' name='accepter'value='{$row["resid"]}'>Accepter</button>
                                         <button type='submit' onclick='" . statut("refuser") . "'name='refuser' value='{$row["resid"]}'>Refuser</button>
