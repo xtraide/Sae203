@@ -230,7 +230,13 @@ function getImage($file, $uniqueNameDir = '', $isImgHead = false)
     }
     return $uniqueNameDir;
 }
-
+function suprUnUser(string $idUser)
+{
+    execute("DELETE  FROM `utilisateur` WHERE id = :id", [
+        "id" => $idUser
+    ]);
+    header('Location: ../utile/link/deco.php');
+}
 /*
 function isValidImage(String $img)
 {
