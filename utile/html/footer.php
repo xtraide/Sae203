@@ -10,7 +10,7 @@
 		<div class="droite">
 			<p class="contact">Copyright © - 2023</p>
 			<div class="sousligne"></div>
-			<p class="contact"> Mention légales (il n'y a pas de mention légale)</p>
+			<p class="contact">tout droit réservé</p>
 		</div>
 	</div>
 </footer>

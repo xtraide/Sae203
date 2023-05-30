@@ -149,7 +149,11 @@ function isConflitHorraire($heure_debut_nouvelle, $heure_fin_nouvelle, $date, $m
  *  accepter ou refuser le statut d'une reservation par raport a son id  
  ***************************/
 
-
+/**
+ * 			nolandallemolle@gmail.com<
+ *          remyhamelin@gmail.com
+ *          nicolasthieblemont@gmail.com
+ */
 
 /**
  * verifier qu'e c'est bien une image 
