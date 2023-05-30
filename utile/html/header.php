@@ -12,6 +12,7 @@
 </head>
 
 <body>
+	<img src="../assets/ressources/utile/fond.png" alt="background" class="background">
 	<?php
 	include "../utile/link/linkPdo.php";
 	include "../utile/function.php";
