@@ -173,3 +173,13 @@ body {
     margin-top: 200px;
     opacity: 6;
 }
+
+.gauche {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.droite {
+    margin-left: 100px;
+    margin-right: 100px;
+}
