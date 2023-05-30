@@ -1,7 +1,6 @@
 <script>
     function statut(statut, id) {
         fetch('../utile/function/statut.php?statut=' + statut + '&id=' + id).then(location.reload());
-
     }
 </script>
 <table style="border:solid;">
