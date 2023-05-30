@@ -82,7 +82,9 @@ p {
     border: 2px solid white;
     margin-right: 15px;
 
-}
+} 
+
+
 
 .admin:hover {
     transition: all ease 0.3s;
@@ -94,13 +96,15 @@ p {
 }
 
 .footer{
+    margin-top: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .img_matos {
-    width: 500px;
+    min-width: 500px;
+    max-width: 500px;
 }
 
 #modifier{
@@ -138,6 +142,3 @@ p {
     width: 600px;
 }
 
-.footer{
-    margin-top: 200px;
-}

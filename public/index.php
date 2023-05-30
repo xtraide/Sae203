@@ -6,7 +6,7 @@ include $path . "html/header.php"; ?>
 <div id="flex">
     <div>
         <p id="titre">Réserver <br> dès maintenant <br> du matériel</p>
-        <button id="bouton" onclick="scrollToDestination()">>
+        <button id="bouton" onclick="scrollToDestination()">
             <span>Commencer ici</span>
             <span id="fleche">></span>
 
@@ -14,6 +14,7 @@ include $path . "html/header.php"; ?>
     </div>
     <div id="cam"><img id="camimg" src="../assets/ressources/utile/navimg/cam.png" alt="camera"></div>
 </div>
+<a id="destination"></a>
 <div class="container">
     <?php
     $result = execute("SELECT * FROM materiel");
@@ -22,7 +23,7 @@ include $path . "html/header.php"; ?>
             foreach ($row as $row) {
     ?>
                 <div class="itemcard">
-                    <a id="destination"></a>
+                    
                     <a href="detail.php?id=<?= $row['id'] ?>">
                         <img src="../assets/ressources/materiel/<?= $row['img']; ?>/<?= $row['imghead']; ?>" alt="image du materiel" class="img_card">
                         <p class="margin">nom : <?= $row['nom']; ?></p>
