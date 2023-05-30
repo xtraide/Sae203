@@ -1,5 +1,4 @@
 #flex {
-
     display: flex;
     margin-left: 220px;
     margin-top: 140px;
@@ -8,15 +7,12 @@
 }
 
 p {
-
     color: white;
     text-align: left;
-
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 #bouton {
-
     border: 1px solid white;
     border-radius: 30px;
     text-align: center;
@@ -30,7 +26,6 @@ body {
 }
 
 #fleche {
-
     margin-left: 15px;
     color: black;
     font-size: 30px;
@@ -39,14 +34,12 @@ body {
     padding-left: 7px;
     padding-right: 7px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-
 }
 
 #bouton:hover {
     transition: all ease 0.3s;
     color: white;
     background-color: black;
-
 }
 
 a {
@@ -61,7 +54,6 @@ a {
 }
 
 #cam {
-
     rotate: -10deg;
     height: 100%;
     margin-right: 100px;
@@ -71,8 +63,6 @@ a {
 
 #camimg {
     width: 980px;
-
-
 }
 
 span {

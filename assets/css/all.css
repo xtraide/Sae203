@@ -168,7 +168,6 @@ nav ul li a {
 
 
 .gauche {
-
     margin-left: 100px;
     margin-right: 100px;
 }
@@ -192,6 +191,6 @@ nav ul li a {
 
 }
 
-footer{
+footer {
     display: flex;
 }
