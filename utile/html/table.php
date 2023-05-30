@@ -1,4 +1,10 @@
+<script>
+    function statut(statut, id) {
+        fetch('../utile/function/statut.php?statut=' + statut + '&id=' + id).then(location.reload());
+    }
+</script>
 <table style="border:solid;">
+
     <tr>
         <th style="border:solid;">Nom . prenom</th>
         <td style="border:solid;">Date </td>
@@ -24,26 +30,25 @@
                     $statut = "EN ATTENTE";
                     if ($_SESSION['role'] == 'admin') {
                         $statut .= "
-                                <form action='" . $page . "' method='post'>
+                                
                                     <td>
-                                        <button type='submit' onclick='" . statut("accepter") . "' name='accepter'value='{$row["resid"]}'>Accepter</button>
-                                        <button type='submit' onclick='" . statut("refuser") . "'name='refuser' value='{$row["resid"]}'>Refuser</button>
+                                        <button type='submit' onclick='" . statut("accepter") . "' name='accepter'value='{$row["resid"]}' class='test2'>Accepter</button>
+                                        <button type='submit' onclick='" . statut("refuser") . "'name='refuser' value='{$row["resid"]}' class='test2'>Refuser</button>
                                     </td>
-                                </form>";
+                                ";
                     }
                 }
-                echo "
-                        <tr>
-                            <td>" . $row['userprenom'] . " . " . $row['usernom'] . "</td>
-                            <td>" . $row['date'] . "</td>
-                            <td>" . $row['horraire_debut'] . " . " . $row['horraire_fin'] . "</td>
-                            <td>" . $row['type'] . " . " . $row['materielnom'] . "</td>
-                            <td>" . $statut . "</td>
-                            <td class='td'><a href='detail-reservation.php?id={$row["resid"]}' class='detail'>détail</a></td>
-                        </tr>";
-                        
-            }
-        }
-    }
     ?>
+                <tr>
+                    <td> <?= $row['userprenom']; ?> . <?= $row['usernom'] ?></td>
+                    <td> <?= $row['date']; ?></td>
+                    <td> <?= $row['horraire_debut']; ?> . <?= $row['horraire_fin']; ?></td>
+                    <td> <?= $row['type'] ?> . <?= $row['materielnom']; ?></td>
+                    <td> <?= $statut; ?></td>
+                    <td class='td'><a href='detail-reservation.php?id=<?= $row["resid"]; ?>' class='detail'>détail</a></td>
+                </tr><?php
+                    }
+                }
+            }
+                        ?>
 </table>

@@ -42,6 +42,10 @@ td {
     align-items: center;
     margin-right: 0;
 }
+.detail:hover{
+    transition: all ease 0.3s;
+    background-color: #2a2e44;
+}
 
 .td {
     display: flex;
@@ -51,6 +55,7 @@ td {
 }
 
 .footer{
+    margin-top: 170px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -60,4 +65,19 @@ td {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.test2{
+    border: 1px solid white;
+    color: rgb(0, 153, 255);
+    text-decoration: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 5px;
+    background: none;
+}
+
+.test2:hover{
+    transition: all ease 0.3s;
+    background-color: #2a2e44;
 }

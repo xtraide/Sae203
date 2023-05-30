@@ -99,7 +99,7 @@ if (!empty($_POST['submit']) && $_POST['submit'] == "Créer son compte") {
                     $email,
                     "Confirmation d'adresse email",
                     "cliquer ici pour activer votre compte
-                    <a href=`http://localhost/iut/Sae205/public/verif.php?id=`" . $row['id'] . "`&token=`" . $token . ">test</a>
+                    <a href=`http://localhost/iut/Sae205/utile/function/verif.php?id=`" . $row['id'] . "`&token=`" . $token . ">test</a>
                     "
                 );
             }
