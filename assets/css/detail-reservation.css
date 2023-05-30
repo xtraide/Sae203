@@ -1,0 +1,21 @@
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin {
+    float: right;
+    color: white;
+    background: none;
+    border-radius: 12px;
+    border: 2px solid white;
+    margin-right: 15px;
+    width: 94px;
+    height: 40px;
+}
+
+.admin:hover {
+    transition: all ease 0.3s;
+    background-color: #2a2e44;
+}
