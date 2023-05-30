@@ -1,49 +1,43 @@
-span{
-color: white;
-font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-font-size: 25px;
+span {
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 25px;
 }
 
 
 
-#suite{
-
-text-align: center;
-
+#suite {
+    text-align: center;
 }
 
-#bouton{
-
-border: 1px solid white;
-border-radius: 30px;
-text-align: center;
-padding-top: 10px;
-padding-bottom: 10px;
-background-color: transparent;
+#bouton {
+    border: 1px solid white;
+    border-radius: 30px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: transparent;
 }
 
-#top{
-font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-color: white;
-font-size: 50px;
-margin-top: 10px;
-font-size: 140px;
-
+#top {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: white;
+    font-size: 50px;
+    margin-top: 10px;
+    font-size: 140px;
 }
 
 
-#erreur{
-border-top: 2px solid white;
-font-size: 35px;
-margin-bottom: 20px;
-padding-top: 20px;
-margin-left: 10%;
-margin-right: 10%;
-
+#erreur {
+    border-top: 2px solid white;
+    font-size: 35px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
-#fleche{
-
+#fleche {
     margin-left: 15px;
     color: black;
     font-size: 20px;
@@ -55,26 +49,27 @@ margin-right: 10%;
 
 }
 
-#bouton:hover{
+#bouton:hover {
 
-color: white;
-background-color: black;
+    color: white;
+    background-color: black;
 
 }
 
 
-    a{
-        text-decoration: none;
-        color: white;
-    }
+a {
+    text-decoration: none;
+    color: white;
+}
 
-    .texte{
-        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-color: white;
-font-size: 50px;
-    }
+.texte {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: white;
+    font-size: 50px;
+}
 
 .footer{
-    position: absolute;
-    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

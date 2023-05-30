@@ -1,13 +1,9 @@
-
-.hero{
+.hero {
     width: 100%;
     min-height: 100hv;
-
-
 }
 
-.navbar{
-
+.navbar {
     width: 100%;
     padding: 10px 10%;
     display: flex;
@@ -18,23 +14,23 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.logo{
+.logo {
     width: 80px;
     color: #ffff;
 }
 
-.user-pic{
+.user-pic {
     width: 40px;
     margin-left: 30px;
     cursor: pointer;
     border-radius: 100%;
 }
 
-nav ul{
-width: 100%;
+nav ul {
+    width: 100%;
 }
 
-nav ul li{
+nav ul li {
     display: inline-block;
     list-style: none;
     margin: 10px 20px;
@@ -45,7 +41,7 @@ nav ul li a {
     color: #ffff;
 }
 
-.sub-menu-wrap{
+.sub-menu-wrap {
     z-index: 1000;
     position: absolute;
     top: 100%;
@@ -56,36 +52,36 @@ nav ul li a {
     transition: max-height 0.5s;
 }
 
-.open-menu{
+.open-menu {
     z-index: 1000;
     max-height: 400px;
 
     border-top: none;
 }
 
-.sub-menu{
+.sub-menu {
     background: #ffff;
     padding: 20px;
     margin: 10px;
 }
 
-.user-info{
+.user-info {
     z-index: 1000;
     display: flex;
     align-items: center;
 }
 
-.user-info h3{
+.user-info h3 {
     font-weight: 500;
 }
 
-.user-info img{
+.user-info img {
     width: 60px;
     border-radius: 50%;
     margin: 15px;
 }
 
-.sub-menu hr{
+.sub-menu hr {
     border: 0%;
     height: 1px;
     width: 100%;
@@ -93,7 +89,7 @@ nav ul li a {
     margin: 12px 0;
 }
 
-.sub-menu-link{
+.sub-menu-link {
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -101,32 +97,32 @@ nav ul li a {
     margin: 12px 0;
 }
 
-.sub-menu-link span{
+.sub-menu-link span {
     font-weight: 600;
     font-size: 20px;
     transition: transform 0.5s;
 }
 
-.sub-menu-link img{
+.sub-menu-link img {
     width: 30px;
     height: 30px;
     margin-right: 15px;
 }
 
-.sub-menu-link p{
+.sub-menu-link p {
     color: black;
     width: 100%;
 }
 
-.sub-menu-link:hover span{
+.sub-menu-link:hover span {
     transform: translateX(5px);
 }
 
-.sub-menu-link:hover p{
+.sub-menu-link:hover p {
     font-weight: 600;
 }
 
-.menu-bar{
+.menu-bar {
     height: 60px;
     width: 80px;
     min-width: 60px;
@@ -139,21 +135,25 @@ nav ul li a {
     margin-right: 100px;
 
 }
-.reinput{
-        border: 3px solid #dcdcdc;
-        padding: 5px;
-        border-radius: 6px;
-        outline: none;
+
+.reinput {
+    border: 3px solid #dcdcdc;
+    padding: 5px;
+    border-radius: 6px;
+    outline: none;
 }
 
 
 
 
-html, body{
+html,
+body {
     font-size: 18px;
     font-family: sans-serif;
 }
-#name{
+
+#name {
     font-size: none;
     color: black;
 }
+

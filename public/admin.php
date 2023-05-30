@@ -3,7 +3,6 @@ $path =   "../utile/";
 $css = str_replace(".php", "", basename(__FILE__));
 include $path . "html/header.php";
 
-
 if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
     /**
      * Ajouter un materiel 
@@ -61,31 +60,31 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
             </div>
             <div class="label2">
                 <div class="ajt_img">
-            <label for="image">Ajouter une principale(Image aficher dans l'a liste de materiel)</label>
-            <input type="file" placeholder="choisir une image" name="img">
-            </div>
-            <div class="ajt_img">
-            <label for="image">Ajouter une image 2</label>
-            <input type="file" placeholder="choisir une image" name="img2">
-            </div>
-            <div class="ajt_img">
-            <label for="image">Ajouter une image 3</label>
-            <input type="file" placeholder="choisir une image" name="img3">
-            </div>
-            <div class="ajt_img">
-            <label for="image">Ajouter une image 4</label>
-            <input type="file" placeholder="choisir une image" name="img4">
-            </div>
-            <div class="ajt_img">
-            <label for="image">Ajouter une image 5</label>
-            <input type="file" placeholder="choisir une image" name="img5">
-            </div>
-            <div class="erimg"></div>
+                    <label for="image">Ajouter une principale(Image aficher dans l'a liste de materiel)</label>
+                    <input type="file" placeholder="choisir une image" name="img">
+                </div>
+                <div class="ajt_img">
+                    <label for="image">Ajouter une image 2</label>
+                    <input type="file" placeholder="choisir une image" name="img2">
+                </div>
+                <div class="ajt_img">
+                    <label for="image">Ajouter une image 3</label>
+                    <input type="file" placeholder="choisir une image" name="img3">
+                </div>
+                <div class="ajt_img">
+                    <label for="image">Ajouter une image 4</label>
+                    <input type="file" placeholder="choisir une image" name="img4">
+                </div>
+                <div class="ajt_img">
+                    <label for="image">Ajouter une image 5</label>
+                    <input type="file" placeholder="choisir une image" name="img5">
+                </div>
+                <div class="erimg"></div>
             </div class="ajt_img">
             <button name="Ajouter" value="1" class="submit">Ajouter un materiel</button>
-            
+
         </form>
-    </div>
+    
 
     <br>
     <?php
@@ -131,50 +130,16 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
      */
     ?>
     <div class="tableau">
+    <div class="test">
         <h3>liste des demandes de réservation</h3>
-        <table>
-            <tr class="tr">
-                <th>Nom . prenom</th>
-                <td class="td">Date de debut . Date de fin de pret</td>
-                <td class="td">Type . nom du materiel</td>
-                <td class="td">Statut de la demande</td>
-            </tr>
+        <?php
+        $page = basename(__FILE__);
+        require_once('../utile/html/table.php'); ?>
+    </div>
 
-            <?php $result = execute(" SELECT utilisateur.nom AS usernom, utilisateur.prenom AS userprenom,  reservation.id as resid ,reservation.horraire_debut,reservation.horraire_fin, reservation.date, reservation.statut, materiel.type, materiel.nom AS materielnom FROM `reservation`, `materiel`, `utilisateur` WHERE reservation.id_utilisateur = utilisateur.id AND reservation.id_materiel = materiel.id;");
-            if ($result->rowCount() > 0) {
-                foreach ($result as $row) {
-
-                    //SELECT utilisateur.nom as usernom, utilisateur.prenom as userprenom,demande.dateD,demande.dateF,demande.statut,materiel.type,materiel.nom as materielnom FROM `materiel`,`utilisateur`,`demande` WHERE demande.materielId = materiel.id AND utilisateur.id = demande.id_utilisateur;
-                    if ($row['statut'] != "en attente") {
-
-                        $statut =  $row['statut'];
-                    } else {
-                        $statut = "EN ATTENTE";
-
-                        $statut .= "
-                                <form action=" . basename(__FILE__) . " method='post'>
-                                    <td>
-                                        <button type='submit' onclick='" . statut("accepter") . "' name='accepter'value='{$row["resid"]}'>Accepter</button>
-                                        <button type='submit' onclick='" . statut("refuser") . "'name='refuser' value='{$row["resid"]}'>Refuser</button>
-                                    </td>
-                                </form>";
-                    }
-                    echo "
-                        <tr class=tr>
-                            <td>" . $row['usernom'] . " . " . $row['userprenom'] . "</td>
-                            <td>" . $row['date'] . " . " . "</td>
-                            <td>" . $row['type'] . " . " . $row['materielnom'] . "</td>
-                            <td>" . $statut . "<td>
-                            <a href='detail-reservation.php?id={$row["resid"]}'>eeee</a>
-                        </tr>";
-                }
-            }
-            ?>
-        </table>
     </div>
 <?php
 } else {
-    echo "gg";
     header("Location: login.php");
 }
 include $path . "html/footer.php";

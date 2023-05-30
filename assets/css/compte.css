@@ -1,15 +1,22 @@
-.compteInfo{
-    color: white;
-}
-body{
+.compteInfo {
     color: white;
 }
 
-.gauche{
+body {
+    color: white;
+}
+
+.gauche {
     font-size: 20px;
     text-align: center;
 }
 
-.droite{
+.droite {
     font-size: 20px;
+}
+
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

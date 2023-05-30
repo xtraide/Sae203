@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
@@ -7,12 +7,14 @@
 
 
 
-html, body{
+html,
+body {
     font-size: 18px;
     font-family: sans-serif;
 }
 
-.slider-next, .slider-prev{
+.slider-next,
+.slider-prev {
     margin-top: 30px;
     margin-left: 5px;
     margin-right: 5px;
@@ -21,13 +23,15 @@ html, body{
     border: 2px solid white;
     border-radius: 10px;
 }
-.slider-next:hover, .slider-prev:hover{
+
+.slider-next:hover,
+.slider-prev:hover {
     transition: all ease 0.5s;
     background-color: white;
     color: black;
 }
 
-.container{
+.container {
     max-width: 1200px;
     padding: 30px;
     display: flex;
@@ -37,19 +41,20 @@ html, body{
 
 }
 
-button{
+button {
     padding: 10px 20px;
     cursor: pointer;
     z-index: 100;
 }
 
-.slider{
+.slider {
     width: 500px;
     height: auto;
     overflow: hidden;
 }
 
-.slider-line{
+.slider-line {
+    width: 500px;
     width: 2000px;
     height: 400px;
     display: flex;
@@ -58,19 +63,21 @@ button{
     transition: all ease 1s;
 }
 
-.description{
+.description {
     text-align: right;
 }
 
-.bouton{
+.bouton {
     text-align: center;
+    width: 500px;
 
 }
 
-p{
+p {
     color: white;
 }
-.admin{
+
+.admin {
     float: right;
     color: white;
     background: none;
@@ -80,28 +87,43 @@ p{
 
 }
 
-.admin:hover{
+.admin:hover {
     transition: all ease 0.3s;
     background-color: #2a2e44;
-
 }
-#modifier{
+
+#modifier {
     margin-right: 30px;
 }
 
 .footer{
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.img_matos{
+.img_matos {
     width: 500px;
 }
 
-
-
-
-
-
-
+#modifier{
+    height: 40px;
+}
+#validmodif{
+    text-align: center;
+    float: right;
+    color: white;
+    background: none;
+    border-radius: 12px;
+    border: 2px solid white;
+    margin-right: 15px;
+    height: 80px;
+    width: 100px;
+}
+.validmodif:hover {
+    transition: all ease 0.3s;
+    background-color: #2a2e44;
+}
+hfnfrht{
+    text-align: center;
+}

@@ -13,7 +13,8 @@
 			<p class="contact"> Mention légales (il n'y a pas de mention légale)</p>
 		</div>
 	</div>
-	</footer>
-	<script type="text/javascript" src="../assets/js/script.js"></script>
+</footer>
+<script type="text/javascript" src="../assets/js/script.js"></script>
 </body>
+
 </html>

@@ -7,15 +7,15 @@
 	<link rel="stylesheet" type="text/css" href="../assets/css/all.css">
 	<link rel="stylesheet" type="text/css" href="../assets/css/nav.css">
 	<link rel="stylesheet" type="text/css" href="../assets/css/<?= $css ?>.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<title>SAE 203</title>
 </head>
 
 <body>
-<img src="/Sae205/assets/ressources/utile/fond.png" alt="" class="background">
+	<img src="../assets/ressources/utile/fond.png" alt="background" class="background">
 	<?php
 	include "../utile/link/linkPdo.php";
 	include "../utile/function.php";
-
 	session_start();
 	if (empty($_COOKIE['id'])) {
 	?>
@@ -38,7 +38,6 @@
 					<script>
 						alert("vous devez verifier votre adresse mail  pour utiliser cette page vous allez etre rediriger vers la page de connection ")
 					</script>
-
 	<?php
 					header("Location: login.php");
 				}
@@ -50,4 +49,3 @@
 		<?php include_once("nav.php");
 		?>
 	</header>
-	

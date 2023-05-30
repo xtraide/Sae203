@@ -9,7 +9,7 @@ const sliderLine = document.querySelector('.slider-line')
 
 document.querySelector('.slider-next').addEventListener('click', function(){
     offset = offset + 500;
-    if (offset > 2499) {
+    if (offset > 2000) {
         offset = 0
     }
     sliderLine.style.left = -offset + 'px';
@@ -18,7 +18,10 @@ document.querySelector('.slider-next').addEventListener('click', function(){
 document.querySelector('.slider-prev').addEventListener('click', function(){
     offset = offset - 500;
     if (offset < 0) {
-        offset = 1999
+        offset = 2000
     }
     sliderLine.style.left = -offset + 'px';
 });
+
+
+const sliderLine2 = document.querySelector('.slider-line2')
