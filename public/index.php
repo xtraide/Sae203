@@ -51,6 +51,5 @@ include $path . "html/header.php"; ?>
 
         echo "No results found. ";
     }
-
     include "../utile/html/footer.php";
 ?>
