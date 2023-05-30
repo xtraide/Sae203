@@ -130,7 +130,7 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
      */
     ?>
     <div class="tableau">
-
+    <div class="test">
         <h3>liste des demandes de réservation</h3>
         <?php
         $page = basename(__FILE__);

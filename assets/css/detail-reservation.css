@@ -19,3 +19,6 @@
     transition: all ease 0.3s;
     background-color: #2a2e44;
 }
+.itemcard{
+    padding: 15px;
+}

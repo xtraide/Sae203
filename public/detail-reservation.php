@@ -14,10 +14,10 @@ if (isset($_GET['id'])) {
 ?>
                 <div class="itemcard">
                     <p>id : <?= $row['resid']; ?></p>
-                    <p>prenom du demandeur : <?= $row['userprenom']; ?></p>
-                    <p>nom du demandeur : <?= $row['usernom']; ?></p>
-                    <p>date : <?= $row['date']; ?> </p>
-                    <p>plage horraire : <?= $row['horraire_debut'] . " - " . $row['horraire_fin']; ?> </p>
+                    <p>prenom du demandeur :<br><br> <?= $row['userprenom']; ?></p>
+                    <p>nom du demandeur : <br><br><?= $row['usernom']; ?></p>
+                    <p>date :<br><br> <?= $row['date']; ?> </p>
+                    <p>plage horraire :<br><br> <?= $row['horraire_debut'] . " - " . $row['horraire_fin']; ?> </p>
                     <p>materiel :
                         <li>nom : <?= $row['userprenom']; ?></li>
                         <li>Type : <?= $row['type']; ?></li>
