@@ -148,16 +148,7 @@ function isConflitHorraire($heure_debut_nouvelle, $heure_fin_nouvelle, $date, $m
 /***************************
  *  accepter ou refuser le statut d'une reservation par raport a son id  
  ***************************/
-function statut($post)
-{
-    if (!empty($_POST[$post])) {
-        execute("UPDATE `reservation` SET `statut`=:accepter WHERE reservation.id = :id;", [
-            "id" => $_POST[$post],
-            "accepter" => $post
-        ]);
-        header("Refresh:0");
-    }
-}
+
 
 
 /**
