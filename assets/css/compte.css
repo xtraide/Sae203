@@ -14,3 +14,9 @@ body {
 .droite {
     font-size: 20px;
 }
+
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

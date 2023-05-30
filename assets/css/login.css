@@ -9,7 +9,7 @@
 
 body {
     top: 0;
-
+    color: white;
     background-size: cover;
     background-repeat: no-repeat;
     justify-content: center;
@@ -167,4 +167,10 @@ body {
 
 .er {
     color: red;
+}
+
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

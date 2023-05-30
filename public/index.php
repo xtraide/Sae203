@@ -14,6 +14,7 @@ include $path . "html/header.php"; ?>
     </div>
     <div id="cam"><img id="camimg" src="../assets/ressources/utile/navimg/cam.png" alt="camera"></div>
 </div>
+<div class="container">
 <?php
 echo  "<br>";
 $result = execute("SELECT * FROM materiel");
@@ -21,9 +22,10 @@ if ($result->rowCount() > 0) {
     while ($row = $result->fetchAll(PDO::FETCH_ASSOC)) {
         foreach ($row as $row) {
 ?>
+<div class="itemcard">
             <a href="detail.php?id=<?= $row['id'] ?>">
-                <img src="../assets/ressources/materiel/<?= $row['img']; ?>/<?= $row['imghead']; ?>" alt="image du materiel">
-                <div class="itemcard">
+                <img src="../assets/ressources/materiel/<?= $row['img']; ?>/<?= $row['imghead']; ?>" alt="image du materiel" height="250px">
+                
                     <p>nom : <?= $row['nom']; ?></p>
                     <p>Type : <?= $row['type']; ?></p>
                     <p>Refference : <?= $row['reference']; ?> </p>
@@ -33,6 +35,9 @@ if ($result->rowCount() > 0) {
 <?php
         }
     }
+    ?>
+    </div>
+    <?php
 } else {
 
     echo "No results found. ";
