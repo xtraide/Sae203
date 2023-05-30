@@ -36,10 +36,5 @@ include $path . "html/header.php"; ?>
 
 <button onclick="<?php suprUnUser($_COOKIE['id']); ?>">Suprimer votre compte</button>
 <?php
-function suprUnUser(string $idUser)
-{
-    execute("DELETE  FROM `utilisateur` WHERE id = :id", [
-        "id" => $idUser
-    ]);
-}
+
 include $path . "html/footer.php";
