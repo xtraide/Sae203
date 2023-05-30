@@ -70,18 +70,16 @@ span {
     font-size: 30px;
 }
 
-.footer{
+.footer {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.container{
+.container {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.itemcard{
-    
-}
+.itemcard {}
