@@ -25,10 +25,10 @@ include $path . "html/header.php"; ?>
                     <a id="destination"></a>
                     <a href="detail.php?id=<?= $row['id'] ?>">
                         <img src="../assets/ressources/materiel/<?= $row['img']; ?>/<?= $row['imghead']; ?>" alt="image du materiel" class="img_card">
-                        <p>nom : <?= $row['nom']; ?></p>
-                        <p>Type : <?= $row['type']; ?></p>
-                        <p>Refference : <?= $row['reference']; ?> </p>
-                        <p class="texte">description : <?= $row['description']; ?></p>
+                        <p class="margin">nom : <?= $row['nom']; ?></p>
+                        <p class="margin">Type : <?= $row['type']; ?></p>
+                        <p class="margin">Refference : <?= $row['reference']; ?> </p>
+                        <p class="texte margin">description : <?= $row['description']; ?></p>
                         </a>
                 </div>
                
