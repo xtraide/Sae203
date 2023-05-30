@@ -156,7 +156,7 @@ function isConflitHorraire($heure_debut_nouvelle, $heure_fin_nouvelle, $date, $m
  */
 function isValidImage(String $img)
 {
-    $validFileSize = 8*10^7;
+    $validFileSize = 10000000;
     $validExt = array("jpeg", "jpg", "png");
     $fileSize = $_FILES[$img]['size'];
     $fileName = $_FILES[$img]["name"];
