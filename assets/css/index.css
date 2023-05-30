@@ -70,16 +70,66 @@ span {
     font-size: 30px;
 }
 
-.footer {
+.footer{
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.container {
-    display: flex;
+.container{
+    display: grid;
     align-items: center;
     justify-content: center;
+    grid-template-columns:  1fr 1fr 1fr 1fr;
+    gap: 20px;
 }
 
-.itemcard {}
+.itemcard{
+    border-radius: 75px;
+    border: 2px solid white;
+    width: 500px;
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    min-height: 500px;
+    width: 410px;
+    
+}
+.img_card{
+    margin-top: 20px;
+    height: 200px;
+    border-radius: 10px;
+}
+@media screen and (max-width:1700px) {
+    .container{
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        grid-template-columns:  1fr 1fr 1fr;
+    
+    }
+    
+}
+@media screen and (max-width:1370px) {
+    .container{
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        grid-template-columns:  1fr 1fr;
+    
+    }
+    
+}
+@media screen and (max-width:970px) {
+    .container{
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        grid-template-columns:  1fr;
+    
+    }
+    
+}
+.texte{
+    margin-bottom: 50px;
+}

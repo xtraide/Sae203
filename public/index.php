@@ -9,6 +9,8 @@ include $path . "html/header.php"; ?>
         <button id="bouton" onclick="scrollToDestination()">>
             <span>Commencer ici</span>
             <span id="fleche">></span>
+            <span>Commencer ici</span>
+            <span id="fleche">></span>
 
         </button>
     </div>
@@ -16,7 +18,6 @@ include $path . "html/header.php"; ?>
 </div>
 <div class="container">
     <?php
-    echo  "<br>";
     $result = execute("SELECT * FROM materiel");
     if ($result->rowCount() > 0) {
         while ($row = $result->fetchAll(PDO::FETCH_ASSOC)) {
@@ -25,13 +26,14 @@ include $path . "html/header.php"; ?>
                 <div class="itemcard">
                     <a id="destination"></a>
                     <a href="detail.php?id=<?= $row['id'] ?>">
-                        <img src="../assets/ressources/materiel/<?= $row['img']; ?>/<?= $row['imghead']; ?>" alt="image du materiel" height="250px">
+                        <img src="../assets/ressources/materiel/<?= $row['img']; ?>/<?= $row['imghead']; ?>" alt="image du materiel" class="img_card">
                         <p>nom : <?= $row['nom']; ?></p>
                         <p>Type : <?= $row['type']; ?></p>
                         <p>Refference : <?= $row['reference']; ?> </p>
-                        <p>description : <?= $row['description']; ?></p>
+                        <p class="texte">description : <?= $row['description']; ?></p>
+                        </a>
                 </div>
-                </a>
+               
                 <script>
                     function scrollToDestination() {
                         var destinationElement = document.getElementById("destination");
@@ -50,6 +52,9 @@ include $path . "html/header.php"; ?>
 
         echo "No results found. ";
     }
+        echo "No results found. ";
+    }
 
+    include "../utile/html/footer.php";
     include "../utile/html/footer.php";
 ?>

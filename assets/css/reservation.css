@@ -63,3 +63,8 @@ form {
 .heur {
     max-width: 75px;
 }
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
