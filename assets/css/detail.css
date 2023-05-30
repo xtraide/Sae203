@@ -100,7 +100,8 @@ p {
 }
 
 .img_matos {
-    width: 500px;
+    min-width: 500px;
+    max-width: 500px;
 }
 
 #modifier{
