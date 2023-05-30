@@ -137,7 +137,6 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
     </div>
 <?php
 } else {
-    echo "gg";
     header("Location: login.php");
 }
 include $path . "html/footer.php";
