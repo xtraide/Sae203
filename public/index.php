@@ -10,7 +10,6 @@ include $path . "html/header.php"; ?>
             <span>Commencer ici</span>
             <span id="fleche">></span>
 
-
         </button>
     </div>
     <div id="cam"><img id="camimg" src="../assets/ressources/utile/navimg/cam.png" alt="camera"></div>
