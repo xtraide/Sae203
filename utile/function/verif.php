@@ -1,6 +1,7 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if (!empty($_GET['id'])) {
+
         if ($_GET['token'] == $_COOKIE['token']) {
             $path =   "../utile/";
             include 'function.php';
@@ -12,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             ]);
             unset($_COOKIE['token']);
             setcookie('token', null, -1, '/');
-            header("Location: index.php");
+            header("Location: ../../public/index.php");
         }
     }
 }

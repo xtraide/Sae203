@@ -6,7 +6,9 @@
 $path =   "../utile/";
 $css = str_replace(".php", "", basename(__FILE__));
 
-
+if (!empty($_COOKIE['id'])) {
+    header("Location: index.php");
+}
 ?>
 
 <form action="<?= basename(__FILE__); ?>" method="post">

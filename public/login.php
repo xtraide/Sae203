@@ -1,6 +1,9 @@
 <?php
 $path =   "../utile/";
 $css = str_replace(".php", "", basename(__FILE__));
+if (!empty($_COOKIE['id'])) {
+  header("Location: index.php");
+}
 ?>
 <link rel="stylesheet" href="../assets/css/login.css">
 <img src="../assets/ressources/utile/fond.png" alt="background" class="background">
