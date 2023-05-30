@@ -14,7 +14,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.background{
+.background {
     position: fixed;
     min-width: 100%;
     height: 100vh;
@@ -159,7 +159,7 @@ body {
 }
 
 
-.footer{
+.footer {
     margin-top: 200px;
     display: flex;
     align-items: center;

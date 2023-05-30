@@ -51,10 +51,10 @@ a {
     font-weight: bold;
     margin-top: 170px;
     font-size: 50px;
-    }
-    
-    #cam{
-    
+}
+
+#cam {
+
     rotate: -10deg;
     height: 100%;
     margin-right: 100px;
@@ -71,22 +71,22 @@ span {
     font-size: 30px;
 }
 
-.footer{
+.footer {
     margin-top: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.container{
+.container {
     display: grid;
     align-items: center;
     justify-content: center;
-    grid-template-columns:  1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 20px;
 }
 
-.itemcard{
+.itemcard {
     border-radius: 75px;
     border: 2px solid white;
     width: 500px;
@@ -95,48 +95,53 @@ span {
     margin-right: 20px;
     min-height: 500px;
     width: 410px;
-    
+
 }
-.img_card{
+
+.img_card {
     margin-top: 20px;
     height: 200px;
     border-radius: 10px;
 }
+
 @media screen and (max-width:1700px) {
-    .container{
+    .container {
         display: grid;
         align-items: center;
         justify-content: center;
-        grid-template-columns:  1fr 1fr 1fr;
-    
+        grid-template-columns: 1fr 1fr 1fr;
+
     }
-    
+
 }
+
 @media screen and (max-width:1370px) {
-    .container{
+    .container {
         display: grid;
         align-items: center;
         justify-content: center;
-        grid-template-columns:  1fr 1fr;
-    
+        grid-template-columns: 1fr 1fr;
+
     }
-    
+
 }
+
 @media screen and (max-width:970px) {
-    .container{
+    .container {
         display: grid;
         align-items: center;
         justify-content: center;
-        grid-template-columns:  1fr;
-    
+        grid-template-columns: 1fr;
+
     }
-    
+
 }
-.texte{
+
+.texte {
     margin-bottom: 50px;
 }
 
-.margin{
+.margin {
     margin-left: 5px;
     margin-right: 5px;
 }

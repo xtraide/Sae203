@@ -1,7 +1,8 @@
 div {
     color: white;
 }
-#top{
+
+#top {
     color: white;
     width: 800px;
     height: 800px;
@@ -9,22 +10,22 @@ div {
     margin: auto;
 }
 
-h2{
+h2 {
 
-margin-top: 20px;
+    margin-top: 20px;
 }
 
-div.top p{
+div.top p {
 
 
-font-size: 20px;
-font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
-width: 500px;
-height: 500px;
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    width: 500px;
+    height: 500px;
 }
 
 
-.footer{
+.footer {
     margin-top: 200px;
     display: flex;
     align-items: center;
