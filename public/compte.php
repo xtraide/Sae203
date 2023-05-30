@@ -37,10 +37,8 @@ include $path . "html/header.php"; ?>
 <button id="supr">Supprimez votre compte</button>
 <script>
     $('#supr').on('click', function() {
-        var confirm = confirm('voulez vous vraiment  SUPRIMER VOTRE COMPTE ');
-        if (confirm) {
-            fetch('../utile/function/suprUn.php?id=<?= $_COOKIE['id']; ?>')
-        }
+        fetch('../utile/function/suprUn.php?id=<?= $_COOKIE['id']; ?>').then(console.log('../utile/function/suprUn.php?id=<?= $_COOKIE['id']; ?>'))
+
     })
 </script>
 <?php

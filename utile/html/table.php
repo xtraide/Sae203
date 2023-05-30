@@ -14,9 +14,9 @@
     </tr>
     <?php
     if (!empty($_SESSION['role']) && $_SESSION['role'] == 'admin') {
-        $result = execute(" SELECT utilisateur.nom AS usernom, utilisateur.prenom AS userprenom,  reservation.id as resid ,reservation.horraire_debut,reservation.horraire_fin, reservation.date, reservation.statut, materiel.type, materiel.nom AS materielnom FROM `reservation`, `materiel`, `utilisateur` WHERE reservation.id_utilisateur = utilisateur.id AND reservation.id_materiel = materiel.id;");
+        $result = execute(" SELECT utilisateur.nom AS usernom, utilisateur.prenom AS userprenom,  reservation.id as resid ,reservation.horraire_debut,reservation.horraire_fin, reservation.date, reservation.statut, materiel.type, materiel.nom AS materielnom FROM `reservation`, `materiel`, `utilisateur` WHERE reservation.id_utilisateur = utilisateur.id AND reservation.id_materiel = materiel.id ORDER BY reservation.id desc;");
     }
-    $result = execute("SELECT utilisateur.nom AS usernom, utilisateur.prenom AS userprenom, reservation.id as resid ,reservation.horraire_debut,reservation.horraire_fin, reservation.date, reservation.statut, materiel.type, materiel.nom AS materielnom FROM `reservation`,  `materiel`, `utilisateur` WHERE reservation.id_utilisateur = utilisateur.id AND reservation.id_materiel = materiel.id; AND utilisateur.id = :user ;", [
+    $result = execute("SELECT utilisateur.nom AS usernom, utilisateur.prenom AS userprenom, reservation.id as resid ,reservation.horraire_debut,reservation.horraire_fin, reservation.date, reservation.statut, materiel.type, materiel.nom AS materielnom FROM `reservation`,  `materiel`, `utilisateur` WHERE reservation.id_utilisateur = utilisateur.id AND reservation.id_materiel = materiel.id; AND utilisateur.id = :user ; ORDER BY reservation.id desc", [
         'user' => $_COOKIE['id']
     ]);
     if ($result->rowCount() > 0) {
