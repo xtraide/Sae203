@@ -5,15 +5,11 @@
 
 }
 
-
-
 body {
     top: 0;
-
     background-size: cover;
     background-repeat: no-repeat;
     justify-content: center;
-
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
