@@ -20,7 +20,9 @@ if (isset($_GET['id'])) {
                                 foreach ($img as $img) {
                                 ?>
                                     <img src="../assets/ressources/materiel/<?= $row['img'] ?>/<?= $img ?>" alt=" image du materiel" class="img_matos">
-                                <?php } ?>
+                                <?php
+                                } ?>
+
                             </div>
                             <button class="slider-prev">précédent</button>
                             <button class="slider-next" type="none">suivant</button>
