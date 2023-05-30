@@ -9,32 +9,32 @@ include $path . "html/header.php";
     <div class="tt">
     <form action="<?= basename(__FILE__) . "?id_materiel=" . $_GET['id_materiel']; ?>" method="post">
     <div>
-        <label for="date">Choisier votre date de reservation</label>
+        <label for="date">Choisissez votre date de réservation</label>
         </div>
         <div>
         <input type="date" name="date" class="date input">
         <div class="erdate"></div><br>
         </div>
         <div>
-        <label for="heur">Horraire debut</label>
+        <label for="heur">Horaire début</label>
 </div>
         <div>
         <input type="time" min="8:00" max="16:00" name="horraired" class="heur input">
         <div class="erhorraired"></div><br>
         </div>
         <div>
-        <label for="heur">Horraire fin</label>
+        <label for="heur">Horaire fin</label>
 </div>
         <div>
         <input type="time" min="10:00" max="18:00" name="horrairef" class="heur input">
         <div class="erhorrairef"></div><br>
         </div>
         <div>
-        <button type="submit" name="reserver" value="1" class="submit">click sa</button>
+        <button type="submit" name="reserver" value="1" class="submit">Réservez</button>
         </div>
     </form>
 
-    <a href="list-reservation.php" class="a">Voir la liste de reservation</a>
+    <a href="list-reservation.php" class="a">Voir la liste de résérvation</a>
     </div>
 </div>
 <?php

@@ -5,9 +5,9 @@ include $path . "html/header.php"; ?>
 
 <div id="flex">
     <div>
-        <p id="titre">Réserver <br> dès maintenant <br> du matériel</p>
-        <button id="bouton" onclick="scrollToDestination()">
-            <span>Commencer ici</span>
+        <p id="titre">Réservez <br> dès maintenant <br> du matériel</p>
+        <button id="bouton" onclick="scrollToDestination()">>
+            <span>Commencez ici</span>
             <span id="fleche">></span>
 
         </button>
@@ -26,10 +26,10 @@ include $path . "html/header.php"; ?>
                     
                     <a href="detail.php?id=<?= $row['id'] ?>">
                         <img src="../assets/ressources/materiel/<?= $row['img']; ?>/<?= $row['imghead']; ?>" alt="image du materiel" class="img_card">
-                        <p class="margin">nom : <?= $row['nom']; ?></p>
+                        <p class="margin">Nom : <?= $row['nom']; ?></p>
                         <p class="margin">Type : <?= $row['type']; ?></p>
-                        <p class="margin">Refference : <?= $row['reference']; ?> </p>
-                        <p class="texte margin">description : <?= $row['description']; ?></p>
+                        <p class="margin">Référence : <?= $row['reference']; ?> </p>
+                        <p class="texte margin">Description : <?= $row['description']; ?></p>
                         </a>
                 </div>
                

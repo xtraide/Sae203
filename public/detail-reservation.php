@@ -13,20 +13,20 @@ if (isset($_GET['id'])) {
             foreach ($row as $row) {
 ?>
                 <div class="itemcard">
-                    <p>id : <?= $row['resid']; ?></p>
-                    <p>prenom du demandeur :<br><br> <?= $row['userprenom']; ?></p>
-                    <p>nom du demandeur : <br><br><?= $row['usernom']; ?></p>
-                    <p>date :<br><br> <?= $row['date']; ?> </p>
-                    <p>plage horraire :<br><br> <?= $row['horraire_debut'] . " - " . $row['horraire_fin']; ?> </p>
-                    <p>materiel :
-                        <li>nom : <?= $row['userprenom']; ?></li>
+                    <p>Id : <?= $row['resid']; ?></p>
+                    <p>Prénom du demandeur :<br><br> <?= $row['userprenom']; ?></p>
+                    <p>Nom du demandeur : <br><br><?= $row['usernom']; ?></p>
+                    <p>Date :<br><br> <?= $row['date']; ?> </p>
+                    <p>Plage horaire :<br><br> <?= $row['horraire_debut'] . " - " . $row['horraire_fin']; ?> </p>
+                    <p>Materiel :
+                        <li>Nom : <?= $row['userprenom']; ?></li>
                         <li>Type : <?= $row['type']; ?></li>
-                        <li>Refference : <?= $row['reference']; ?> </li>
-                        <li>description : <?= $row['description']; ?></li>
+                        <li>Reférence : <?= $row['reference']; ?> </li>
+                        <li>Description : <?= $row['description']; ?></li>
                     </p>
                 </div>
                 <form action="../utile/pdf/getpdf.php?id=<?= $_GET['id']; ?>" method="post">
-                    <button type="submit" value="AAA" name="pdf" id="pdf" class="admin">Télécharger le PDF</button>
+                    <button type="submit" value="AAA" name="pdf" id="pdf" class="admin">Téléchargez le PDF</button>
                 </form>
 <?php
             }

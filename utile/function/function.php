@@ -41,7 +41,7 @@ function isValid($post, $on = true)
                         } else {
                         ?>
                             <script>
-                                document.getElementsByClassName('eremail')[0].innerHTML = "l'e-mail deja pris";
+                                document.getElementsByClassName('eremail')[0].innerHTML = "l'e-mail est déjà utilisée";
                             </script>
                         <?php
                         }
@@ -91,7 +91,7 @@ function isConflitHorraire($heure_debut_nouvelle, $heure_fin_nouvelle, $date, $m
         $count = $row[0]['nb'];
         if ($count <= 0) {
             return true;
-            echo "le materiel n'es pas disponible sur la periode demander ";
+            echo "le matériel n'est pas disponible sur la période demandée ";
         }
     }
 
@@ -156,7 +156,7 @@ function isConflitHorraire($heure_debut_nouvelle, $heure_fin_nouvelle, $date, $m
  */
 function isValidImage(String $img)
 {
-    $validFileSize = 9000000;
+    $validFileSize = 8*10^7;
     $validExt = array("jpeg", "jpg", "png");
     $fileSize = $_FILES[$img]['size'];
     $fileName = $_FILES[$img]["name"];
@@ -165,7 +165,7 @@ function isValidImage(String $img)
     if ($_FILES[$img]['error'] > 0) {
     ?>
         <script type="text/javascript">
-            document.getElementsByClassName('erimg')[0].innerHTML = "ereeur";
+            document.getElementsByClassName('erimg')[0].innerHTML = "erreur";
         </script>
     <?php
         $er = false;
@@ -173,7 +173,7 @@ function isValidImage(String $img)
     if (!in_array($fileExt, $validExt)) {
     ?>
         <script type="text/javascript">
-            document.getElementsByClassName('erimg')[0].innerHTML = "fichier trop gros";
+            document.getElementsByClassName('erimg')[0].innerHTML = "le fichier n'est pas au bon format (jpeg,jpg,png) ";
         </script>
     <?php
         $er = false;
@@ -182,7 +182,7 @@ function isValidImage(String $img)
     if ($fileSize > $validFileSize) {
     ?>
         <script type="text/javascript">
-            document.getElementsByClassName('erimg')[0].innerHTML = "fichier trop gros";
+            document.getElementsByClassName('erimg')[0].innerHTML = "fichier trop volumineux (10mo maximum) ";
         </script>
 <?php
         $er = false;

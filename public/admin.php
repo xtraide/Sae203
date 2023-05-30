@@ -11,7 +11,7 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
     <div class="container">
         <form action="<?= basename(__FILE__); ?>" method="post" enctype="multipart/form-data">
             <div>
-                <label for="ajout" class="label">Ajouter un materiel</label>
+                <label for="ajout" class="label">Ajoutez un matériel</label>
 
             </div>
             <div>
@@ -60,23 +60,23 @@ if (array_key_exists('role', $_SESSION) && $_SESSION['role'] ==  'admin') {
             </div>
             <div class="label2">
                 <div class="ajt_img">
-                    <label for="image">Ajouter une principale(Image aficher dans l'a liste de materiel)</label>
+                    <label for="image">Ajoutez l'image principale(Image afficher dans la liste de materiel)</label>
                     <input type="file" placeholder="choisir une image" name="img">
                 </div>
                 <div class="ajt_img">
-                    <label for="image">Ajouter une image 2</label>
+                    <label for="image">Ajoutez une image 2</label>
                     <input type="file" placeholder="choisir une image" name="img2">
                 </div>
                 <div class="ajt_img">
-                    <label for="image">Ajouter une image 3</label>
+                    <label for="image">Ajoutez une image 3</label>
                     <input type="file" placeholder="choisir une image" name="img3">
                 </div>
                 <div class="ajt_img">
-                    <label for="image">Ajouter une image 4</label>
+                    <label for="image">Ajoutez une image 4</label>
                     <input type="file" placeholder="choisir une image" name="img4">
                 </div>
                 <div class="ajt_img">
-                    <label for="image">Ajouter une image 5</label>
+                    <label for="image">Ajoutez une image 5</label>
                     <input type="file" placeholder="choisir une image" name="img5">
                 </div>
                 <div class="erimg"></div>

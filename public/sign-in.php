@@ -31,7 +31,7 @@ $css = str_replace(".php", "", basename(__FILE__));
                     </div>
 
                     <div class="input-box">
-                        <label for="prenom">Prenom : </label>
+                        <label for="prenom">Prénom : </label>
                         <input type="text" placeholder="Prénom" class="input" name="prenom" value="<?= !empty($_POST['prenom']) ?  $_POST['prenom'] : '' ?>">
                         <div class="erprenom" class="erreur"></div>
                     </div>
@@ -56,7 +56,7 @@ $css = str_replace(".php", "", basename(__FILE__));
                         <div class="validmdp" class="erreur"></div>
                     </div>
                     <div class="forgot" class="erreur">
-                        <a href="login.php" class="forgot">Deja un compte connecter vous</a>
+                        <a href="login.php" class="forgot">Déjà un compte connectez-vous</a>
                     </div>
 
                     <input type="submit" class="submit" name="submit" value="Créer son compte">
