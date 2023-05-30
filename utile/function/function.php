@@ -222,8 +222,8 @@ function getImage($file, $uniqueNameDir = '', $isImgHead = false)
         $fileName =   $uniqueName . $fileExt;
         if ($mk) {
             mkdir("../assets/ressources/materiel/" . $uniqueNameDir . "/",);
-            move_uploaded_file($tmpName, "../assets/ressources/materiel/" . $uniqueNameDir . "/" . $fileName);
         }
+        move_uploaded_file($tmpName, "../assets/ressources/materiel/" . $uniqueNameDir . "/" . $fileName);
     }
     if ($isImgHead) {
         return [$uniqueNameDir, $uniqueName . $fileExt];

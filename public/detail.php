@@ -27,64 +27,66 @@ if (isset($_GET['id'])) {
                         </div>
                     </div>
                     <div class="modif_reserv">
-                    <form action="<?= basename(__FILE__) . "?id=" . $id ?>" method="post">
-                        <div class="description">
-                            <p class="sNom">Nom : <?= $row['nom']; ?><input type="text" id="nom" class="modif none"></p>
-                            <p class="sType">Type : <?= $row['type']; ?><input type="text" id="type" class="modif none"></p>
-                            <p class="sRef">Refference : <?= $row['reference']; ?><input type="text" id="reference" class="modif none"></p>
-                            <p class="sDesc">Description : <?= $row['description']; ?><input type="text" id="description" class="modif none"></p>
-                        </div>
-                    </form>
-                    <script src="../assets/js/script.js"></script>
-                    <?php
-                    /**
-                     * admin part  pour modif les champs
-                     */
-                    if ($_SESSION['role'] == "admin") {
-                    ?>
-                        <div id="bouton">
-                        <button name="submit" value="1" class="admin modifier" id="modifier">Modifier</button>
-                        <button name="submit" value="1" id="validmodif" class="none"><p class="hfnfrht"> Valider la modification</p></button>
-                        <script>
-                            function switchInput() {
-                                modif.classList.toggle('none');
-                                validmodif.classList.toggle('none');
-                            }
-
-                            var validmodif = document.getElementById('validmodif');
-                            var modif = document.getElementById('modifier');
-                            modif.addEventListener("click", () => {
-                                var input = document.getElementsByTagName('input')
-                                for (i = 0; i < input.length; i++) {
-                                    input[i].classList.toggle('none');
-                                }
-                                switchInput()
-                            })
-
-                            validmodif.addEventListener("click", () => {
-                                const forms = document.querySelectorAll('form');
-                                const form = forms[0];
-                                Array.from(form.elements).forEach((input) => {
-                                    if (input.value != '') {
-                                        fetch("<?= $path ?>editun.php?id=<?= $row['id'] ?>&table=" + input.id + "&value=" +
-                                                input.value)
-                                            .then(function() {
-
-                                                location.reload();
-                                            });
+                        <form action="<?= basename(__FILE__) . "?id=" . $id ?>" method="post">
+                            <div class="description">
+                                <p class="sNom">Nom : <?= $row['nom']; ?><input type="text" id="nom" class="modif none"></p>
+                                <p class="sType">Type : <?= $row['type']; ?><input type="text" id="type" class="modif none"></p>
+                                <p class="sRef">Refference : <?= $row['reference']; ?><input type="text" id="reference" class="modif none"></p>
+                                <p class="sDesc">Description : <?= $row['description']; ?><input type="text" id="description" class="modif none"></p>
+                            </div>
+                        </form>
+                        <script src="../assets/js/script.js"></script>
+                        <?php
+                        /**
+                         * admin part  pour modif les champs
+                         */
+                        if ($_SESSION['role'] == "admin") {
+                        ?>
+                            <div id="bouton">
+                                <button name="submit" value="1" class="admin modifier" id="modifier">Modifier</button>
+                                <button name="submit" value="1" id="validmodif" class="none">
+                                    <p class="hfnfrht"> Valider la modification</p>
+                                </button>
+                                <script>
+                                    function switchInput() {
+                                        modif.classList.toggle('none');
+                                        validmodif.classList.toggle('none');
                                     }
-                                })
-                                switchInput()
-                            })
-                        </script>
-                    <?php
-                    }
-                    ?>
-                    <form action="reservation.php" method="GET">
-                        <button name="id_materiel" value="<?= $row['id']; ?>" class="admin">Reserver</button>
-                    </form>
-                </div>
-                </div>
+
+                                    var validmodif = document.getElementById('validmodif');
+                                    var modif = document.getElementById('modifier');
+                                    modif.addEventListener("click", () => {
+                                        var input = document.getElementsByTagName('input')
+                                        for (i = 0; i < input.length; i++) {
+                                            input[i].classList.toggle('none');
+                                        }
+                                        switchInput()
+                                    })
+
+                                    validmodif.addEventListener("click", () => {
+                                        const forms = document.querySelectorAll('form');
+                                        const form = forms[0];
+                                        Array.from(form.elements).forEach((input) => {
+                                            if (input.value != '') {
+                                                fetch("<?= $path ?>function/editun.php?id=<?= $row['id'] ?>&table=" + input.id + "&value=" +
+                                                        input.value)
+                                                    .then(function() {
+
+                                                        location.reload();
+                                                    });
+                                            }
+                                        })
+                                        switchInput()
+                                    })
+                                </script>
+                            <?php
+                        }
+                            ?>
+                            <form action="reservation.php" method="GET">
+                                <button name="id_materiel" value="<?= $row['id']; ?>" class="admin">Reserver</button>
+                            </form>
+                            </div>
+                    </div>
                 </div>
 <?php
             }
